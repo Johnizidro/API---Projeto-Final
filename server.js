@@ -57,24 +57,33 @@ app.post("/auth/login", async (req, res) => {
   if (!password) {
     return res.status(422).json({ msg: "A senha é obrigatória" });
   }
+
   const user = await model.findOne({ email: email });
 
   if (!user) {
     return res.status(422).json({ msg: "Cadastre o usuário" });
   }
 
-  const checkPassword = await bcrypt.compare(password, user.password);
-  if (!checkPassword) {
-    return res.status(422).json({ msg: "Senha Incorreta" });
+  if (!user.password) {
+    return res
+      .status(500)
+      .json({ msg: "Senha do usuário não encontrada no banco" });
   }
-  try {
-    const secret = process.env.SECRET;
-    const token = jwt.sign({
-      id: user._id,
-    }, secret);
-    return res.status(201).json({ msg: "Autenticação Realizada" });
 
-  } catch {}
+  try {
+    const checkPassword = await bcrypt.compare(password, user.password);
+    if (!checkPassword) {
+      return res.status(422).json({ msg: "Senha Incorreta" });
+    }
+
+    const secret = process.env.SECRET;
+    const token = jwt.sign({ id: user._id }, secret);
+
+    return res.status(201).json({ msg: "Autenticação Realizada", token });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ msg: "Erro interno no servidor" });
+  }
 });
 
 app.listen(PORT, () => {
