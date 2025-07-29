@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Consultar Dados do Cadastro</title>
+</head>
+<body>
+  <h1>Dados do Cadastro</h1>
+  <div id="dados"></div>
+
+  <script>
+    async function carregarDados() {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        alert("Você precisa estar logado!");
+        window.location.href = "/";
+        return;
+      }
+  
+      const res = await fetch("http://localhost:3000/consulta", {
+        headers: { Authorization: "Bearer " + token },
+      });
+      const data = await res.json();
+  
+      if (res.ok) {
+        document.getElementById("dados").innerHTML = `
+          <p>Telefone: ${data.telefone}</p>
+          <p>Endereço: ${data.endereco}</p>
+          ${data.createdAt ? `<p>Data do cadastro: ${new Date(data.createdAt).toLocaleDateString()}</p>` : ""}
+        `;
+      } else {
+        alert(data.msg);
+        if (res.status === 401) {
+          window.location.href = "/";
+        }
+      }
+    }
+  
+    carregarDados();
+  </script>
+</body>
+</html>

@@ -1,22 +1,22 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 mongoose.set("strictQuery", true);
-
-require("dotenv").config()
-
-// credenciais do BD
 
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASS;
 
-async function main(){
-    await mongoose.connect(
-        `mongodb+srv://${dbUser}:${dbPassword}@api.4dsqfhz.mongodb.net/?retryWrites=true&w=majority&appName=API`
-    );
-    console.log("Conectou o banco de dados!")
+const uri = `mongodb+srv://${dbUser}:${dbPassword}@api.4dsqfhz.mongodb.net/?retryWrites=true&w=majority&appName=API`;
+
+async function main() {
+  try {
+    await mongoose.connect(uri);
+    console.log("Conectou o banco de dados!");
+  } catch (error) {
+    console.error("Erro ao conectar no banco:", error);
+  }
 }
 
-main().catch((err) => console.log(err));
+main();
 
 module.exports = main;
-
