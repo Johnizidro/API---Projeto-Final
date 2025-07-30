@@ -12,10 +12,10 @@ app.use(express.json()); // Para parsear JSON no body das requisições
 require("./config/db"); // conecta no banco
 
 const authRoutes = require("./routes/authRoutes");
-const cadastroRoutes = require("./routes/cadastroRoutes");
+
 
 app.use("/auth", authRoutes);
-app.use("/cadastro", cadastroRoutes);
+
 
 app.get("/", (req, res) => {
   res.status(200).send("API funcionando");

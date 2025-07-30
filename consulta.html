@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Consultar Dados do Cadastro</title>
+  <title>Consultar Dados do Usuário</title>
 </head>
 <body>
-  <h1>Dados do Cadastro</h1>
+  <h1>Seus Dados</h1>
   <div id="dados"></div>
 
   <script>
@@ -16,17 +16,18 @@
         window.location.href = "/";
         return;
       }
-  
-      const res = await fetch("http://localhost:3000/consulta", {
+
+      const res = await fetch("http://localhost:3000/auth/me", {
         headers: { Authorization: "Bearer " + token },
       });
+
       const data = await res.json();
-  
+
       if (res.ok) {
         document.getElementById("dados").innerHTML = `
-          <p>Telefone: ${data.telefone}</p>
-          <p>Endereço: ${data.endereco}</p>
-          ${data.createdAt ? `<p>Data do cadastro: ${new Date(data.createdAt).toLocaleDateString()}</p>` : ""}
+          <p><strong>Nome:</strong> ${data.name}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Data de Cadastro:</strong> ${new Date(data.createdAt).toLocaleDateString()}</p>
         `;
       } else {
         alert(data.msg);
@@ -35,7 +36,7 @@
         }
       }
     }
-  
+
     carregarDados();
   </script>
 </body>
