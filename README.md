@@ -1,13 +1,5 @@
 # API RESTful de Cadastro e Login de Usuário
 
-![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![JWT](https://img.shields.io/badge/JWT-000000?logo=json-web-tokens&logoColor=white)
-![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white)
-![nodemon](https://img.shields.io/badge/nodemon-76D04B?logo=nodemon&logoColor=white)
-
 Esta é uma API RESTful desenvolvida em **Node.js** utilizando **Express**, **MongoDB** (com Mongoose) e outras bibliotecas para autenticação, validação e segurança.  
 
 Ela permite o cadastro de usuários, login e, após a autenticação, redireciona para uma página que exibe os dados do usuário cadastrado.
@@ -42,3 +34,18 @@ Ela permite o cadastro de usuários, login e, após a autenticação, redirecion
 1. Clone o repositório  
 ```bash
 git clone <URL-do-repositório>
+```
+2. Instale as dependências 
+```bash
+npm install
+```
+3. Configure as variáveis de ambiente
+```bash
+PORT=3000
+MONGODB_URI=<string de conexão com MongoDB>
+JWT_SECRET=<chave secreta para JWT>
+```
+4. Inicie o servidor
+```bash
+npm run dev
+```
