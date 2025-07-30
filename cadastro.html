@@ -3,23 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <title>Cadastro / Login</title>
+   <link rel="stylesheet" href="cadastro.css" />
 </head>
 <body>
-  <h1>Cadastro</h1>
-  <form id="registerForm">
-    <input type="text" id="name" placeholder="Nome" required /><br />
-    <input type="email" id="email" placeholder="Email" required /><br />
-    <input type="password" id="password" placeholder="Senha" required /><br />
-    <input type="password" id="confPassword" placeholder="Confirme a Senha" required /><br />
-    <button type="submit">Cadastrar</button>
-  </form>
+ <div class="container">
+    <div class="brand">
+      <h1>TechNova Solutions</h1>
+      <p>Inovando sua experiência digital</p>
+    </div>
 
-  <h1>Login</h1>
-  <form id="loginForm">
-    <input type="email" id="loginEmail" placeholder="Email" required /><br />
-    <input type="password" id="loginPassword" placeholder="Senha" required /><br />
-    <button type="submit">Login</button>
-  </form>
+    <h2>Cadastro</h2>
+    <form id="registerForm">
+      <div class="form-group">
+        <input type="text" id="name" placeholder="Nome" required />
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" placeholder="Email" required />
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" placeholder="Senha" required />
+      </div>
+      <div class="form-group">
+        <input type="password" id="confPassword" placeholder="Confirme a Senha" required />
+      </div>
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <input type="email" id="loginEmail" placeholder="Email" required />
+      </div>
+      <div class="form-group">
+        <input type="password" id="loginPassword" placeholder="Senha" required />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
 
   <script>
     const registerForm = document.getElementById("registerForm");
