@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/servicos.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Serviços - ConectaBov</title>
+</head>
+
+<body>
+    <div class="cabecalho">
+        <div class="cabecalho-div-">
+            <div class="cabecalho-div-login">
+                <div class="cabecalho-children">
+                    <div class="cabecalho-div">
+                        <!-- Ícone para abrir o menu -->
+                        <!-- Ícone para abrir o menu -->
+                        <span class="cabecalho-icone" onclick="abrirMenu()">
+                            <img src="/IMG/1-removebg-preview 4.png" width="150px">
+                        </span>
+
+                        <!-- Menu lateral com botão de fechar -->
+                        <div id="menuLateral" class="menu-lateral">
+                            <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
+                            <ul>
+                                <li>
+                                    <a href="../index.html">
+                                        <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="cadastroAnimal.html">
+                                        <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="consultaMensal.html">
+                                        <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta
+                                        Mensal
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="/IMG/telefone 2.png" alt="Contatos" class="icon"
+                                            style="width: 50px;margin-left: -6px;"> Contatos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="veterinarios.html">
+                                        <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
+                                            style="width: 50px;margin-left: -6px;"> Veterinários
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pesquisa-dad"><input class="pesquisa" type="text" name="" id="" size="80px">
+                    <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px">
+                </div>
+                <a href="consulta.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
+                    <p id="nome-usuario" style="color: #5E7153;font-size: 10.5px;font-weight: bold;">Login</p>
+                </a>
+            </div>
+            <div class="dashboard">
+                <div class="dashboard-children">
+                    <div class="registro-fileira1">
+                        <div class="registro-gado">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
+                                </div>
+                                <img src="/imgDashBoard/vaca (1) 1.png" width="70px" height="70px">
+                            </div>
+                            <h3 class="colorh3">Gado</h3>
+                        </div>
+
+                        <div class="registro-comedouros">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
+                                </div>
+                                <img src="/imgDashBoard/trigo 1.png" width="70px" height="70px">
+                            </div>
+                            <h3 class="colorh3">Comedouros</h3>
+                        </div>
+
+                        <div class="registro-bebedouros">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
+                                </div>
+                                <img src="/imgDashBoard/gota-de-agua 1.png" width="70px" height="70px">
+                            </div>
+                            <h3 class="colorh3">Bebedouros</h3>
+                        </div>
+
+                        <div class="registro-metros">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
+                                </div>
+                                <img src="/imgDashBoard/area 1.png" width="70px" height="70px">
+                            </div>
+                            <h3 class="colorh3">Metros</h3>
+                        </div>
+                    </div>
+
+                    <div class="registro-fileira2">
+                        <div class="registro-sensores">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1-sensor">0.0</h1>
+                                </div>
+                                <img src="/imgDashBoard/sensor 1.png" width="70px" height="70px">
+                            </div>
+                            <h3 class="colorh3">Sensores</h3>
+                        </div>
+
+                        <div class="regitro-piquetes">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
+                                </div>
+                                <img src="/imgDashBoard/piquete 1.png" width="70px" height="70px">
+                            </div>
+                            <h3 class="colorh3">Piquetes</h3>
+                        </div>
+
+                        <div class="registro-estoque">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
+                                </div>
+                                <img src="/imgDashBoard/pacote-de-feno (1) 1.png" width="70px" height="70px">
+                            </div>
+                            <h3 class="colorh3">Estoque</h3>
+                        </div>
+
+                        <div class="registro-rodizio">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
+                                </div>
+                                <img src="/imgDashBoard/troca 1.png" width="70px" height="70px">
+                            </div>
+                            <h3 class="colorh3">Rodízio</h3>
+                        </div>
+                    </div>
+
+                    <div class="registro-graficos"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-sub">
+            <div class="footer-children">
+                <div class="entre-em-contato">
+                    <p style="color: white;">Entre em </p>
+                    <p style="color: white;">Contato</p>
+                </div>
+                <div class="logo-rede">
+                    <div class="facebook"><img src="/IMG/facebook-f-brands.svg" width="16px"></div>
+                    <div class="instagram"><img src="/IMG/instagram-brands.svg" width="16px"></div>
+                    <div class="whatsaap"><img src="/IMG/whatsapp-brands.svg" width="16px"></div>
+                    <div class="linkedin"><img src="/IMG/linkedin-in-brands.svg" width="16px"></div>
+                </div>
+            </div>
+            <div class="img-gado">
+                <img src="/IMG/1-removebg-preview 3.png" alt="">
+            </div>
+        </div>
+
+        <div class="divis">
+            <hr class="divisao">
+        </div>
+        <center style="color: white; opacity: 0.5; padding: 0.5%; font-size: small;">
+            <p>© 2025 Todos os direitos reservados. ConectaBov</p>
+        </center>
+    </div>
+    <div id="entreemcontato"></div>
+
+</body>
+
+  <script>
+  window.addEventListener('DOMContentLoaded', async () => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    try {
+      const res = await fetch('http://localhost:3000/auth/me', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      if (res.ok) {
+        const user = await res.json();
+        const nomeUsuario = document.getElementById('nome-usuario');
+        if (nomeUsuario) nomeUsuario.textContent = user.name;
+      } else {
+        console.warn("Token inválido ou usuário não encontrado");
+      }
+    } catch (err) {
+      console.error("Erro ao buscar dados do usuário:", err);
+    }
+  });
+</script>
+<script src="/js/script.js"></script>
+<script src="/js/servicos.js"></script>
+
+</html>

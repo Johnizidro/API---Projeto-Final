@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/cadastroBov.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Cadastro</title>
+  </head>
+  <body>
+    <div class="background-image">
+      <main>
+        <div class="main">
+          <div class="voltar">
+            <a href="login.html"
+              ><img
+                src="/IMG/arrow-left-solid.svg"
+                alt=""
+                width="16px"
+                style="cursor: pointer"
+            /></a>
+          </div>
+          <div class="titulo">
+            <img src="/IMG/2-removebg-preview 1.png" width="200px" />
+          </div>
+          <form id="formCadastro">
+            <div class="area">
+              <input
+                type="text"
+                name="nome"
+                id="nome"
+                width="45px"
+                class="campoCadastro input"
+                placeholder=" Nome Completo*"
+              />
+              <div class="labelline">Nome Completo*</div>
+            </div>
+
+            <div class="area">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                width="45px"
+                class="campoCadastro input"
+                placeholder=" Digite seu E-mail*"
+              />
+              <div class="labelline">E-mail*</div>
+            </div>
+
+            <div class="area">
+              <input
+                type="tel"
+                name="telefone"
+                id="telefone"
+                width="45px"
+                class="campoCadastro input"
+                minlength="8"
+                maxlength="11"
+                placeholder="Digite seu Telefone*"
+              />
+              <div class="labelline">telefone*</div>
+            </div>
+
+            <div class="area">
+              <input
+                type="password"
+                name="senha"
+                id="senha"
+                width="45px"
+                class="campoCadastro input"
+                minlength="8"
+                placeholder="Digite a senha"
+              />
+              <div class="labelline">Senha*</div>
+            </div>
+
+            <div class="area">
+              <input
+                type="password"
+                name="confsenha"
+                id="confsenha"
+                width="45px"
+                class="campoCadastro input"
+                minlength="8"
+                placeholder="Digite a senha novamente"
+              />
+              <div class="labelline">Confirme Senha*</div>
+            </div>
+            <div class="button">
+              <input type="submit" value="Entrar" class="entrar" />
+            </div>
+          </form>
+          <p class="bem-vindo">“Seja Bem-vindo Coladorador(a)”</p>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script>
+  const registerForm = document.getElementById("formCadastro");
+
+  registerForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const telefone = document.getElementById("telefone").value;
+    const password = document.getElementById("senha").value;
+    const confPassword = document.getElementById("confsenha").value;
+
+    try {
+      const res = await fetch("http://localhost:3000/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, telefone, password, confPassword }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert(data.msg);
+       window.location.href = "http://127.0.0.1:5500/html/login.html"
+      } else {
+        alert("Erro: " + (data.msg || "Não foi possível cadastrar"));
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Erro na comunicação com o servidor.");
+    }
+  });
+</script>
+  <script src="../js/cadastro.js"></script>
+</html>

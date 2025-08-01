@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/login.js"></script>
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="background-wrapper">
+      <div class="background-blur"></div>
+      <main>
+        <div class="main">
+          <div class="voltar">
+            <a href="../index.html"
+              ><img
+                src="../IMG/arrow-left-solid.svg"
+                alt=""
+                width="16px"
+                style="cursor: pointer"
+            /></a>
+          </div>
+          <div class="titulo">
+            <img src="../IMG/2-removebg-preview 1.png" width="200px" />
+          </div>
+          <form id="formCadastro">
+            <div class="area">
+              <input
+                type="text"
+                name="email"
+                id="email"
+                width="45px"
+                class="campoCadastro input"
+                placeholder="Digite seu E-mail"
+              />
+              <div class="labelline">E-mail*</div>
+            </div>
+
+            <div class="area">
+              <input
+                type="password"
+                name="senha"
+                id="senha"
+                width="45px"
+                class="campoCadastro input"
+                minlength="8"
+                placeholder="Digite sua senha"
+              />
+              <div class="labelline">Senha*</div>
+            </div>
+            <div class="esqueciSenha">
+              <a href="esqueciSenha.html"
+                ><p style="font-size: small">Esqueci senha!</p></a
+              >
+            </div>
+            <div class="button">
+              <a href="cadastro.html">Cadastre-se!</a
+              ><input type="submit" value="Entrar" class="entrar" />
+            </div>
+          </form>
+          <p class="bem-vindo">“Seja Bem-vindo Coladorador(a)”</p>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script>
+    const loginForm = document.getElementById("formCadastro");
+
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("senha").value;
+
+      const res = await fetch("http://localhost:3000/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        localStorage.setItem("token", data.token);
+        alert("Login realizado com sucesso!");
+        window.location.href = "http://127.0.0.1:5500/html/servicos.html";
+      } else {
+        alert(data.msg);
+      }
+    });
+  </script>
+</html>

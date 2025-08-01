@@ -12,9 +12,10 @@ app.use(express.json()); // Para parsear JSON no body das requisições
 require("./config/db"); // conecta no banco
 
 const authRoutes = require("./routes/authRoutes");
+const tarefasRoutes = require("./routes/rotas");
 
 
-app.use("/auth", authRoutes);
+app.use("/auth", authRoutes, tarefasRoutes);
 
 
 app.get("/", (req, res) => {

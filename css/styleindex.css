@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: "Montserrat", sans-serif;
+}
+body{
+    background-color: #F8F5F0;
+}
+main{
+    background-color: transparent;
+}
+/* main{
+     height: calc(100vh - 150px - 120px - 50px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} */
+/* .main{
+    background-color: #FFF4D8;
+    width: 45%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: solid 2px #5E7153;
+    flex-direction: column;
+    box-shadow: rgb(54, 54, 54) 5px 4px 10px;
+    
+} */
+
+.sobrenos a, .contatos a, .conectaBlog a{
+    color: #465640;
+
+}
+
+.pesquisa-dad{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.cabecalho{
+height: 120px;
+width: 100%;
+background-color: transparent;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.footer{
+height: 150px;
+width: 100%;
+background-color: #465640;
+padding-top: 20px;
+padding-bottom: 20px;
+}
+.manutencao,.colaborador,.gestao {
+height: 150px;
+width: 140px;
+background-color: #465640;
+border-radius: 10px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+}
+/* .user-solid{
+border: solid 2px #465640;
+border-radius: 3px;
+padding-left: 40%;
+padding-top: 5%;
+padding-bottom: 5%;
+border-top-color: transparent;
+border-bottom-color: transparent;
+border-right-color: transparent;
+} */
+.box-opcoes{
+display: flex;
+flex-direction:row;
+justify-content:space-evenly;
+width: 100%;
+}
+.titulo{
+width: 100%;
+height: 100px;
+flex-direction: column;
+}
+.login{
+font-weight: 550;
+margin-left: 10%;
+color: #465640;
+font-size: 25px;
+padding: 2px;
+border: solid 2px #5E7153;
+border-top-color: transparent;
+border-left-color: transparent;
+border-right-color: transparent;
+padding-right: 15px;
+}
+.login-text{
+color: #465640;
+font-size: 18px;
+margin-left: 10%;
+margin-top: 15px;
+}
+
+.cabecalho-div{
+ width: 94%; 
+/* height: 100%; */
+display: flex;
+justify-content:space-between;
+align-items: center;
+background-color: transparent;
+}
+
+.backgroudImage{
+background-image: url("/IMG/AgroNeo\ -\ propaganda\ 4.png");
+width: auto;
+min-height: 100vh;
+max-height: 320px;
+height: auto;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+/* .cabecalho-titulo{
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 25px;
+} */
+.cabecalho-icone{
+width: 200px;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.manutencao-titulo{
+color: white;
+align-items: center;
+justify-content: center;
+display: flex;
+padding-bottom: 5px;
+font-size: 15px;
+}
+.img{
+display: flex;
+justify-content: center;
+padding-top: 15px;
+
+}
+.manutencao,.colaborador,.gestao {
+box-shadow: gray 5px 4px 10px;
+}
+.facebook{
+background-color: white;
+width: 30px;
+height: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 2px;
+box-shadow: rgb(82, 82, 82) 2px 4px 6px;
+}
+.instagram{
+background-color: white;
+width: 30px;
+height: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 2px;
+box-shadow: rgb(82, 82, 82) 2px 4px 6px;
+}
+.whatsaap{
+background-color: white;
+width: 30px;
+height: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 2px;
+box-shadow: rgb(82, 82, 82) 2px 4px 6px;
+}
+.linkedin{
+background-color: white;
+width: 30px;
+height: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 2px;
+box-shadow: rgb(82, 82, 82) 2px 4px 6px;
+}
+.logo-rede{
+display: flex;
+justify-content: space-between;
+width: 150px;
+
+}
+.divis{
+display: flex;
+justify-content: center;
+}
+.divisao{
+width: 95%;
+}
+.footer-sub{
+display: flex;
+justify-content: space-between;
+}
+.footer-children{
+display: flex;  
+flex-direction: column;
+margin-left: 2%;
+}
+.img-gado{
+margin-right: 2%;
+}
+.entre-em-contato{
+padding-top: 5%;
+padding-bottom: 5%;
+}
+.ancora-login{
+display: flex;
+width: 10%;
+align-items: center;
+justify-content: space-between;
+}
+a{
+color: white; 
+font-weight: 600;
+font-size: 20px;
+text-decoration: none;
+}
+.pesquisa{
+width: 100%;
+height: 32px;
+border-radius: 8px;
+border: solid 1px #465640;
+font-size: 15px;
+color: #465640;
+font-weight: 600;
+}
+.lupa{
+position: absolute;
+padding: 8px;
+border-radius: 8px;
+background-color: #465640;
+}
+.sub-cabecalho{
+width: 100%;
+height: 50px;
+background-color: #465640;
+display: flex;
+justify-content: center;
+}
+.ancora{
+display: flex;
+justify-content: space-around;
+align-items: center;
+height: 100%;
+}
+.dassda{
+width: 80%;
+}
+.conteudo{
+display: flex;
+flex-direction: row;
+width: 60vw;
+height: auto;
+padding: 50px;
+}
+.conteudo-text{
+width: 40vw;
+height: 40vh;
+background-color: transparent; 
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0%;
+margin: 0%;
+}
+.text-paragrafo{
+width: 500px;
+height: 300px;
+font-size: 20px;
+color: #5E7153;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.conteudo-img{
+width: 60vw;
+padding: 0%;
+margin: 0%;
+}
+.titulo{
+border: solid 3px #5E7153;
+padding-left: 30px;
+border-bottom-color: transparent;
+border-top-color: transparent;
+border-right-color: transparent;
+border-radius: 4px;
+margin-bottom: 5%;
+}
+.conectabov{
+margin-left: 18%;
+}
+.solucoes{
+width: 100%;
+height: 400px;
+background-color: #465640;
+}
+.opcoes-solucoes{
+display: flex;
+justify-content:end;
+align-items: center;
+width: 80vw;
+}
+.background-image{
+width: 100%;
+height: auto;
+margin: 0%;
+padding: 0%;
+}
+.titulo-solucoes{
+color: white;
+padding: 2%;
+width: 30vw;
+}
+
+
+.tecnologia{
+padding-left: 5%;
+padding-right: 5%;
+height: 50%;
+color: white;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+}
+.seguranca,.saude,.monitoramento{
+padding-left: 5%;
+padding-right: 5%;
+height: 50%;
+color: white;
+border: solid 2px white;
+border-top-color: transparent;
+border-left-color: transparent;
+border-bottom-color: transparent;
+border-radius: 4px;
+display: flex;
+justify-content:center;
+flex-direction: column;
+align-items:center;
+}
+.margen{
+margin-top: 10%;
+}
+
+.carrocel{
+background-color: #F8F5F0;
+height: 400px;
+width: 100%;
+display: flex;
+justify-content:space-between;
+align-items: center;
+
+
+}
+.opcoes-pecuaria{
+display: flex;
+width: 70vw;
+height: 30vh;
+gap: 70px;
+will-change: transform;
+
+
+}
+
+
+.hidden{
+overflow: hidden;
+width: 70vw;  
+height: 30vh; 
+position: relative; 
+
+}
+.titulo-pecuaria{
+margin-left: 5%;
+margin-right: 5vw;
+width: 20vw;
+height: 30vh;
+color: #5E7153;
+}
+
+.h1{
+border: solid 2px #5E7153;
+border-top-color: transparent;
+border-left-color: transparent;
+border-bottom-color: transparent;
+width: 80%;
+font-size: 40px;
+}
+.pecuaria{
+background-color: #465640;
+width: 200px;
+height: 100%;
+
+flex-shrink: 0;
+
+}
+.pecuaria img{
+
+object-fit: contain;  
+display: block;
+}
+.text{
+width: 60%;
+height: 80%;
+}
+
+.h4{
+margin-left: 5%;
+margin-top: 4%;
+color: white;
+font-weight: 400;
+width: 70%;
+}
+.finalizacaoHadden{
+width: 15vw;
+position: relative;
+}
+
+@media (max-width:1128px) and (min-width:799px) {
+.tecnologia{
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 30px;
+    border: 0px;
+}
+.seguranca,.saude,.monitoramento{
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items:center;
+    width: 30px;
+    border: 0;
+    margin-right: 5%;
+}
+.opcoes-solucoes img{
+    width: 50px;
+    margin: 0px;
+    padding: 0;
+}
+}
+
+@media (max-width:800px) and (min-width:501px) {
+.tecnologia{
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 70px;
+    border: 0px;
+}
+.seguranca,.saude,.monitoramento{
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items:center;
+    width: 70px;
+    border: 0;
+    margin-right: 5%;
+}
+.seguranca,.saude,.monitoramento,.tecnologia{
+    font-size: 15px;
+}
+.opcoes-solucoes img{
+    width: 50px;
+    margin: 0px;
+    padding: 0;
+}
+.solucoes{
+    width: 100%;
+    height: 250px;
+    background-color: #465640;
+    display: flex;
+    justify-content: center;
+}
+.titulo-solucoes {
+    /* color: white;
+    padding: 0;
+    width: 30vw; */
+    display: none;
+}
+}
+
+@media (max-width:500px) and (min-width:0px) {
+.tecnologia{
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 70px;
+    border: 0px;
+}
+.seguranca,.saude,.monitoramento{
+    color: white;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items:center;
+    width: 100%;
+    border: 0;
+}
+.seguranca .margen,.saude .margen,.monitoramento .margen,.tecnologia .margen {
+    margin: 0 0 25px 0;
+}
+.opcoes-solucoes{
+    flex-direction: column;
+    justify-content: center;
+}
+.solucoes{
+    width: 100%;
+    height: 100%;
+    background-color: #465640;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:90px 0 90px 0;
+}
+.cabecalho-div p {
+    display: none;
+}
+.carrocel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.titulo-pecuaria{
+    display: none;
+}
+.background-image{
+    display: none;
+}
+#projeto,.titulo-solucoes{
+    display: none;
+}
+.hidden{
+    width: 100%;
+    
+}
+.pecuaria{
+    background-color: #465640;
+    width: 200px;
+    height: 100%;
+    border-radius: 20px;
+    flex-shrink: 0;   
+}
+}

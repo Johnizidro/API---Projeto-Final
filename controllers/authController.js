@@ -5,9 +5,9 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 exports.registerUser = async (req, res) => {
-  const { name, email, password, confPassword } = req.body;
+  const { name, email, telefone, password, confPassword } = req.body;
 
-  if (!name || !email || !password || !confPassword) {
+  if (!name || !email || !telefone || !password || !confPassword) {
     return res.status(422).json({ msg: "Todos os campos são obrigatórios" });
   }
 
@@ -22,7 +22,7 @@ exports.registerUser = async (req, res) => {
     const salt = await bcrypt.genSalt(12);
     const passwordHash = await bcrypt.hash(password, salt);
 
-    const newUser = new User({ name, email, password: passwordHash });
+    const newUser = new User({ name, email, telefone, password: passwordHash });
     await newUser.save();
 
     res.status(201).json({ msg: "Usuário criado com sucesso" });
@@ -46,7 +46,9 @@ exports.loginUser = async (req, res) => {
     const checkPassword = await bcrypt.compare(password, user.password);
     if (!checkPassword) return res.status(422).json({ msg: "Senha incorreta" });
 
-    const token = jwt.sign({ id: user._id }, process.env.SECRET, { expiresIn: "1h" });
+    const token = jwt.sign({ id: user._id }, process.env.SECRET, {
+      expiresIn: "1h",
+    });
 
     res.status(200).json({ msg: "Login efetuado", token });
   } catch (error) {
