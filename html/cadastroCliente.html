@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/cadastroAnimal.css">
+    <link rel="stylesheet" href="/css/cadastroCliente.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <title>Cadastro Animal - ConectaBov</title>
 </head>
@@ -26,7 +26,7 @@
                     <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
                     <ul>
                         <li>
-                            <a href="index.html">
+                            <a href="../index.html">
                                 <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
                             </a>
                         </li>
@@ -82,105 +82,97 @@
                             <span style="color: #465640; font-weight: bold; font-size: 35px; margin-left: 10px;"> Cliente
                                </span>
                         </div>
-                        <form id="form-animal">
+                        <form action="" method="" id="formCliente">
                             <div class="area">
-                              <input type="text" name="nome" required class="campoCadastro input" placeholder="Nome do Animal">
-                              <div class="labelline">Nome do Animal</div>
+                                <input type="text" name="nome" id="" required class="campoCadastro input"
+                                    placeholder=" Nome Completo">
+                                <div class="labelline">Nome Completo</div>
                             </div>
-                          
+
                             <div class="area">
-                              <input type="text" name="codigoSisbov" required class="campoCadastro input" placeholder="Código Sisbov">
-                              <div class="labelline">Código Sisbov</div>
+                                <input type="date" name="dataNascimento" id="" required class="campoCadastro input">
+                                <div class="labelline">Data de Nascimento</div>
                             </div>
-                          
+
                             <div class="area">
-                              <input type="date" name="dataNascimento" required class="campoCadastro input" placeholder="Data de Nascimento">
-                              <div class="labelline">Data de Nascimento</div>
+                                <input type="text" name="cnpj" id="" required class="campoCadastro input"
+                                    placeholder=" CNPJ">
+                                <div class="labelline">CNPJ</div>
                             </div>
-                          
+
                             <div class="area">
-                              <input type="text" name="especie" required class="campoCadastro input" placeholder="Espécie">
-                              <div class="labelline">Espécie</div>
+                                <input type="text" name="cpf" id="" required class="campoCadastro input"
+                                    placeholder=" CPF">
+                                <div class="labelline">CPF</div>
                             </div>
-                          
+
                             <div class="area">
-                              <input type="text" name="tipoProducao" required class="campoCadastro input" placeholder="Tipo de Produção">
-                              <div class="labelline">Tipo de Produção</div>
+                                <input type="text" name="telefone" id="" required class="campoCadastro input"
+                                    placeholder=" Telefone">
+                                <div class="labelline">Telefone</div>
                             </div>
-                          
+
                             <div class="area">
-                              <input type="number" name="peso" required class="campoCadastro input" placeholder="Peso" step="0.1" min="0">
-                              <div class="labelline">Peso</div>
+                                <input type="text" name="ocupacao" id="" required class="campoCadastro input"
+                                    placeholder=" Ocupação">
+                                <div class="labelline">Ocupação</div>
                             </div>
-                          
-                            <div class="area">
-                              <input type="number" name="altura" required class="campoCadastro input" placeholder="Altura" step="0.01" min="0">
-                              <div class="labelline">Altura</div>
-                            </div>
-                          
-                            <div class="area">
-                                <input type="text" name="sexo" required class="campoCadastro input" placeholder="F ou M">
-                                <div class="labelline">Sexo</div>
-                              </div>
-                          
-                            <div class="area">
-                              <input type="text" name="pelagem" required class="campoCadastro input" placeholder="Pelagem">
-                              <div class="labelline">Pelagem</div>
-                            </div>
-                          
-                            <div class="area">
-                              <input type="text" name="raca" required class="campoCadastro input" placeholder="Raça">
-                              <div class="labelline">Raça</div>
-                            </div>
-                          
-                            <div class="area">
-                              <input type="text" name="producaoMensal" required class="campoCadastro input" placeholder="Produção Mensal">
-                              <div class="labelline">Produção Mensal</div>
-                            </div>
-                          
+
                             
-                          </form>
-                          <div class="botaoContainerCad">
-                            <input type="button" value="Enviar" class="botaoEnviar">
-                          </div>
+
+                            <div class="botaoContainer">
+                                <input type="button" value="Salvar" class="botaoEnviar" onclick="enviarCliente()">
+                              </div>
+                        </form>
                     </div>
 
                     <div class="cadastroBox">
                         <div class="cadastroBox1">
-                            <span style="color: #465640; font-weight: bold; font-size: 35px;">Vacinação:</span>
+                            <span style="color: #465640; font-weight: bold; font-size: 35px;">Fazenda:</span>
                         </div>
-                        <form action="" method="">
+                        <form action="" method="" id="formFazenda">
                             <div class="area">
-                                <input type="text" name="codigoSisbov" required class="campoCadastro input" placeholder="Código Sisbov">
-                                <div class="labelline">Código Sisbov</div>
+                                <input type="text" name="cep" id="" required class="campoCadastro input"
+                                    placeholder=" CEP:">
+                                <div class="labelline">CEP</div>
+                            </div>
+
+                            <div class="area">
+                                <input type="text" name="rua" id="" required class="campoCadastro input"
+                                    placeholder=" Rua:">
+                                <div class="labelline">Rua</div>
+                            </div>
+
+                            <div class="area">
+                                <input type="text" name="logradouro" id="" required class="campoCadastro input"
+                                    placeholder=" Logradouro:">
+                                <div class="labelline">Logradouro</div>
+                            </div>
+
+                            <div class="area">
+                                <input type="text" name="numero" id="" required class="campoCadastro input"
+                                    placeholder=" Número:">
+                                <div class="labelline">Número</div>
+                            </div>
+
+                            <div class="area">
+                                <input type="text" name="estado" id="" required class="campoCadastro input"
+                                    placeholder=" Estado:">
+                                <div class="labelline">Estado</div>
+                            </div>
+
+                            <div class="area">
+                                <input type="text" name="cidade" id="" required class="campoCadastro input"
+                                    placeholder=" Cidade:">
+                                <div class="labelline">Cidade</div>
+                            </div>
+
+                            <div class="botaoContainer">
+                                <input type="button" value="Salvar" class="botaoEnviar" onclick="enviarFazenda()">
                               </div>
-                            <div class="area">
-                                <input type="text" name="" id="" required class="campoCadastro input"
-                                    placeholder=" Nome da vacina:">
-                                <div class="labelline">Nome da vacina</div>
-                            </div>
-
-                            <div class="area">
-                                <input type="text" name="" id="" required class="campoCadastro input"
-                                    placeholder=" Data da vacinação:">
-                                <div class="labelline">Data da vacinação</div>
-                            </div>
-
-                            <div class="area">
-                                <input type="text" name="" id="" required class="campoCadastro input"
-                                    placeholder=" Dose:">
-                                <div class="labelline">Dose</div>
-                            </div>
-
-                          
-
-                           
 
 
                         </form>
-                        <div class="botaoContainerVac">
-                            <input type="button" value="Enviar" class="botaoEnviar">
-                          </div>
                     </div>
 
                     <div class="swiper">
@@ -233,71 +225,88 @@
     <div id="entreemcontato"></div>
 
 </body>
-
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const botaoEnviar = document.querySelector('.botaoContainerCad .botaoEnviar');
-    const form = document.getElementById('form-animal');
-
-    if (!botaoEnviar || !form) {
-      console.warn("Botão ou formulário não encontrado.");
-      return;
+    let clienteEnviado = false;
+    let fazendaEnviada = false;
+    
+    // Envio do cliente
+    async function enviarCliente() {
+      const form = document.getElementById("formCliente");
+      const dados = Object.fromEntries(new FormData(form));
+      const token = localStorage.getItem('token'); // PEGAR O TOKEN
+      const resposta = await fetch("http://localhost:3000/auth/cliente", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`  // ENVIAR O TOKEN AQUI
+        },
+        body: JSON.stringify(dados)
+      });
+    
+      if (resposta.ok) {
+        alert("Cliente cadastrado com sucesso!");
+        form.reset();
+        clienteEnviado = true;
+        verificarRedirecionamento();
+      } else {
+        alert("Erro ao cadastrar cliente.");
+      }
     }
-
-    botaoEnviar.addEventListener('click', async (event) => {
-      event.preventDefault();
-
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-
-      data.peso = parseFloat(data.peso);
-      data.altura = parseFloat(data.altura);
-
+    
+    // Envio da fazenda
+    async function enviarFazenda() {
+      const form = document.getElementById("formFazenda");
+      const dados = Object.fromEntries(new FormData(form));
+      const token = localStorage.getItem('token');
+      const resposta = await fetch("http://localhost:3000/auth/fazenda", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`  // MESMA CORREÇÃO AQUI
+        },
+        body: JSON.stringify(dados)
+      });
+    
+      if (resposta.ok) {
+        alert("Fazenda cadastrada com sucesso!");
+        form.reset();
+        fazendaEnviada = true;
+        verificarRedirecionamento();
+      } else {
+        alert("Erro ao cadastrar fazenda.");
+      }
+    }
+    
+    function verificarRedirecionamento() {
+      if (clienteEnviado && fazendaEnviada) {
+        window.location.href = "http://127.0.0.1:5500/html/servicos.html";
+      }
+    }
+    
+    window.addEventListener('DOMContentLoaded', async () => {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+    
       try {
-        const response = await fetch('http://localhost:3000/auth/CadAni', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+        const res = await fetch('http://localhost:3000/auth/me', {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
         });
-
-        if (response.ok) {
-          alert('Animal cadastrado com sucesso!');
-          form.reset();
+    
+        if (res.ok) {
+          const user = await res.json();
+          const nomeUsuario = document.getElementById('nome-usuario');
+          if (nomeUsuario) nomeUsuario.textContent = user.name;
         } else {
-          const erro = await response.json();
-          alert('Erro: ' + (erro.message || 'Erro ao cadastrar'));
+          console.warn("Token inválido ou usuário não encontrado");
         }
-      } catch (error) {
-        alert('Erro na comunicação com o servidor.');
-        console.error(error);
+      } catch (err) {
+        console.error("Erro ao buscar dados do usuário:", err);
       }
     });
-  });
-
-   window.addEventListener('DOMContentLoaded', async () => {
-    const token = localStorage.getItem('token');
-    if (!token) return;
-
-    try {
-      const res = await fetch('http://localhost:3000/auth/me', {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-
-      if (res.ok) {
-        const user = await res.json();
-        const nomeUsuario = document.getElementById('nome-usuario');
-        if (nomeUsuario) nomeUsuario.textContent = user.name;
-      } else {
-        console.warn("Token inválido ou usuário não encontrado");
-      }
-    } catch (err) {
-      console.error("Erro ao buscar dados do usuário:", err);
-    }
-  });
-</script>
+    </script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="../js/script.js"></script>

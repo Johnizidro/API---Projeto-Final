@@ -13,9 +13,10 @@ require("./config/db"); // conecta no banco
 
 const authRoutes = require("./routes/authRoutes");
 const tarefasRoutes = require("./routes/rotas");
+const CliFazend = require("./routes/rotasCli");
 
 
-app.use("/auth", authRoutes, tarefasRoutes);
+app.use("/auth", authRoutes, tarefasRoutes, CliFazend);
 
 
 app.get("/", (req, res) => {

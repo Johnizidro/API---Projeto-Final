@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
+const { Cliente, Fazenda } = require('../models/modelosCli');
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -59,9 +60,12 @@ exports.loginUser = async (req, res) => {
 
 exports.getUserData = async (req, res) => {
   try {
-    const user = await User.findById(req.userId).select("-password");
-    if (!user) return res.status(404).json({ msg: "Usuário não encontrado" });
-    res.status(200).json(user);
+    const cliente = await Cliente.findById(req.userId);
+    if (!cliente) return res.status(404).json({ msg: "Cliente não encontrado" });
+
+    const fazenda = await Fazenda.findOne({ /* algum filtro que faça sentido */ });
+
+    res.status(200).json({ ...cliente.toObject(), fazenda: fazenda ? fazenda.toObject() : null });
   } catch (error) {
     console.error(error);
     res.status(500).json({ msg: "Erro no servidor" });
