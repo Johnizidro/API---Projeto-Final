@@ -234,7 +234,7 @@
       const form = document.getElementById("formCliente");
       const dados = Object.fromEntries(new FormData(form));
       const token = localStorage.getItem('token'); // PEGAR O TOKEN
-      const resposta = await fetch("http://localhost:3000/auth/cliente", {
+      const resposta = await fetch("http://localhost:3000/client/cliente", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -258,7 +258,7 @@
       const form = document.getElementById("formFazenda");
       const dados = Object.fromEntries(new FormData(form));
       const token = localStorage.getItem('token');
-      const resposta = await fetch("http://localhost:3000/auth/fazenda", {
+      const resposta = await fetch("http://localhost:3000/client/fazenda", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -283,29 +283,6 @@
       }
     }
     
-    window.addEventListener('DOMContentLoaded', async () => {
-      const token = localStorage.getItem('token');
-      if (!token) return;
-    
-      try {
-        const res = await fetch('http://localhost:3000/auth/me', {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-    
-        if (res.ok) {
-          const user = await res.json();
-          const nomeUsuario = document.getElementById('nome-usuario');
-          if (nomeUsuario) nomeUsuario.textContent = user.name;
-        } else {
-          console.warn("Token inválido ou usuário não encontrado");
-        }
-      } catch (err) {
-        console.error("Erro ao buscar dados do usuário:", err);
-      }
-    });
     </script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

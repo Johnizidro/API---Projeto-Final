@@ -1,11 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const authController = require("../controllers/authController");
-const authMiddleware = require("../middlewares/authMiddleware");
+const authMiddleware = require("../middlewares/mediadorCli");
 
 
 router.post("/register", authController.registerUser);
 router.post("/login", authController.loginUser);
-router.get("/me", authMiddleware, authController.getUserData); 
+router.get("/me", authMiddleware ,authController.getUserData); 
+
+console.log("authRoutes carregado");
 
 module.exports = router;

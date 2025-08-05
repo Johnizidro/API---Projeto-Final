@@ -192,26 +192,31 @@
         });
   
         if (res.ok) {
-          const user = await res.json();
-  
-          // Exibindo os dados do usuário no perfil
-          document.getElementById('nome').textContent = user.name;
-          document.getElementById('email').textContent = user.email;
-          document.getElementById('dataCadastro').textContent = user.dataCadastro;
-          document.getElementById('dataNascimento').textContent = user.dataNascimento;
-          document.getElementById('cnpj').textContent = user.cnpj;
-          document.getElementById('cpf').textContent = user.cpf;
-          document.getElementById('telefone').textContent = user.telefone;
-          document.getElementById('ocupacao').textContent = user.ocupacao;
-  
-          // Dados de Fazenda
-          document.getElementById('cep').textContent = user.fazenda.cep;
-          document.getElementById('rua').textContent = user.fazenda.rua;
-          document.getElementById('logradouro').textContent = user.fazenda.logradouro;
-          document.getElementById('numero').textContent = user.fazenda.numero;
-          document.getElementById('estado').textContent = user.fazenda.estado;
-          document.getElementById('cidade').textContent = user.fazenda.cidade;
-        } else {
+  const user = await res.json();
+
+  // Dados do usuário principal
+  document.getElementById('nome').textContent = user.name || '---';
+  document.getElementById('email').textContent = user.email || '---';
+  document.getElementById('dataCadastro').textContent = new Date(user.dataCadastro).toLocaleDateString('pt-BR') || '---';
+  document.getElementById('telefone').textContent = user.telefone || '---';
+
+  // Dados do cliente
+  const cliente = user.cliente || {};
+  document.getElementById('dataNascimento').textContent = cliente.dataNascimento || '---';
+  document.getElementById('cnpj').textContent = cliente.cnpj || '---';
+  document.getElementById('cpf').textContent = cliente.cpf || '---';
+  document.getElementById('ocupacao').textContent = cliente.ocupacao || '---';
+
+  // Dados da fazenda
+  const fazenda = user.fazenda || {};
+  document.getElementById('cep').textContent = fazenda.cep || '---';
+  document.getElementById('rua').textContent = fazenda.rua || '---';
+  document.getElementById('logradouro').textContent = fazenda.logradouro || '---';
+  document.getElementById('numero').textContent = fazenda.numero || '---';
+  document.getElementById('estado').textContent = fazenda.estado || '---';
+  document.getElementById('cidade').textContent = fazenda.cidade || '---';
+}
+ else {
           console.error('Erro ao buscar os dados do usuário.');
         }
       } catch (error) {

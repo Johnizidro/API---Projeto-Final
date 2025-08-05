@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 
 dotenv.config();
-
+console.log("JWT_SECRET:", process.env.JWT_SECRET);
 const app = express();  // Primeiro define o app
 
 app.use(cors());        // Depois usa o cors
@@ -16,7 +16,10 @@ const tarefasRoutes = require("./routes/rotas");
 const CliFazend = require("./routes/rotasCli");
 
 
-app.use("/auth", authRoutes, tarefasRoutes, CliFazend);
+app.use("/auth", authRoutes);
+app.use("/tarefas", tarefasRoutes);
+app.use("/client", CliFazend);
+
 
 
 app.get("/", (req, res) => {

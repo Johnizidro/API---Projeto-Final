@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 module.exports = (req, res, next) => {
+ console.log("Token recebido no header Authorization:", token);
   const authHeader = req.headers["authorization"];
   if (!authHeader) return res.status(401).json({ msg: "Token não fornecido" });
 

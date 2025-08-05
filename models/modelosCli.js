@@ -7,6 +7,7 @@ const clienteSchema = new mongoose.Schema({
   cpf: String,
   telefone: String,
   ocupacao: String,
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 const Cliente = mongoose.model("Cliente", clienteSchema);

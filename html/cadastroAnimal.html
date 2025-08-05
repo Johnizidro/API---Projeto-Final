@@ -254,7 +254,7 @@
       data.altura = parseFloat(data.altura);
 
       try {
-        const response = await fetch('http://localhost:3000/auth/CadAni', {
+        const response = await fetch('http://localhost:3000/tarefas/CadAni', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
