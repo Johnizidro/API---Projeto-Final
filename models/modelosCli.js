@@ -19,7 +19,7 @@ const fazendaSchema = new mongoose.Schema({
   numero: String,
   estado: String,
   cidade: String,
-  clienteId: { type: mongoose.Schema.Types.ObjectId, ref: 'Cliente' }  // Referência
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }  // Referência
 })
 
 const Fazenda = mongoose.model("Fazenda", fazendaSchema);

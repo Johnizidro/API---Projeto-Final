@@ -66,27 +66,54 @@
     </div>
   </body>
   <script>
-    const loginForm = document.getElementById("formCadastro");
+      const loginForm = document.getElementById("formCadastro");
 
-    loginForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("senha").value;
+loginForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-      const res = await fetch("http://localhost:3000/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-      const data = await res.json();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("senha").value;
 
-      if (res.ok) {
-        localStorage.setItem("token", data.token);
-        alert("Login realizado com sucesso!");
-        window.location.href = "http://127.0.0.1:5500/html/cadastroCliente.html";
-      } else {
-        alert(data.msg);
-      }
+  try {
+    const res = await fetch("http://localhost:3000/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
     });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      localStorage.setItem("token", data.token);
+      alert("Login realizado com sucesso!");
+
+      // Agora verifica se o usuário já completou o cadastro
+      const meRes = await fetch("http://localhost:3000/auth/me", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${data.token}`
+        }
+      });
+
+      const meData = await meRes.json();
+
+      const clienteExiste = meData.cliente && meData.cliente._id;
+      const fazendaExiste = meData.fazenda && meData.fazenda._id;
+
+      if (clienteExiste && fazendaExiste) {
+        // Já completou o cadastro
+        window.location.href = "http://127.0.0.1:5500/html/servicos.html";
+      } else {
+        // Ainda precisa completar o cadastro
+        window.location.href = "http://127.0.0.1:5500/html/cadastroCliente.html";
+      }
+    } else {
+      alert(data.msg || "Erro ao fazer login");
+    }
+  } catch (err) {
+    console.error("Erro no login:", err);
+    alert("Erro inesperado ao fazer login");
+  }
+});
   </script>
 </html>

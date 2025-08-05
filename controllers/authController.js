@@ -62,27 +62,23 @@ exports.loginUser = async (req, res) => {
 
 exports.getUserData = async (req, res) => {
   try {
-    // 1. Verifica se o userId foi extraído corretamente do token
     if (!req.userId) {
       return res.status(401).json({ msg: "Token inválido ou ausente" });
     }
 
-    // 2. Busca o usuário (User) para dados como email e name
     const user = await User.findById(req.userId);
     if (!user) {
       return res.status(404).json({ msg: "Usuário não encontrado" });
     }
 
-    // 3. Busca o cliente associado ao userId
     const cliente = await Cliente.findOne({ userId: req.userId });
     if (!cliente) {
       return res.status(404).json({ msg: "Cliente não encontrado" });
     }
 
-    // 4. Busca a fazenda associada ao cliente
-    const fazenda = await Fazenda.findOne({ clienteId: cliente._id });
+    // 🔁 Agora buscando a fazenda pelo userId
+    const fazenda = await Fazenda.findOne({ userId: req.userId });
 
-    // 5. Retorna todos os dados
     res.status(200).json({
       user: {
         name: user.name,

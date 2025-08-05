@@ -23,14 +23,21 @@ const cadastrarCliente = async (req, res) => {
 // Função para cadastrar fazenda
 const cadastrarFazenda = async (req, res) => {
   try {
-    const novaFazenda = new Fazenda(req.body);
+    console.log("📦 Dados recebidos:", req.body);
+    console.log("👤 ID do usuário autenticado:", req.userId);
+
+    const novaFazenda = new Fazenda({
+      ...req.body,
+      userId: req.userId // 👈 mesmo padrão usado com o cliente
+    });
+
     await novaFazenda.save();
     res.status(201).json({ mensagem: "Fazenda cadastrada com sucesso!" });
   } catch (error) {
+    console.error("❌ Erro ao cadastrar fazenda:", error);
     res.status(500).json({ erro: "Erro ao cadastrar fazenda." });
   }
 };
-
 // Exportar as duas funções
 module.exports = {
   cadastrarCliente,
