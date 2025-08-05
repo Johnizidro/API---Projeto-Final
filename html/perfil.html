@@ -180,49 +180,52 @@
 </body>
 <script>
     window.addEventListener('DOMContentLoaded', async () => {
-      const token = localStorage.getItem('token');
-      if (!token) return;
-  
-      try {
-        const res = await fetch('http://localhost:3000/auth/me', {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-  
-        if (res.ok) {
-  const user = await res.json();
+  const token = localStorage.getItem('token');
+  if (!token) return;
 
-  // Dados do usuário principal
-  document.getElementById('nome').textContent = user.name || '---';
-  document.getElementById('email').textContent = user.email || '---';
-  document.getElementById('dataCadastro').textContent = new Date(user.dataCadastro).toLocaleDateString('pt-BR') || '---';
-  document.getElementById('telefone').textContent = user.telefone || '---';
-
-  // Dados do cliente
-  const cliente = user.cliente || {};
-  document.getElementById('dataNascimento').textContent = cliente.dataNascimento || '---';
-  document.getElementById('cnpj').textContent = cliente.cnpj || '---';
-  document.getElementById('cpf').textContent = cliente.cpf || '---';
-  document.getElementById('ocupacao').textContent = cliente.ocupacao || '---';
-
-  // Dados da fazenda
-  const fazenda = user.fazenda || {};
-  document.getElementById('cep').textContent = fazenda.cep || '---';
-  document.getElementById('rua').textContent = fazenda.rua || '---';
-  document.getElementById('logradouro').textContent = fazenda.logradouro || '---';
-  document.getElementById('numero').textContent = fazenda.numero || '---';
-  document.getElementById('estado').textContent = fazenda.estado || '---';
-  document.getElementById('cidade').textContent = fazenda.cidade || '---';
-}
- else {
-          console.error('Erro ao buscar os dados do usuário.');
-        }
-      } catch (error) {
-        console.error('Erro na requisição:', error);
+  try {
+    const res = await fetch('http://localhost:3000/auth/me', {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`
       }
     });
+
+    if (res.ok) {
+      const data = await res.json(); // agora o objeto completo da resposta
+      const user = data.user || {};
+      const cliente = data.cliente || {};
+      const fazenda = data.fazenda || {};
+
+      // Dados do usuário
+      document.getElementById('nome').textContent = user.name || '---';
+      document.getElementById('email').textContent = user.email || '---';
+      document.getElementById('dataCadastro').textContent = user.createdAt
+        ? new Date(user.createdAt).toLocaleDateString('pt-BR')
+        : '---';
+      document.getElementById('telefone').textContent = user.telefone || '---';
+
+      // Dados do cliente
+      document.getElementById('dataNascimento').textContent = cliente.dataNascimento || '---';
+      document.getElementById('cnpj').textContent = cliente.cnpj || '---';
+      document.getElementById('cpf').textContent = cliente.cpf || '---';
+      document.getElementById('ocupacao').textContent = cliente.ocupacao || '---';
+
+      // Dados da fazenda
+      document.getElementById('cep').textContent = fazenda.cep || '---';
+      document.getElementById('rua').textContent = fazenda.rua || '---';
+      document.getElementById('logradouro').textContent = fazenda.logradouro || '---';
+      document.getElementById('numero').textContent = fazenda.numero || '---';
+      document.getElementById('estado').textContent = fazenda.estado || '---';
+      document.getElementById('cidade').textContent = fazenda.cidade || '---';
+
+    } else {
+      console.error('Erro ao buscar os dados do usuário.');
+    }
+  } catch (error) {
+    console.error('Erro na requisição:', error);
+  }
+});
   </script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
