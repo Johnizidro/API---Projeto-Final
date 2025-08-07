@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/consultaMensal.css">
+    <link rel="shortcut icon" href="../IMG/Group 1.png" type="image/x-icon">
+    <title>Consulta Mensal - ConectaBov</title>
+</head>
+
+<body>
+    <div class="cabecalho">
+        <div class="cabecalho-div-">
+            <div class="cabecalho-div-login">
+                <!-- <div class="cabecalho-children"> -->
+                    <div class="cabecalho-div">
+
+                        <span class="imgLogo">
+                            <img src="/IMG/Group 1.png" width="80px" onclick="abrirMenu()">
+                        </span>
+
+                        <div id="menuLateral" class="menu-lateral">
+                            <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
+                            <ul>
+                                <li>
+                                    <a href="index.html">
+                                        <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="cadastroAnimal.html">
+                                        <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="consultaMensal.html">
+                                        <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta Mensal
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="/IMG/telefone 2.png" alt="Contatos" class="icon"
+                                            style="width: 50px;margin-left: -6px;"> Contatos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="veterinarios.html">
+                                        <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
+                                            style="width: 50px;margin-left: -6px;"> Veterinários
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                <!-- </div> -->
+                <div class="pesquisa-dad"><input class="pesquisa" type="text" name="" id="" size="80px">
+                    <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px">
+                </div>
+                <a href="login.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="35px">
+                    <p style="color: #5E7153;font-size: 12.5px;font-weight: bold;">Login</p>
+                </a>
+            </div>
+            <div class="dashboard">
+                <div class="dashboard-children">
+
+                    <section class="secao-consulta">
+                        <div class="titulo-consulta">
+                            <img src="/IMG/pesquisa 2.png" class="icone" width="35px">
+                            <span style="color: white;font-weight: bold;font-size: 30px;">Consulta Mensal</span>
+                        </div>
+
+                        <div class="painel-topo">
+                            <div class="quantidade">
+                                <span class="numero">0.0</span>
+                                <span class="texto">animais</span>
+                                <img src="/IMG/vaca (1) 1.png" class="icone-cabeca" style=" width: 45px; margin-left:5px">
+                            </div>
+                            <div class="campo-busca">
+                                <div class="pesquisa-dad">
+                                    <input class="pesquisa" type="text" name="" id="" placeholder="Código Sisbov"
+                                        size="30px">
+                                    <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset=""
+                                        width="18px">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lista-animais">
+                            <div class="item-animal"></div>
+                        </div>
+                    </section>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-sub">
+            <div class="footer-children">
+                <div class="entre-em-contato">
+                    <p style="color: white;">Entre em </p>
+                    <p style="color: white;">Contato</p>
+                </div>
+                <div class="logo-rede">
+                    <div class="facebook"><img src="/IMG/facebook-f-brands.svg" width="16px"></div>
+                    <div class="instagram"><img src="/IMG/instagram-brands.svg" width="16px"></div>
+                    <div class="whatsaap"><img src="/IMG/whatsapp-brands.svg" width="16px"></div>
+                    <div class="linkedin"><img src="/IMG/linkedin-in-brands.svg" width="16px"></div>
+                </div>
+            </div>
+            <div class="img-gado">
+                <img src="/IMG/1-removebg-preview 3.png" alt="">
+            </div>
+        </div>
+
+        <div class="divis">
+            <hr class="divisao">
+        </div>
+        <center style="color: white; opacity: 0.5; padding: 0.5%; font-size: small;"><p>© 2025 Todos os direitos reservados. ConectaBov</p></center>
+    </div>
+    <div id="entreemcontato"></div>
+
+
+</body>
+<script>
+  window.addEventListener('DOMContentLoaded', async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Usuário não autenticado. Faça login.');
+      window.location.href = 'login.html';
+      return;
+    }
+
+    try {
+      const res = await fetch('http://localhost:3000/tarefas/listaAni', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+
+      if (!res.ok) throw new Error('Erro ao buscar animais');
+
+      const animais = await res.json();
+
+      // Atualiza a contagem de animais
+      const numeroAnimais = document.querySelector('.quantidade .numero');
+      if (numeroAnimais) numeroAnimais.textContent = animais.length;
+
+      const lista = document.querySelector('.lista-animais');
+      lista.innerHTML = ''; // limpa os itens hardcoded
+
+      animais.forEach(animal => {
+        const div = document.createElement('div');
+        div.classList.add('item-animal');
+
+        div.innerHTML = `
+          <div class="campo"><strong>Nome:</strong> ${animal.nome}</div>
+          <div class="campo"><strong>Código Sisbov:</strong> ${animal.codigoSisbov}</div>
+          <div class="campo"><strong>Sexo:</strong> ${animal.sexo}</div>
+          <div class="campo"><strong>Tipo Produção:</strong> ${animal.tipoProducao}</div>
+          <div class="campo"><strong>Peso:</strong> ${animal.peso} kg</div>
+          <div class="campo"><strong>Altura:</strong> ${animal.altura} m</div>
+        `;
+
+        lista.appendChild(div);
+      });
+
+    } catch (error) {
+      console.error(error);
+      alert('Erro ao carregar animais');
+    }
+  });
+</script>
+<script src="/js/script.js"></script>
+
+</html>

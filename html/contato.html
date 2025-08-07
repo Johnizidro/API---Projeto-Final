@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/contato.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/index.js"></script>
+    <title>Conecta-Bov</title>
+</head>
+
+<body>
+    <div class="backgroudImage">
+        <div class="cabecalho">
+            <div class="cabecalho-div">
+                <span class="cabecalho-icone">
+                    <img src="/IMG/Group 1.png" width="80px">
+                </span>
+                <div class="pesquisa-dad">
+
+                    <div class="sobrenos"><a href="">Sobre Nós</a></div>
+                    <div class="contatos"><a href="contato.html">Contatos</a></div>
+                    <div class="conectaBlog"><a href="">ConectaBlog</a></div>
+
+                </div>
+                <a href="login.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt=""
+                        srcset="" width="35px">
+                    <p style="color: #5E7153;font-size: 12.5px;font-weight: bold;">Login</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- </div> -->
+        <!-- <div id="inicio"></div> -->
+        <main>
+            <div class="conteudo">
+                <div class="conteudo-text">
+                    <div class="text-paragrafo">
+                        <div class="titulo">
+                            <h1>Projeto</h1>
+                            <h1 class="conectabov">ConectaBov</h1>
+                        </div>
+                        <p> A agropecuária brasileira é um dos setores econômicos mais importantes do país. No entanto,
+                            ainda enfrenta desafios significativos no que diz respeito à modernização tecnológica. O
+                            projeto
+                            ConectaBov busca transformar essa realidade, oferecendo soluções inovadoras para os
+                            produtores
+                            rurais. Por meio de novas ferramentas de gestão, a iniciativa permite um controle mais
+                            eficiente
+                            do rebanho, além de promover o bem-estar animal. Afinal, o cuidado adequado reflete
+                            diretamente
+                            na qualidade da produção.</p>
+                    </div>
+                </div>
+
+                <!-- <div class="conteudo-img">
+                    <img src="/IMG/AgroNeo - propaganda 1.png" width="100%">
+                </div> -->
+            </div>
+        </main>
+    </div>
+
+    <div class="solucoes">
+        <div class="tituloSolucoes">
+            <h1>Entre em</h1>
+            <h1 style="margin-left: 40%;">Contato</h1>
+        </div>
+    </div>
+    <div class="entre_em_contato">
+        <h2 style="color: #5E7153;margin-left: 10%;margin-top: 3%;">Como podemos</h2>
+        <h2 style="color: #5E7153;margin-left: 10%;margin-bottom: 3%;">te ajudar?</h2>
+        <div class="asdfljh">
+            <div class="asdfljhanima">
+                <div id="asdfljhanimaa" class="asdfljhanimaa"></div>
+            </div>
+
+            <div class="asdfljhe">
+                <a id="cliqueContato" onclick="cliqueContato()">Contato</a>
+                <a id="cliqueDuvida" onclick="cliqueDuvida()">Duvida</a>
+                <a id="cliqueFeedBack" onclick="cliqueFeedBack()">FeedBack</a>
+            </div>
+        </div>
+        <div class="entre_em_contato_children">            
+            <img src="../IMG/pexels-timmossholder-974314 1.png" alt="" class="imgContato">
+            
+            <div class="contato">
+                <form action="" id="formContato" class="formContato">
+                    <input type="text" name="" id="inputContato" placeholder="Nome*" required>
+                    <input type="text" name="" id="inputContato" placeholder="E-mail*"required>
+                    <input type="text" name="" id="inputContato" placeholder="Telefone*"required>
+                    <input type="text" name="" id="inputContato" placeholder="Estado*"required>
+                    <input type="text" name="" id="inputContato" placeholder="Cargo*"required>
+                    <label for="" class="labelContato">Mensagem*</label>
+                    <textarea name="" id="" class="textareaContato"required></textarea>
+                    <input type="submit" value="Enviar" class="inputContatoSubmit">
+                </form>    
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-sub">
+            <div class="footer-children">
+                <div class="entre-em-contato">
+                    <p style="color: white;">Entre em </p>
+                    <p style="color: white;">Contato</p>
+                </div>
+                <div class="logo-rede">
+                    <div class="facebook"><img src="/IMG/facebook-f-brands.svg" width="16px"></div>
+                    <div class="instagram"><img src="/IMG/instagram-brands.svg" width="16px"></div>
+                    <div class="whatsaap"><img src="/IMG/whatsapp-brands.svg" width="16px"></div>
+                    <div class="linkedin"><img src="/IMG/linkedin-in-brands.svg" width="16px"></div>
+                </div>
+            </div>
+            <div class="img-gado">
+                <img src="/IMG/1-removebg-preview 3.png" alt="">
+            </div>
+        </div>
+
+        <div class="divis">
+            <hr class="divisao">
+        </div>
+        <center style="color: white; opacity: 0.5; padding: 0.5%; font-size: small;">
+            <p>© 2025 Todos os direitos reservados. ConectaBov</p>
+        </center>
+    </div>
+    <div id="entreemcontato"></div>
+</body>
+<script>
+    const track = document.getElementById('opcoes-pecuaria');
+    const speed = 1; // pixels por frame (ajuste conforme quiser)
+    let x = 0;
+
+    // Clona os itens pra criar o loop infinito
+    const cloneItems = () => {
+        const items = [...track.children];
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            track.appendChild(clone);
+        });
+    };
+
+    cloneItems();
+
+    function animate() {
+        x -= speed;
+        track.style.transform = `translateX(${x}px)`;
+
+        const firstItem = track.children[0];
+        const itemWidth = firstItem.offsetWidth + 70; // largura + gap
+
+        if (Math.abs(x) >= itemWidth) {
+            track.appendChild(firstItem);
+            x += itemWidth;
+            track.style.transform = `translateX(${x}px)`;
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    function cliqueDuvida() {
+        clique = document.getElementById('cliqueDuvida');
+        feedBack = document.getElementById('cliqueFeedBack');
+        contato = document.getElementById('cliqueContato');
+
+        borda = document.getElementById('asdfljhanimaa');
+
+        clique.style.color = '#5E7153';
+        feedBack.style.color = '#adb9a6';
+        contato.style.color = '#adb9a6';
+
+        borda.style.width = '30%';
+        borda.style.marginLeft = '33%';
+
+        form = document.getElementById('formContato').innerHTML = 
+        `<form action="" id="formContato" class="formContato">
+            <input type="text" name="" id="inputContato" placeholder="Nome*"required>
+            <input type="text" name="" id="inputContato" placeholder="E-mail*"required>
+            <input type="text" name="" id="inputContato" placeholder="Telefone"required>
+            <input type="text" name="" id="inputContato" placeholder="Estado"required>
+            <input type="text" name="" id="inputContato" placeholder="Cargo"required>
+            <label for="" class="labelContato">Duvida*</label>
+            <textarea name="" id="" class="textareaContato"required></textarea>
+            <input type="submit" value="Enviar" class="inputContatoSubmit">
+        </form>`
+    }
+
+    function cliqueContato() {
+        clique = document.getElementById('cliqueContato');
+        duvida = document.getElementById('cliqueDuvida');
+        feedBack = document.getElementById('cliqueFeedBack');
+        borda = document.getElementById('asdfljhanimaa');
+
+        clique.style.color = '#5E7153';
+        feedBack.style.color = '#adb9a6';
+        duvida.style.color = '#adb9a6';
+
+        borda.style.width = '30%';
+        borda.style.marginLeft = '0%';
+
+        form = document.getElementById('formContato').innerHTML = 
+        `<form action="" id="formContato" class="formContato">
+            <input type="text" name="" id="inputContato" placeholder="Nome*"required>
+            <input type="text" name="" id="inputContato" placeholder="E-mail*"required>
+            <input type="text" name="" id="inputContato" placeholder="Telefone*"required>
+            <input type="text" name="" id="inputContato" placeholder="Estado*"required>
+            <input type="text" name="" id="inputContato" placeholder="Cargo*"required>
+            <label for="" class="labelContato">Mensagem*</label>
+            <textarea name="" id="" class="textareaContato"required></textarea>
+            <input type="submit" value="Enviar" class="inputContatoSubmit">
+        </form>`
+    }
+
+    function cliqueFeedBack() {
+        contato = document.getElementById('cliqueContato');
+        duvida = document.getElementById('cliqueDuvida');
+        clique = document.getElementById('cliqueFeedBack');
+        borda = document.getElementById('asdfljhanimaa');
+
+        clique.style.color = '#5E7153';
+        contato.style.color = '#adb9a6';
+        duvida.style.color = '#adb9a6';
+
+        borda.style.width = '35%';
+        borda.style.marginLeft = '66%';
+
+        form = document.getElementById('formContato').innerHTML = 
+        `<form action="" id="formContato" class="formContato">
+            <input type="text" name="" id="inputContato" placeholder="Nome*"required>
+            <input type="text" name="" id="inputContato" placeholder="E-mail*"required>
+            <input type="text" name="" id="inputContato" placeholder="Telefone">
+            <input type="text" name="" id="inputContato" placeholder="Estado">
+            <input type="text" name="" id="inputContato" placeholder="Cargo">
+            <label for="" class="labelContato">Avaliação</label>
+            <div class="estrela">
+                <div class="estrelaChildren">
+                    <img src="../IMG/estrela-vazia.svg" alt="" width="32px" id="estrela1" onclick="preencherEstrela1()">
+                    <img src="../IMG/estrela-vazia.svg" alt="" width="32px" id="estrela2" onclick="preencherEstrela2()">
+                    <img src="../IMG/estrela-vazia.svg" alt="" width="32px" id="estrela3" onclick="preencherEstrela3()">
+                    <img src="../IMG/estrela-vazia.svg" alt="" width="32px" id="estrela4" onclick="preencherEstrela4()">
+                    <img src="../IMG/estrela-vazia.svg" alt="" width="32px" id="estrela5" onclick="preencherEstrela5()">
+                </div>
+                <span id="mensagemEstrela"></span>
+            </div>
+            <textarea name="" id="" class="textareaContato" required></textarea>
+            <input type="submit" value="Enviar" class="inputContatoSubmit">
+        </form> `
+        
+    }
+
+    function preencherEstrela1(){
+       var estrela = document.getElementById("estrela1");
+       var estrelaUm = document.getElementById("estrela2");
+       var estrelaDois = document.getElementById("estrela3");
+       var estrelaTres = document.getElementById("estrela4");
+       var estrelaQuatro = document.getElementById("estrela5");
+       var mensagem = document.getElementById("mensagemEstrela").innerHTML = `Muito Ruim`
+        estrela.src = '../IMG/estrela-cheia.svg';
+
+        estrelaUm.src = '../IMG/estrela-vazia.svg';
+        estrelaDois.src = '../IMG/estrela-vazia.svg';
+        estrelaTres.src = '../IMG/estrela-vazia.svg';
+        estrelaQuatro.src = '../IMG/estrela-vazia.svg';
+    }
+    function preencherEstrela2(){
+        var estrela = document.getElementById("estrela1");
+       var estrelaUm = document.getElementById("estrela2");
+       var estrelaDois = document.getElementById("estrela3");
+       var estrelaTres = document.getElementById("estrela4");
+       var estrelaQuatro = document.getElementById("estrela5");
+       var mensagem = document.getElementById("mensagemEstrela").innerHTML = `Ruim`
+        estrelaUm.src = '../IMG/estrela-cheia.svg';
+        estrela.src = '../IMG/estrela-cheia.svg';
+
+        estrelaDois.src = '../IMG/estrela-vazia.svg';     
+        estrelaTres.src = '../IMG/estrela-vazia.svg';
+        estrelaQuatro.src = '../IMG/estrela-vazia.svg';
+    }
+    function preencherEstrela3(){
+        var estrela = document.getElementById("estrela1");
+       var estrelaUm = document.getElementById("estrela2");
+       var estrelaDois = document.getElementById("estrela3");
+       var estrelaTres = document.getElementById("estrela4");
+       var estrelaQuatro = document.getElementById("estrela5");
+       var mensagem = document.getElementById("mensagemEstrela").innerHTML = `Café com leite`
+        estrelaUm.src = '../IMG/estrela-cheia.svg';
+        estrela.src = '../IMG/estrela-cheia.svg';
+        estrelaDois.src = '../IMG/estrela-cheia.svg';
+             
+        estrelaTres.src = '../IMG/estrela-vazia.svg';
+        estrelaQuatro.src = '../IMG/estrela-vazia.svg';
+    }
+    function preencherEstrela4(){
+        var estrela = document.getElementById("estrela1");
+       var estrelaUm = document.getElementById("estrela2");
+       var estrelaDois = document.getElementById("estrela3");
+       var estrelaTres = document.getElementById("estrela4");
+       var estrelaQuatro = document.getElementById("estrela5");
+       var mensagem = document.getElementById("mensagemEstrela").innerHTML = `Bom`
+        estrelaUm.src = '../IMG/estrela-cheia.svg';
+        estrela.src = '../IMG/estrela-cheia.svg';
+        estrelaDois.src = '../IMG/estrela-cheia.svg';
+        estrelaTres.src = '../IMG/estrela-cheia.svg';    
+        
+        estrelaQuatro.src = '../IMG/estrela-vazia.svg';
+    }
+    function preencherEstrela5(){
+        var estrela = document.getElementById("estrela1");
+       var estrelaUm = document.getElementById("estrela2");
+       var estrelaDois = document.getElementById("estrela3");
+       var estrelaTres = document.getElementById("estrela4");
+       var estrelaQuatro = document.getElementById("estrela5");
+       var mensagem = document.getElementById("mensagemEstrela").innerHTML = `Ótimo`
+        estrelaUm.src = '../IMG/estrela-cheia.svg';
+        estrela.src = '../IMG/estrela-cheia.svg';
+        estrelaDois.src = '../IMG/estrela-cheia.svg';
+        estrelaTres.src = '../IMG/estrela-cheia.svg';          
+        estrelaQuatro.src = '../IMG/estrela-cheia.svg';
+    }
+</script>
+
+</html>

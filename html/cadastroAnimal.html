@@ -253,10 +253,19 @@
       data.peso = parseFloat(data.peso);
       data.altura = parseFloat(data.altura);
 
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Usuário não autenticado');
+        return;
+      }
+
       try {
         const response = await fetch('http://localhost:3000/tarefas/CadAni', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
           body: JSON.stringify(data)
         });
 
@@ -274,29 +283,7 @@
     });
   });
 
-   window.addEventListener('DOMContentLoaded', async () => {
-    const token = localStorage.getItem('token');
-    if (!token) return;
 
-    try {
-      const res = await fetch('http://localhost:3000/auth/me', {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-
-      if (res.ok) {
-        const user = await res.json();
-        const nomeUsuario = document.getElementById('nome-usuario');
-        if (nomeUsuario) nomeUsuario.textContent = user.name;
-      } else {
-        console.warn("Token inválido ou usuário não encontrado");
-      }
-    } catch (err) {
-      console.error("Erro ao buscar dados do usuário:", err);
-    }
-  });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
