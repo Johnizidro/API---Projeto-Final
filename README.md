@@ -18,7 +18,7 @@
 
 <br>
 
-<h2 id="api">🐄 API ConectaBov/h2>
+<h2 id="api">🐄 API ConectaBov</h2>
 
 A ConectaBov surgiu como uma proposta de avanço no setor pecuário, sendo um site focado na centralização e tratamento de dados voltados à gestão e produtividade no campo.  
 
