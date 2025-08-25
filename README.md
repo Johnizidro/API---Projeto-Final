@@ -16,7 +16,6 @@
   <img alt="License" src="capa_readme.png">
 </p>
 
-<br>
 
 <h2 id="api">🐄 API ConectaBov</h2>
 
@@ -32,9 +31,8 @@ A ConectaBov surgiu como uma proposta de avanço no setor pecuário, sendo um si
 - 🤖 Bot de atendimento
 - 🔑  Cadastro e login de usuários com validação dos dados 
 
----
 
-<br>
+---
 
 <h2 id="tecnologias">🚀 Tecnologias do Front-end</h2>
 
@@ -47,7 +45,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - 🐱 GitHub
 - 🖌️ Figma
 
----
+<br>
 
 
 ### 📌 Tecnologias Utilizadas no Back-end
@@ -62,11 +60,13 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - ![cors](https://img.shields.io/badge/cors-000000) cors para permitir requisições cross-origin
 - ![nodemon](https://img.shields.io/badge/nodemon-76D04B?logo=nodemon&logoColor=white) nodemon para desenvolvimento
 
----
+<br>
+
   <h2 id="layout">🎨 Layout</h2>
 
 O layout foi desenvolvido no Figma e está disponível [aqui](https://www.figma.com/design/Crtni8Cp3H1taxwYU4Ivn2/Projeto-integrador-UC---16?node-id=33-2&t=832eXJNOAVPOGbTy-1).
 
+---
 
 ### 🚀 Como Rodar a API
 
