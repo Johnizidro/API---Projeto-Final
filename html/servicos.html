@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/servicos.css">
+    <link rel="shortcut icon" href="../IMG/Group 1.png" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Serviços - ConectaBov</title>
 </head>
@@ -13,14 +14,11 @@
     <div class="cabecalho">
         <div class="cabecalho-div-">
             <div class="cabecalho-div-login">
-                <div class="cabecalho-children">
+                <img src="/IMG/Group 1.png" width="80px" class="imgLogo">      
                     <div class="cabecalho-div">
                         <!-- Ícone para abrir o menu -->
                         <!-- Ícone para abrir o menu -->
-                        <span class="cabecalho-icone" onclick="abrirMenu()">
-                            <img src="/IMG/1-removebg-preview 4.png" width="150px">
-                        </span>
-
+                        
                         <!-- Menu lateral com botão de fechar -->
                         <div id="menuLateral" class="menu-lateral">
                             <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
@@ -61,106 +59,152 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+           
 
-                <div class="pesquisa-dad"><input class="pesquisa" type="text" name="" id="" size="80px">
+                <div class="pesquisa-dad">
+                    <input class="pesquisa" type="text" name="" id="" size="80px">
                     <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px">
                 </div>
-                <a href="perfil.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
-                    <p id="nome-usuario" style="color: #5E7153;font-size: 10.5px;font-weight: bold;">Login</p>
+
+                <a href="login.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
+                    <p style="color: #5E7153;font-size: 10.5px;font-weight: bold;">Login</p>
                 </a>
             </div>
+            
+            <div class="menu">
+                <img src="/IMG/bars-solid-full.svg" alt="" width="35px" onclick="abrirMenu()">
+                <p>Bem vindo a ConectaBov</p>
+            </div>
+
+            <div class="climabox">
+                <div class="monitoramentoClima">
+                    <div class="regiaoClima">
+                        <h3>Clima de <span>Campinas</span></h3>
+
+                        <div class="temperatura">
+                            <div class="sol">
+                                <img src="../IMG/sun 1.png" alt="sol">
+                                <span><h1>21°</h1></span>
+                            </div>
+                            <div class="relogio">
+                                <img src="../IMG/clock 1.png" alt="clock">
+                                <span><h1>13:44</h1></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animacao">
+                        <hr>
+                        <div class="circulo"></div>
+                        <hr>
+                    </div>
+                    <div class="infoClima">
+                        <p>Umidade: <span id="umidade"></span></p>
+                        <p>Velocidade do vento: <span id="velocidade"></span></p>
+                        <p>Descrição: <span id="descrição"></span></p>
+                    </div>
+                </div>
+            </div>
+
             <div class="dashboard">
                 <div class="dashboard-children">
                     <div class="registro-fileira1">
-                        <div class="registro-gado">
-                            <div class="registro-gado-dado">
-                                <div class="register-number">
-                                    <h1 class="colorh1">0.0</h1>
+                        <!-- <div class="registro-fileira1"> -->
+                            <div class="registro-gado">
+                                <div class="registro-gado-dado">
+                                    <div class="register-number">
+                                        <h1 class="colorh1">0.0</h1>
+                                    </div>
+                                    <img src="/imgDashBoard/vaca (1) 1.png" width="70px" height="70px">
                                 </div>
-                                <img src="/imgDashBoard/vaca (1) 1.png" width="70px" height="70px">
+                                <h3 class="colorh3">Gado</h3>
                             </div>
-                            <h3 class="colorh3">Gado</h3>
-                        </div>
-
-                        <div class="registro-comedouros">
-                            <div class="registro-gado-dado">
-                                <div class="register-number">
-                                    <h1 class="colorh1">0.0</h1>
+    
+                            <div class="registro-comedouros">
+                                <div class="registro-gado-dado">
+                                    <div class="register-number">
+                                        <h1 class="colorh1">0.0</h1>
+                                    </div>
+                                    <img src="/imgDashBoard/trigo 1.png" width="70px" height="70px">
                                 </div>
-                                <img src="/imgDashBoard/trigo 1.png" width="70px" height="70px">
+                                <h3 class="colorh3">Comedouros</h3>
                             </div>
-                            <h3 class="colorh3">Comedouros</h3>
-                        </div>
-
-                        <div class="registro-bebedouros">
-                            <div class="registro-gado-dado">
-                                <div class="register-number">
-                                    <h1 class="colorh1">0.0</h1>
+    
+                            <div class="registro-bebedouros">
+                                <div class="registro-gado-dado">
+                                    <div class="register-number">
+                                        <h1 class="colorh1">0.0</h1>
+                                    </div>
+                                    <img src="/imgDashBoard/gota-de-agua 1.png" width="70px" height="70px">
                                 </div>
-                                <img src="/imgDashBoard/gota-de-agua 1.png" width="70px" height="70px">
+                                <h3 class="colorh3">Bebedouros</h3>
                             </div>
-                            <h3 class="colorh3">Bebedouros</h3>
-                        </div>
-
-                        <div class="registro-metros">
-                            <div class="registro-gado-dado">
-                                <div class="register-number">
-                                    <h1 class="colorh1">0.0</h1>
+    
+                            <div class="registro-metros">
+                                <div class="registro-gado-dado">
+                                    <div class="register-number">
+                                        <h1 class="colorh1">0.0</h1>
+                                    </div>
+                                    <img src="/imgDashBoard/area 1.png" width="70px" height="70px">
                                 </div>
-                                <img src="/imgDashBoard/area 1.png" width="70px" height="70px">
+                                <h3 class="colorh3">Metros</h3>
                             </div>
-                            <h3 class="colorh3">Metros</h3>
-                        </div>
+                        <!-- </div> -->
+    
+                        <!-- <div class="registro-fileira2"> -->
+                            <div class="registro-sensores">
+                                <div class="registro-gado-dado">
+                                    <div class="register-number">
+                                        <h1 class="colorh1">0.0</h1>
+                                    </div>
+                                    <img src="/imgDashBoard/sensor 1.png" width="70px" height="70px">
+                                </div>
+                                <h3 class="colorh3">Sensores</h3>
+                            </div>
+    
+                            <div class="regitro-piquetes">
+                                <div class="registro-gado-dado">
+                                    <div class="register-number">
+                                        <h1 class="colorh1">0.0</h1>
+                                    </div>
+                                    <img src="/imgDashBoard/piquete 1.png" width="70px" height="70px">
+                                </div>
+                                <h3 class="colorh3">Piquetes</h3>
+                            </div>
+    
+                            <div class="registro-estoque">
+                                <div class="registro-gado-dado">
+                                    <div class="register-number">
+                                        <h1 class="colorh1">0.0</h1>
+                                    </div>
+                                    <img src="/imgDashBoard/pacote-de-feno (1) 1.png" width="70px" height="70px">
+                                </div>
+                                <h3 class="colorh3">Estoque</h3>
+                            </div>
+    
+                            <div class="registro-rodizio">
+                                <div class="registro-gado-dado">
+                                    <div class="register-number">
+                                        <h1 class="colorh1">0.0</h1>
+                                    </div>
+                                    <img src="/imgDashBoard/troca 1.png" width="70px" height="70px">
+                                </div>
+                                <h3 class="colorh3">Rodízio</h3>
+                            </div>
+                        <!-- </div> -->
                     </div>
-
-                    <div class="registro-fileira2">
-                        <div class="registro-sensores">
-                            <div class="registro-gado-dado">
-                                <div class="register-number">
-                                    <h1 class="colorh1-sensor">0.0</h1>
-                                </div>
-                                <img src="/imgDashBoard/sensor 1.png" width="70px" height="70px">
-                            </div>
-                            <h3 class="colorh3">Sensores</h3>
-                        </div>
-
-                        <div class="regitro-piquetes">
-                            <div class="registro-gado-dado">
-                                <div class="register-number">
-                                    <h1 class="colorh1">0.0</h1>
-                                </div>
-                                <img src="/imgDashBoard/piquete 1.png" width="70px" height="70px">
-                            </div>
-                            <h3 class="colorh3">Piquetes</h3>
-                        </div>
-
-                        <div class="registro-estoque">
-                            <div class="registro-gado-dado">
-                                <div class="register-number">
-                                    <h1 class="colorh1">0.0</h1>
-                                </div>
-                                <img src="/imgDashBoard/pacote-de-feno (1) 1.png" width="70px" height="70px">
-                            </div>
-                            <h3 class="colorh3">Estoque</h3>
-                        </div>
-
-                        <div class="registro-rodizio">
-                            <div class="registro-gado-dado">
-                                <div class="register-number">
-                                    <h1 class="colorh1">0.0</h1>
-                                </div>
-                                <img src="/imgDashBoard/troca 1.png" width="70px" height="70px">
-                            </div>
-                            <h3 class="colorh3">Rodízio</h3>
-                        </div>
-                    </div>
-
                     <div class="registro-graficos"></div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <div class="b3">
+        <img src="../IMG/3.png" alt="" width="60%">
+        <input type="button" value="Saiba Mais" class="btnImg3_saibaMais">
+    </div>
+
+
     <div class="footer">
         <div class="footer-sub">
             <div class="footer-children">
@@ -190,32 +234,31 @@
     <div id="entreemcontato"></div>
 
 </body>
-
-  <script>
-  window.addEventListener('DOMContentLoaded', async () => {
-    const token = localStorage.getItem('token');
-    if (!token) return;
-
-    try {
-      const res = await fetch('http://localhost:3000/auth/me', {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`
+<script>
+    window.addEventListener('DOMContentLoaded', async () => {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+  
+      try {
+        const res = await fetch('http://localhost:3000/auth/me', {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+  
+        if (res.ok) {
+          const user = await res.json();
+          const nomeUsuario = document.getElementById('nome-usuario');
+          if (nomeUsuario) nomeUsuario.textContent = user.name;
+        } else {
+          console.warn("Token inválido ou usuário não encontrado");
         }
-      });
-
-      if (res.ok) {
-        const user = await res.json();
-        const nomeUsuario = document.getElementById('nome-usuario');
-        if (nomeUsuario) nomeUsuario.textContent = user.name;
-      } else {
-        console.warn("Token inválido ou usuário não encontrado");
+      } catch (err) {
+        console.error("Erro ao buscar dados do usuário:", err);
       }
-    } catch (err) {
-      console.error("Erro ao buscar dados do usuário:", err);
-    }
-  });
-</script>
+    });
+  </script>
 <script src="/js/script.js"></script>
 <script src="/js/servicos.js"></script>
 

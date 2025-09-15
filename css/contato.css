@@ -36,7 +36,12 @@ main{
     color: #465640;
 
 }
-
+.propaganda_12{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 60px 0 60px 0;
+}
 
 .pesquisa-dad{
     width: 40%;
@@ -561,7 +566,7 @@ position: relative;
     display: flex;
     justify-content: center;
     padding: 50px;
-    
+    padding-bottom: 0px;
 }
 
 .imgContato{
