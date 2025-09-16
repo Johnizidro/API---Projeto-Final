@@ -10,65 +10,100 @@
 </head>
 
 <body>
-    <div class="cabecalho">
-        <div class="cabecalho-div-">
-            <div class="cabecalho-div-login">
-                <div class="cabecalho-children">
-            <div class="cabecalho-div">
-                <!-- Ícone para abrir o menu -->
-                <!-- Ícone para abrir o menu -->
-                <span class="cabecalho-icone" onclick="abrirMenu()">
-                            <img src="/IMG/1-removebg-preview 4.png" width="150px">
-                        </span>
-
-                <!-- Menu lateral com botão de fechar -->
-                <div id="menuLateral" class="menu-lateral">
-                    <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
-                    <ul>
-                        <li>
-                            <a href="index.html">
-                                <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
-                            </a>
-                        </li>
-                        <li>
-                            <a href="cadastroAnimal.html">
-                                <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
-                            </a>
-                        </li>
-                        <li>
-                            <a href="consultaMensal.html">
-                                <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta Mensal
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="/IMG/telefone 2.png" alt="Contatos" class="icon"
-                                    style="width: 50px;margin-left: -6px;"> Contatos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="veterinarios.html">
-                                <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
-                                    style="width: 50px;margin-left: -6px;"> Veterinários
-                            </a>
-                        </li>
-                    </ul>
+  <div class="cabecalho">
+    <div class="cabecalho-div-">
+        <div class="cabecalho-div-login">
+            <img src="/IMG/Group 1.png" width="80px" class="imgLogo">      
+                <div class="cabecalho-div">
+                    <!-- Ícone para abrir o menu -->
+                    <!-- Ícone para abrir o menu -->
+                    
+                    <!-- Menu lateral com botão de fechar -->
+                    <div id="menuLateral" class="menu-lateral">
+                        <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
+                        <ul>
+                            <li>
+                                <a href="../index.html">
+                                    <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
+                                </a>
+                            </li>
+                            <li>
+                                <a href="cadastroAnimal.html">
+                                    <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultaMensal.html">
+                                    <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta
+                                    Mensal
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/IMG/telefone 2.png" alt="Contatos" class="icon"
+                                        style="width: 50px;margin-left: -6px;"> Contatos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="veterinarios.html">
+                                    <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
+                                        style="width: 50px;margin-left: -6px;"> Veterinários
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+       
 
-
+            <div class="pesquisa-dad">
+                <input class="pesquisa" type="text" name="" id="" size="80px">
+                <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px">
             </div>
+
+            <a href="login.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
+                <p style="color: #5E7153;font-size: 10.5px;font-weight: bold;">Login</p>
+            </a>
         </div>
-                <div class="pesquisa-dad"><input class="pesquisa" type="text" name="" id="" size="80px"><img
-                        class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px"></div>
-                        <a href="perfil.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
-                    <p id="nome-usuario" style="color: #5E7153;font-size: 10.5px;font-weight: bold;">Login</p>
-                </a>
-            </div>
+        
+        <div class="menu">
+            <img src="/IMG/bars-solid-full.svg" alt="" width="35px" onclick="abrirMenu()">
+            <p>Bem vindo a ConectaBov</p>
+        </div>
+
+            <div class="climabox">
+              <div class="monitoramentoClima">
+                  <div class="regiaoClima">
+                      <h3>Clima de <span>Campinas</span></h3>
+
+                      <div class="temperatura">
+                          <div class="sol">
+                              <img src="../IMG/sun 1.png" alt="sol">
+                              <span><h1>21°</h1></span>
+                          </div>
+                          <div class="relogio">
+                              <img src="../IMG/clock 1.png" alt="clock">
+                              <span><h1>13:44</h1></span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="animacao">
+                      <hr>
+                      <div class="circulo"></div>
+                      <hr>
+                  </div>
+                  <div class="infoClima">
+                      <p>Umidade: <span id="umidade"></span></p>
+                      <p>Velocidade do vento: <span id="velocidade"></span></p>
+                      <p>Descrição: <span id="descrição"></span></p>
+                  </div>
+              </div>
+          </div>
+          
             <div class="dashboard">
                 <div class="dashboard-children">
                     <div class="tituloCadastroGeral">

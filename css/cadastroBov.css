@@ -1,11 +1,24 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-    .background-image{
-        background-image: url(/IMG/vaca-no-pasto.jpg);
+    .background-wrapper {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .background-blur {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('/IMG/vaca-no-pasto.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: left center;
-    }
-    *{
+        z-index: 0;
+        opacity: 0.7;
+      }
+    
+      *{
         margin: 0%;
         padding: 0%;
         font-family: "Montserrat", sans-serif;
@@ -15,6 +28,7 @@
     position: relative;
     height: 60px;
 }
+
 
 #formCadastro{
     width: 70%;
@@ -56,7 +70,7 @@
     .campoCadastro {     
         height: 35px;
         padding-left: 5px;
-        background-color: #ebddba;
+        background-color: #FFF8E6;
         color: #5E7153;
         border-radius: 5px;
         font-weight: bold;
@@ -73,9 +87,10 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        z-index: 1;
     }
     .main{
-        background-color: #ebddba;
+        background-color: #FFF8E6;
         width: 20%;
         height: 600px;
         display: flex;
@@ -85,6 +100,7 @@
         border: solid 2px #5E7153;
         flex-direction: column;
         box-shadow: rgb(54, 54, 54) 5px 4px 10px;
+        z-index: 1;
         
     }
 .manutencao,.colaborador,.gestao {
