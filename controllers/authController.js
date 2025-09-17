@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 const { Cliente, Fazenda } = require("../models/modelosCli");
+const transportador = require("../config/configEmail");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -23,12 +24,32 @@ exports.registerUser = async (req, res) => {
     const salt = await bcrypt.genSalt(12);
     const passwordHash = await bcrypt.hash(password, salt);
 
-    const newUser = new User({ name, email, telefone, password: passwordHash });
+    const newUser = new User({
+      name,
+      email,
+      telefone,
+      password: passwordHash,
+    });
+
     await newUser.save();
 
-    res.status(201).json({ msg: "Usuário criado com sucesso" });
+    // Enviar e-mail de boas-vindas
+    const mailOptions = {
+      from: `"ConectaBov" <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: "Bem-vindo à nossa plataforma!",
+      html: `
+        <h2>Olá, ${name}!</h2>
+        <p>Seu cadastro foi realizado com sucesso.</p>
+        <p>Estamos felizes em tê-lo conosco.</p>
+      `,
+    };
+
+    await transportador.sendMail(mailOptions);
+
+    res.status(201).json({ msg: "Usuário criado com sucesso. E-mail enviado." });
   } catch (error) {
-    console.error(error);
+    console.error("Erro ao registrar usuário ou enviar e-mail:", error);
     res.status(500).json({ msg: "Erro no servidor" });
   }
 };
