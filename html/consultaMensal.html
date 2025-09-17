@@ -154,8 +154,9 @@
       if (numeroAnimais) numeroAnimais.textContent = animais.length;
 
       const lista = document.querySelector('.lista-animais');
-      lista.innerHTML = ''; // limpa os itens hardcoded
+      lista.innerHTML = ''; // limpa os itens anteriores
 
+      // Renderiza cada animal com botões
       animais.forEach(animal => {
         const div = document.createElement('div');
         div.classList.add('item-animal');
@@ -167,9 +168,48 @@
           <div class="campo"><strong>Tipo Produção:</strong> ${animal.tipoProducao}</div>
           <div class="campo"><strong>Peso:</strong> ${animal.peso} kg</div>
           <div class="campo"><strong>Altura:</strong> ${animal.altura} m</div>
+          <div class="acoes">
+            <button class="btn-editar" data-id="${animal._id}">✏️ Editar</button>
+            <button class="btn-deletar" data-id="${animal._id}">🗑️ Deletar</button>
+          </div>
         `;
 
         lista.appendChild(div);
+      });
+
+      // Eventos dos botões
+      lista.addEventListener('click', async (e) => {
+        const target = e.target;
+
+        // 🗑️ DELETAR
+        if (target.classList.contains('btn-deletar')) {
+          const id = target.getAttribute('data-id');
+          if (confirm('Deseja realmente deletar este animal?')) {
+            try {
+              const res = await fetch(`http://localhost:3000/tarefas/deletar/${id}`, {
+                method: 'DELETE',
+                headers: {
+                  Authorization: `Bearer ${token}`
+                }
+              });
+
+              if (!res.ok) throw new Error('Erro ao deletar animal');
+
+              alert('Animal deletado com sucesso!');
+              location.reload(); // recarrega a lista
+
+            } catch (error) {
+              console.error(error);
+              alert('Erro ao deletar animal');
+            }
+          }
+        }
+
+        // ✏️ EDITAR
+        if (target.classList.contains('btn-editar')) {
+          const id = target.getAttribute('data-id');
+          window.location.href = `editarAnimal.html?id=${id}`;
+        }
       });
 
     } catch (error) {
@@ -178,6 +218,7 @@
     }
   });
 </script>
-<script src="/js/script.js"></script>
+
+
 
 </html>

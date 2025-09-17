@@ -1,4 +1,6 @@
 const Model = require("../models/modelos");
+const mongoose = require('mongoose');
+
 
 exports.create = async (req, res) => {
   try {
@@ -55,5 +57,31 @@ exports.listByUser = async (req, res) => {
     res.json(animais);
   } catch (error) {
     res.status(500).json({ message: 'Erro ao buscar animais', error: error.message });
+  }
+};
+
+
+
+exports.deleteAnimal = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    console.log("Tentando deletar animal com ID:", id);
+    console.log("Usuário logado (req.userId):", req.userId);
+
+    const animal = await Model.findOneAndDelete({
+      _id: id,
+      userId: new mongoose.Types.ObjectId(req.userId) // <- importante!
+    });
+
+    if (!animal) {
+      return res.status(404).json({ message: 'Animal não encontrado ou acesso não autorizado.' });
+    }
+
+    return res.status(200).json({ message: 'Animal deletado com sucesso.' });
+
+  } catch (error) {
+    console.error("Erro ao deletar animal:", error.message);
+    return res.status(500).json({ message: 'Erro interno ao deletar animal.', error: error.message });
   }
 };

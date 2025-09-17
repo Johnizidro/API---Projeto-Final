@@ -9,6 +9,7 @@ const validarEntrada = require("../middlewares/mediadorCli");
 
 router.post("/CadAni",validarEntrada, controles.create);
 router.get('/listaAni', validarEntrada, controles.listByUser);
+router.delete('/deletar/:id', validarEntrada, controles.deleteAnimal);
 
 
 
