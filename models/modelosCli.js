@@ -7,6 +7,7 @@ const clienteSchema = new mongoose.Schema({
   cpf: String,
   telefone: String,
   ocupacao: String,
+  imagem: Buffer, // NOVO CAMPO PARA IMAGEM
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
@@ -19,8 +20,8 @@ const fazendaSchema = new mongoose.Schema({
   numero: String,
   estado: String,
   cidade: String,
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }  // Referência
-})
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+});
 
 const Fazenda = mongoose.model("Fazenda", fazendaSchema);
 

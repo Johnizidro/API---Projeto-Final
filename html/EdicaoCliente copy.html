@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/cadastroCliente.css">
+    <link rel="stylesheet" href="/css/EdicaoCliente.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <title>Cadastro Animal - ConectaBov</title>
 </head>
@@ -72,8 +72,7 @@
             <div class="dashboard">
                 <div class="dashboard-children">
                     <div class="tituloCadastroGeral">
-                        <img src="/IMG/pesquisa 2.png" alt="" width="32px" class="tituloCadastroGeralImg">Cadastro
-                        Animal
+                        <img src="/IMG/pesquisa 2.png" alt="" width="32px" class="tituloCadastroGeralImg">Alteração de Dados
                     </div>
 
                     <div class="cadastroBox">
@@ -118,20 +117,8 @@
                                 <div class="labelline">Ocupação</div>
                             </div>
 
-                            <div class="area">
-    <input type="file" name="imagem" id="foto" required class="campoCadastro input" accept="image/*">
-    <div class="labelline">Foto do Perfil</div>
-</div>
-  <div class="area">
-                                <input type="text" name="ocupacao" id="" required class="camastro input"
-                                    placeholder=" Apenas ignora">
-                                <div class="labelline">Ocupação</div>
-                            </div>
                             
 
-                            <div class="botaoContainer">
-                                <input type="button" value="Salvar" class="botaoEnviar" onclick="enviarCliente()">
-                              </div>
                         </form>
                     </div>
 
@@ -176,32 +163,16 @@
                                 <div class="labelline">Cidade</div>
                             </div>
 
-                            <div class="botaoContainer">
-                                <input type="button" value="Salvar" class="botaoEnviar" onclick="enviarFazenda()">
-                              </div>
+                           
 
 
                         </form>
+        
                     </div>
 
-                    <div class="swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="slide">slide 1</div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="slide">slide 2</div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="slide">slide 3</div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="slide">slide 4</div>
-                            </div>
-                        </div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-                    </div>
+                                 <div class="botaoContainer">
+    <input type="button" id="btnSalvarTudo"  value="Salvar" class="botaoEnviar">
+</div>
 
                 </div>
             </div>
@@ -235,73 +206,85 @@
 
 </body>
 <script>
-   let clienteEnviado = false;
-let fazendaEnviada = false;
+async function carregarDados() {
+  const token = localStorage.getItem('token');
+  const resp = await fetch("http://localhost:3000/auth/me", {
+    method: "GET",
+    headers: { "Authorization": `Bearer ${token}` }
+  });
 
-// Envio do cliente
-async function enviarCliente() {
-  const form = document.getElementById("formCliente");
-  const formData = new FormData(form); // necessário para enviar arquivos
-  const token = localStorage.getItem("token");
+  if (!resp.ok) {
+    alert("Erro ao carregar dados");
+    return;
+  }
+
+  const { cliente, fazenda } = await resp.json();
+
+  // Preenche cliente
+  const formCliente = document.getElementById("formCliente");
+  for (const [chave, valor] of Object.entries(cliente)) {
+    if (formCliente.elements[chave]) {
+      formCliente.elements[chave].value = valor || "";
+    }
+  }
+
+  // Preenche fazenda
+  if (fazenda) {
+    const formFazenda = document.getElementById("formFazenda");
+    for (const [chave, valor] of Object.entries(fazenda)) {
+      if (formFazenda.elements[chave]) {
+        formFazenda.elements[chave].value = valor || "";
+      }
+    }
+  }
+}
+
+async function salvarTudo() {
+  const token = localStorage.getItem('token');
 
   try {
-    const resposta = await fetch("http://localhost:3000/client/cliente", {
-      method: "POST",
-      headers: { "Authorization": `Bearer ${token}` }, // NÃO definir Content-Type
-      body: formData
+    // Cliente
+    const clienteForm = document.getElementById("formCliente");
+    const clienteDados = Object.fromEntries(new FormData(clienteForm));
+    const respCliente = await fetch("http://localhost:3000/auth/cliente", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(clienteDados)
     });
+    if (!respCliente.ok) throw new Error("Erro ao atualizar dados do cliente");
 
-    if (resposta.ok) {
-      alert("Cliente cadastrado com sucesso!");
-      form.reset();
-      clienteEnviado = true;
-      verificarRedirecionamento();
-    } else {
-      alert("Erro ao cadastrar cliente.");
-    }
-  } catch (err) {
-    console.error("Erro ao enviar cliente:", err);
-    alert("Erro ao cadastrar cliente.");
-  }
-}
-
-// Envio da fazenda
-async function enviarFazenda() {
-  const form = document.getElementById("formFazenda");
-  const formData = new FormData(form);
-  const token = localStorage.getItem("token");
-
-  try {
-    const resposta = await fetch("http://localhost:3000/client/fazenda", {
-      method: "POST",
-      headers: { "Authorization": `Bearer ${token}` },
-      body: formData
+    // Fazenda
+    const fazendaForm = document.getElementById("formFazenda");
+    const fazendaDados = Object.fromEntries(new FormData(fazendaForm));
+    const respFazenda = await fetch("http://localhost:3000/auth/fazenda", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(fazendaDados)
     });
+    if (!respFazenda.ok) throw new Error("Erro ao atualizar dados da fazenda");
 
-    if (resposta.ok) {
-      alert("Fazenda cadastrada com sucesso!");
-      form.reset();
-      fazendaEnviada = true;
-      verificarRedirecionamento();
-    } else {
-      alert("Erro ao cadastrar fazenda.");
-    }
-  } catch (err) {
-    console.error("Erro ao enviar fazenda:", err);
-    alert("Erro ao cadastrar fazenda.");
+    // Sucesso: redireciona para a página de perfil
+    alert("Dados atualizados com sucesso!");
+    window.location.href = "perfil.html";
+
+  } catch (error) {
+    alert(error.message);
+    console.error(error);
   }
 }
 
-function verificarRedirecionamento() {
-  if (clienteEnviado && fazendaEnviada) {
-    window.location.href = "perfil.html"; // página de destino após envio
-  }
-}
+// Carrega os dados ao abrir a página
+window.onload = carregarDados;
 
-// Vincular os botões separados
-
-    </script>
-
+// Botão único de salvar
+document.getElementById("btnSalvarTudo")?.addEventListener("click", salvarTudo);
+</script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="../js/script.js"></script>
 

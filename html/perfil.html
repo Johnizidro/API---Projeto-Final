@@ -148,6 +148,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div style="margin-top: 20px; text-align: center;">
+    <button id="editarPerfilBtn" class="botaoEnviar">Editar Perfil</button>
+</div>
                     </div>
                 </div>
                        
@@ -225,6 +228,12 @@
   } catch (error) {
     console.error('Erro na requisição:', error);
   }
+
+document.getElementById("editarPerfilBtn").addEventListener("click", () => {
+    // Redireciona para a página de edição (onde faremos o PUT)
+    window.location.href = "http://127.0.0.1:5500/html/EdicaoCliente%20copy.html";
+})
+  
 });
   </script>
 

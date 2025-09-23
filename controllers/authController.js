@@ -116,3 +116,38 @@ exports.getUserData = async (req, res) => {
     res.status(500).json({ msg: "Erro no servidor" });
   }
 };
+
+exports.updateCliente = async (req, res) => {
+  try {
+    const userId = req.userId;
+    const cliente = await Cliente.findOne({ userId });
+
+    if (!cliente) {
+      return res.status(404).json({ msg: "Cliente não encontrado" });
+    }
+
+    await Cliente.updateOne({ userId }, req.body);
+    res.json({ msg: "Cliente atualizado com sucesso!" });
+  } catch (error) {
+    console.error("Erro ao atualizar cliente:", error);
+    res.status(500).json({ msg: "Erro no servidor" });
+  }
+};
+
+// PUT Fazenda
+exports.updateFazenda = async (req, res) => {
+  try {
+    const userId = req.userId;
+    const fazenda = await Fazenda.findOne({ userId });
+
+    if (!fazenda) {
+      return res.status(404).json({ msg: "Fazenda não encontrada" });
+    }
+
+    await Fazenda.updateOne({ userId }, req.body);
+    res.json({ msg: "Fazenda atualizada com sucesso!" });
+  } catch (error) {
+    console.error("Erro ao atualizar fazenda:", error);
+    res.status(500).json({ msg: "Erro no servidor" });
+  }
+};

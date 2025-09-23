@@ -1,7 +1,6 @@
 const { Cliente, Fazenda } = require("../models/modelosCli");
 
-
-// Função para cadastrar cliente
+// Cadastrar Cliente
 const cadastrarCliente = async (req, res) => {
   try {
     console.log("🔍 Dados recebidos no body:", req.body);
@@ -9,8 +8,13 @@ const cadastrarCliente = async (req, res) => {
 
     const novoCliente = new Cliente({
       ...req.body,
-      userId: req.userId, // ← ESSENCIAL para associar com o User autenticado
+      userId: req.userId
     });
+
+    // Salvar imagem se houver
+    if (req.file) {
+      novoCliente.imagem = req.file.buffer;
+    }
 
     await novoCliente.save();
     res.status(201).json({ mensagem: "Cliente cadastrado com sucesso!" });
@@ -20,7 +24,7 @@ const cadastrarCliente = async (req, res) => {
   }
 };
 
-// Função para cadastrar fazenda
+// Cadastrar Fazenda
 const cadastrarFazenda = async (req, res) => {
   try {
     console.log("📦 Dados recebidos:", req.body);
@@ -28,7 +32,7 @@ const cadastrarFazenda = async (req, res) => {
 
     const novaFazenda = new Fazenda({
       ...req.body,
-      userId: req.userId // 👈 mesmo padrão usado com o cliente
+      userId: req.userId
     });
 
     await novaFazenda.save();
@@ -38,7 +42,7 @@ const cadastrarFazenda = async (req, res) => {
     res.status(500).json({ erro: "Erro ao cadastrar fazenda." });
   }
 };
-// Exportar as duas funções
+
 module.exports = {
   cadastrarCliente,
   cadastrarFazenda
