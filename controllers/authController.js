@@ -97,8 +97,14 @@ exports.getUserData = async (req, res) => {
       return res.status(404).json({ msg: "Cliente não encontrado" });
     }
 
-    // 🔁 Agora buscando a fazenda pelo userId
     const fazenda = await Fazenda.findOne({ userId: req.userId });
+
+    const clienteData = cliente.toObject();
+
+    // Converter a imagem do Binary para Base64
+    if (clienteData.imagem && clienteData.imagem.buffer) {
+      clienteData.imagem = clienteData.imagem.buffer.toString('base64');
+    }
 
     res.status(200).json({
       user: {
@@ -107,7 +113,7 @@ exports.getUserData = async (req, res) => {
         telefone: user.telefone,
         createdAt: user.createdAt,
       },
-      cliente: cliente.toObject(),
+      cliente: clienteData,
       fazenda: fazenda ? fazenda.toObject() : null
     });
 

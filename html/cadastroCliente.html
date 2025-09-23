@@ -123,9 +123,6 @@
     <div class="labelline">Foto do Perfil</div>
 </div>
   <div class="area">
-                                <input type="text" name="ocupacao" id="" required class="camastro input"
-                                    placeholder=" Apenas ignora">
-                                <div class="labelline">Ocupação</div>
                             </div>
                             
 
@@ -235,10 +232,10 @@
 
 </body>
 <script>
-   let clienteEnviado = false;
+let clienteEnviado = false;
 let fazendaEnviada = false;
 
-// Envio do cliente
+// Envio do cliente (com imagem)
 async function enviarCliente() {
   const form = document.getElementById("formCliente");
   const formData = new FormData(form); // necessário para enviar arquivos
@@ -265,17 +262,20 @@ async function enviarCliente() {
   }
 }
 
-// Envio da fazenda
+// Envio da fazenda (JSON)
 async function enviarFazenda() {
   const form = document.getElementById("formFazenda");
-  const formData = new FormData(form);
+  const dados = Object.fromEntries(new FormData(form)); // converte para objeto
   const token = localStorage.getItem("token");
 
   try {
     const resposta = await fetch("http://localhost:3000/client/fazenda", {
       method: "POST",
-      headers: { "Authorization": `Bearer ${token}` },
-      body: formData
+      headers: { 
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json" // agora sim, JSON
+      },
+      body: JSON.stringify(dados)
     });
 
     if (resposta.ok) {
@@ -292,16 +292,13 @@ async function enviarFazenda() {
   }
 }
 
+// Redireciona quando ambos forem enviados
 function verificarRedirecionamento() {
   if (clienteEnviado && fazendaEnviada) {
-    window.location.href = "perfil.html"; // página de destino após envio
+    window.location.href = "perfil.html"; // página de destino
   }
 }
-
-// Vincular os botões separados
-
-    </script>
-
+</script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="../js/script.js"></script>
 
