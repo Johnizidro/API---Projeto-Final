@@ -123,16 +123,28 @@ exports.getUserData = async (req, res) => {
   }
 };
 
+
+// PUT Cliente (com imagem)
 exports.updateCliente = async (req, res) => {
   try {
     const userId = req.userId;
+
     const cliente = await Cliente.findOne({ userId });
 
     if (!cliente) {
       return res.status(404).json({ msg: "Cliente não encontrado" });
     }
 
-    await Cliente.updateOne({ userId }, req.body);
+    // Atualiza os campos do body
+    Object.assign(cliente, req.body);
+
+    // Se imagem for enviada, atualiza
+    if (req.file) {
+      cliente.imagem = req.file.buffer;
+    }
+
+    await cliente.save();
+
     res.json({ msg: "Cliente atualizado com sucesso!" });
   } catch (error) {
     console.error("Erro ao atualizar cliente:", error);

@@ -116,6 +116,12 @@
                                     placeholder=" Ocupação">
                                 <div class="labelline">Ocupação</div>
                             </div>
+                            <div class="area">
+                                <input type="file" name="imagem" id="foto" required class="campoCadastro input" accept="image/*">
+                                <div class="labelline">Foto do Perfil</div>
+                            </div>
+                              <div class="area">
+                                                        </div>
 
                             
 
@@ -206,85 +212,93 @@
 
 </body>
 <script>
-async function carregarDados() {
-  const token = localStorage.getItem('token');
-  const resp = await fetch("http://localhost:3000/auth/me", {
-    method: "GET",
-    headers: { "Authorization": `Bearer ${token}` }
-  });
-
-  if (!resp.ok) {
-    alert("Erro ao carregar dados");
-    return;
-  }
-
-  const { cliente, fazenda } = await resp.json();
-
-  // Preenche cliente
-  const formCliente = document.getElementById("formCliente");
-  for (const [chave, valor] of Object.entries(cliente)) {
-    if (formCliente.elements[chave]) {
-      formCliente.elements[chave].value = valor || "";
-    }
-  }
-
-  // Preenche fazenda
-  if (fazenda) {
-    const formFazenda = document.getElementById("formFazenda");
-    for (const [chave, valor] of Object.entries(fazenda)) {
-      if (formFazenda.elements[chave]) {
-        formFazenda.elements[chave].value = valor || "";
+    async function carregarDados() {
+      const token = localStorage.getItem('token');
+      const resp = await fetch("http://localhost:3000/auth/me", {
+        method: "GET",
+        headers: { "Authorization": `Bearer ${token}` }
+      });
+    
+      if (!resp.ok) {
+        alert("Erro ao carregar dados");
+        return;
+      }
+    
+      const { cliente, fazenda } = await resp.json();
+    
+      // Preenche cliente
+      const formCliente = document.getElementById("formCliente");
+      for (const [chave, valor] of Object.entries(cliente)) {
+        if (formCliente.elements[chave]) {
+          formCliente.elements[chave].value = valor || "";
+        }
+      }
+    
+      // Preenche fazenda
+      if (fazenda) {
+        const formFazenda = document.getElementById("formFazenda");
+        for (const [chave, valor] of Object.entries(fazenda)) {
+          if (formFazenda.elements[chave]) {
+            formFazenda.elements[chave].value = valor || "";
+          }
+        }
       }
     }
-  }
-}
-
-async function salvarTudo() {
-  const token = localStorage.getItem('token');
-
-  try {
-    // Cliente
-    const clienteForm = document.getElementById("formCliente");
-    const clienteDados = Object.fromEntries(new FormData(clienteForm));
-    const respCliente = await fetch("http://localhost:3000/auth/cliente", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      },
-      body: JSON.stringify(clienteDados)
-    });
-    if (!respCliente.ok) throw new Error("Erro ao atualizar dados do cliente");
-
-    // Fazenda
-    const fazendaForm = document.getElementById("formFazenda");
-    const fazendaDados = Object.fromEntries(new FormData(fazendaForm));
-    const respFazenda = await fetch("http://localhost:3000/auth/fazenda", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      },
-      body: JSON.stringify(fazendaDados)
-    });
-    if (!respFazenda.ok) throw new Error("Erro ao atualizar dados da fazenda");
-
-    // Sucesso: redireciona para a página de perfil
-    alert("Dados atualizados com sucesso!");
-    window.location.href = "perfil.html";
-
-  } catch (error) {
-    alert(error.message);
-    console.error(error);
-  }
-}
-
-// Carrega os dados ao abrir a página
-window.onload = carregarDados;
-
-// Botão único de salvar
-document.getElementById("btnSalvarTudo")?.addEventListener("click", salvarTudo);
-</script>
+    
+    async function salvarTudo() {
+      const token = localStorage.getItem('token');
+    
+      try {
+        // ========== Envia Cliente com imagem ==========
+        const clienteForm = document.getElementById("formCliente");
+        const clienteFormData = new FormData(clienteForm);
+    
+        const respCliente = await fetch("http://localhost:3000/auth/cliente", {
+          method: "PUT",
+          headers: {
+            "Authorization": `Bearer ${token}`
+            // ⚠️ NÃO colocar Content-Type aqui!
+          },
+          body: clienteFormData
+        });
+    
+        if (!respCliente.ok) {
+          throw new Error("Erro ao atualizar dados do cliente");
+        }
+    
+        // ========== Envia Fazenda (JSON) ==========
+        const fazendaForm = document.getElementById("formFazenda");
+        const fazendaDados = Object.fromEntries(new FormData(fazendaForm));
+    
+        const respFazenda = await fetch("http://localhost:3000/auth/fazenda", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify(fazendaDados)
+        });
+    
+        if (!respFazenda.ok) {
+          throw new Error("Erro ao atualizar dados da fazenda");
+        }
+    
+        // Sucesso
+        alert("Dados atualizados com sucesso!");
+        window.location.href = "perfil.html";
+    
+      } catch (error) {
+        alert(error.message);
+        console.error(error);
+      }
+    }
+    
+    // Carrega os dados ao abrir a página
+    window.onload = carregarDados;
+    
+    // Botão único de salvar
+    document.getElementById("btnSalvarTudo")?.addEventListener("click", salvarTudo);
+    </script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="../js/script.js"></script>
 
