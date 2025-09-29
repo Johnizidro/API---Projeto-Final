@@ -76,6 +76,28 @@
                 <p>Bem vindo a ConectaBov</p>
             </div>
 
+            <div class="chat-container">
+                <!-- Botão aparece só quando o chat está fechado -->
+                <button class="chat-btn" id="chatBtn">
+                  <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov">
+                </button>
+              
+                <!-- Caixa de chat escondida inicialmente -->
+                <div class="chat-box" id="chatBox">
+                  <div class="chat-header">
+                    ConectaBov I.A
+                    <span class="close-chat" id="closeChat">✖</span>
+                  </div>
+                  <div class="chat-messages" id="chatMessages">
+                    <p class="bot-msg">Olá! Eu sou a I.A da ConectaBov, como posso ajudar?</p>
+                  </div>
+                  <div class="chat-input">
+                    <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+                    <button id="sendBtn">➤</button>
+                  </div>
+                </div>
+              </div>
+
             <div class="climabox">
                 <div class="monitoramentoClima">
                     <div class="regiaoClima">
@@ -259,7 +281,9 @@
       }
     });
   </script>
+<script src="/js/main.js"></script>
 <script src="/js/script.js"></script>
 <script src="/js/servicos.js"></script>
+
 
 </html>

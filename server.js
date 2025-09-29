@@ -14,11 +14,13 @@ require("./config/db"); // conecta no banco
 const authRoutes = require("./routes/authRoutes");
 const tarefasRoutes = require("./routes/rotas");
 const CliFazend = require("./routes/rotasCli");
+const perguntaRoutes = require('./routes/rotasIA');
 
 
 app.use("/auth", authRoutes);
 app.use("/tarefas", tarefasRoutes);
 app.use("/client", CliFazend);
+app.use('/api/pergunta', perguntaRoutes);
 
 
 
@@ -30,5 +32,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
-
 
