@@ -7,7 +7,7 @@
 }
 
 .campoCadastro {
-    width: 245px;
+    width: 275px;
     height: 35px;
     padding-left: 5px;
     background-color: #CCB487;
@@ -15,6 +15,7 @@
     border-radius: 5px;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 5%;
 }
 
 input:focus {
@@ -52,6 +53,7 @@ input:focus {
     transition: 0.2s ease;
     color: #ebddba;
     font-weight: bold;
+    margin-left: 5%;
 }
 
 .tituloCadastroGeral {
@@ -61,7 +63,7 @@ input:focus {
     display: flex;
     align-items: center;
 
-    width: 70%;
+    width: 90%;
 }
 
 .tituloCadastroGeralImg {
@@ -69,7 +71,7 @@ input:focus {
 }
 
 .cadastroBox {
-    width: 70%;
+    width: 85%;
     height: auto;
     background-color: #F8F5F0;
     padding: 20px;
@@ -83,6 +85,7 @@ input:focus {
     display: flex;
     align-items: center;
     height: 100px;
+    margin-left: 2%;
 }
 
 .cadastroBox form {
@@ -253,8 +256,9 @@ body {
     align-items: center;
     flex-direction: column;
     border-radius: 5px;
-    margin-top: 270px;
-    padding: 120px 0px 100px 0px;
+    margin-top: 35%;
+    margin-bottom: 5%;
+    padding: 100px 0px 100px 0px;
     flex-direction: column;
 
 
@@ -491,7 +495,7 @@ body {
 }
 
 .botaoEnviar:hover {
-    background-color: #5E7153;
+    background-color: #dbc58e;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -504,7 +508,7 @@ body {
     height: 150px;
     width: 100%;
     background-color: #465640;
-    margin-top: 290px;
+    margin-top: 30%;
     padding-top: 10px;
 }
 
