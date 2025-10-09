@@ -4,103 +4,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/consultaMensal.css">
-    <link rel="shortcut icon" href="../IMG/Group 1.png" type="image/x-icon">
-    <title>Consulta Mensal - ConectaBov</title>
+    <link rel="stylesheet" href="/css/ConsultaAnimal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Cadastro Animal - ConectaBov</title>
 </head>
 
 <body>
-    <div class="cabecalho">
-        <div class="cabecalho-div-">
-            <div class="cabecalho-div-login">
-                <!-- <div class="cabecalho-children"> -->
-                    <div class="cabecalho-div">
-
-                        <span class="imgLogo">
-                            <img src="/IMG/Group 1.png" width="80px" onclick="abrirMenu()">
-                        </span>
-
-                        <div id="menuLateral" class="menu-lateral">
-                            <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
-                            <ul>
-                                <li>
-                                    <a href="index.html">
-                                        <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="cadastroAnimal.html">
-                                        <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="consultaMensal.html">
-                                        <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta Mensal
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="/IMG/telefone 2.png" alt="Contatos" class="icon"
-                                            style="width: 50px;margin-left: -6px;"> Contatos
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="veterinarios.html">
-                                        <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
-                                            style="width: 50px;margin-left: -6px;"> Veterinários
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-
+  <div class="cabecalho">
+    <div class="cabecalho-div-">
+        <div class="cabecalho-div-login">
+            <img src="/IMG/Group 5.png" width="80px" class="imgLogo">      
+                <div class="cabecalho-div">
+                    <!-- Ícone para abrir o menu -->
+                    <!-- Ícone para abrir o menu -->
+                    
+                    <!-- Menu lateral com botão de fechar -->
+                    <div id="menuLateral" class="menu-lateral">
+                        <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
+                        <ul>
+                            <li>
+                                <a href="servicos.html">
+                                    <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
+                                </a>
+                            </li>
+                            <li>
+                                <a href="cadastroAnimal.html">
+                                    <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultaMensal.html">
+                                    <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta
+                                    Mensal
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
+                                </a>
+                            </li>
+                         
+                            <li>
+                                <a href="veterinarios.html">
+                                    <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
+                                        style="width: 50px;margin-left: -6px;"> Veterinários
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                <!-- </div> -->
-                <div class="pesquisa-dad"><input class="pesquisa" type="text" name="" id="" size="80px">
-                    <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px">
                 </div>
-                <a href="login.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="35px">
-                    <p style="color: #5E7153;font-size: 12.5px;font-weight: bold;">Login</p>
-                </a>
+       
+
+            <div class="pesquisa-dad">
+                <input class="pesquisa" type="text" name="" id="" size="80px">
+                <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px">
             </div>
-            <div class="dashboard">
-                <div class="dashboard-children">
 
-                    <section class="secao-consulta">
-                        <div class="titulo-consulta">
-                            <img src="/IMG/pesquisa 2.png" class="icone" width="35px">
-                            <span style="color: white;font-weight: bold;font-size: 30px;">Consulta Mensal</span>
-                        </div>
+            <a href="perfil.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
+               
+            </a>
+        </div>
+        
+        <div class="menu">
+            <img src="/IMG/bars-solid-full.svg" alt="" width="35px" onclick="abrirMenu()">
+            <p>Bem vindo a ConectaBov</p>
+        </div>
 
-                        <div class="painel-topo">
-                            <div class="quantidade">
-                                <span class="numero">0.0</span>
-                                <span class="texto">animais</span>
-                                <img src="/IMG/vaca (1) 1.png" class="icone-cabeca" style=" width: 45px; margin-left:5px">
-                            </div>
-                            <div class="campo-busca">
-                                <div class="pesquisa-dad">
-                                    <input class="pesquisa" type="text" name="" id="" placeholder="Código Sisbov"
-                                        size="30px">
-                                    <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset=""
-                                        width="18px">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="lista-animais">
-                            <div class="item-animal"></div>
-                        </div>
-                    </section>
-
-
-                </div>
+        <div class="chat-container">
+          <!-- Botão aparece só quando o chat está fechado -->
+          <button class="chat-btn" id="chatBtn">
+            <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov">
+          </button>
+        
+          <!-- Caixa de chat escondida inicialmente -->
+          <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+              ConectaBov I.A
+              <span class="close-chat" id="closeChat">✖</span>
             </div>
+            <div class="chat-messages" id="chatMessages">
+              <p class="bot-msg">Olá! Eu sou a I.A da ConectaBov, como posso ajudar?</p>
+            </div>
+            <div class="chat-input">
+              <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+              <button id="sendBtn">➤</button>
+            </div>
+          </div>
+        </div>
+
+         
+          
+        <div class="dashboard">
+          <div class="dashboard-children">
+
+              <section class="secao-consulta">
+                  <div class="titulo-consulta">
+                      <img src="/IMG/pesquisa 2.png" class="icone" width="35px">
+                      <span style="color: white;font-weight: bold;font-size: 30px;">Consulta Mensal</span>
+                  </div>
+
+                  <div class="painel-topo">
+                      <div class="quantidade">
+                          <span class="numero">0.0</span>
+                          <span class="texto">animais</span>
+                          <img src="/IMG/vaca (1) 1.png" class="icone-cabeca" style=" width: 45px; margin-left:5px">
+                      </div>
+                      <div class="campo-busca">
+                          <div class="pesquisa-dad">
+                              <input class="pesquisa" type="text" name="" id="" placeholder="Código Sisbov"
+                                  size="30px">
+                              <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset=""
+                                  width="18px">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="lista-animais">
+                      <div class="item-animal"></div>
+                  </div>
+              </section>
+
+
+          </div>
+      </div>
         </div>
     </div>
     <div class="footer">
@@ -129,8 +155,8 @@
     </div>
     <div id="entreemcontato"></div>
 
-
 </body>
+
 <script>
   window.addEventListener('DOMContentLoaded', async () => {
     const token = localStorage.getItem('token');
@@ -219,6 +245,8 @@
   });
 </script>
 
-
+<script src="/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="../js/script.js"></script>
 
 </html>

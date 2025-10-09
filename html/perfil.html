@@ -10,151 +10,179 @@
 </head>
 
 <body>
-    <div class="cabecalho">
-        <div class="cabecalho-div-">
-            <div class="cabecalho-div-login">
-                <div class="cabecalho-children">
-            <div class="cabecalho-div">
-                <!-- Ícone para abrir o menu -->
-                <!-- Ícone para abrir o menu -->
-                <span class="cabecalho-icone" onclick="abrirMenu()">
-                            <img src="/IMG/1-removebg-preview 4.png" width="150px">
-                        </span>
-
-                <!-- Menu lateral com botão de fechar -->
-                <div id="menuLateral" class="menu-lateral">
-                    <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
-                    <ul>
-                        <li>
-                            <a href="servicos.html">
-                                <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
-                            </a>
-                        </li>
-                        <li>
-                            <a href="cadastroAnimal.html">
-                                <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
-                            </a>
-                        </li>
-                        <li>
-                            <a href="consultaMensal.html">
-                                <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta
-                                Mensal
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
-                            </a>
-                        </li>
-                       
-                        <li>
-                            <a href="veterinarios.html">
-                                <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
-                                    style="width: 50px;margin-left: -6px;"> Veterinários
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-
-            </div>
-        </div>
-                <div class="pesquisa-dad"><input class="pesquisa" type="text" name="" id="" size="80px"><img
-                        class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px"></div>
-                <a href="perfil.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="35px">
-                    <p style="color: #5E7153;font-size: 12.5px;font-weight: bold;">Login</p>
-                </a>
-            </div>
-            <div class="dashboard">
-                <div class="dashboard-children">
-                    <div class="tituloCadastroGeral">
-                        <img src="/IMG/pesquisa 2.png" alt="" width="46px" class="tituloCadastroGeralImg">Consulta Geral
+  <div class="cabecalho">
+    <div class="cabecalho-div-">
+        <div class="cabecalho-div-login">
+            <img src="/IMG/Group 5.png" width="80px" class="imgLogo">      
+                <div class="cabecalho-div">
+                    <!-- Ícone para abrir o menu -->
+                    <!-- Ícone para abrir o menu -->
+                    
+                    <!-- Menu lateral com botão de fechar -->
+                    <div id="menuLateral" class="menu-lateral">
+                        <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
+                        <ul>
+                            <li>
+                                <a href="servicos.html">
+                                    <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
+                                </a>
+                            </li>
+                            <li>
+                                <a href="cadastroAnimal.html">
+                                    <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultaMensal.html">
+                                    <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta
+                                    Mensal
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
+                                </a>
+                            </li>
+                         
+                            <li>
+                                <a href="veterinarios.html">
+                                    <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
+                                        style="width: 50px;margin-left: -6px;"> Veterinários
+                                </a>
+                            </li>
+                        </ul>
                     </div>
+                </div>
+       
 
-                 
+            <div class="pesquisa-dad">
+                <input class="pesquisa" type="text" name="" id="" size="80px">
+                <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px">
+            </div>
 
-                    <div class="cadastroBox">
-                        <div class="cadastroBox1">
-                            <span style="color: #465640; font-weight: bold; font-size: 35px;">Dados Gerais:</span>
-                        </div>
+            <a href="perfil.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
+               
+            </a>
+        </div>
+        
+        <div class="menu">
+            <img src="/IMG/bars-solid-full.svg" alt="" width="35px" onclick="abrirMenu()">
+            <p>Bem vindo a ConectaBov</p>
+        </div>
+
+        <div class="chat-container">
+          <!-- Botão aparece só quando o chat está fechado -->
+          <button class="chat-btn" id="chatBtn">
+            <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov">
+          </button>
+        
+          <!-- Caixa de chat escondida inicialmente -->
+          <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+              ConectaBov I.A
+              <span class="close-chat" id="closeChat">✖</span>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+              <p class="bot-msg">Olá! Eu sou a I.A da ConectaBov, como posso ajudar?</p>
+            </div>
+            <div class="chat-input">
+              <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+              <button id="sendBtn">➤</button>
+            </div>
+          </div>
+        </div>
+
+         
+          
+        <div class="dashboard">
+          <div class="dashboard-children">
+            
+
+           
+
+              <div class="cadastroBox">
+                  <div class="cadastroBox1">
+                      <span style="color: #465640; font-weight: bold; font-size: 35px;">Dados Gerais:</span>
+                  </div>
 
 <div class="perfil-foto-container">
-  <img id="fotoPerfil" class="perfil-foto" src="/IMG/user-solid.svg" alt="Foto de Perfil">
+<img id="fotoPerfil" class="perfil-foto" src="/IMG/user-solid.svg" alt="Foto de Perfil">
 </div>
 
-                        <div class="perfil-box">
-                            <span style="color: #465640; font-weight: bold; font-size: 25px;">Cliente:</span>
-                            <div class="perfil-secao">
-                                
-                                <div class="perfil-item">
-                                    
-                                    <span class="perfil-label">Nome:</span>
-                                    <span id="nome">...</span>
-                                </div>
-                                <div class="perfil-item">
-                                    <span class="perfil-label">E-mail:</span>
-                                    <span id="email">...</span>
-                                </div>
-                                <div class="perfil-item">
-                                    <span class="perfil-label">Data de Cadastro:</span>
-                                    <span id="dataCadastro">...</span>
-                                </div>
-                                <div class="perfil-item">
-                                    <span class="perfil-label">Data de Nascimento:</span>
-                                    <span id="dataNascimento">...</span>
-                                </div>
-                                <div class="perfil-item">
-                                    <span class="perfil-label">CNPJ:</span>
-                                    <span id="cnpj">...</span>
-                                </div>
-                                <div class="perfil-item">
-                                    <span class="perfil-label">CPF:</span>
-                                    <span id="cpf">...</span>
-                                </div>
-                                <div class="perfil-item">
-                                    <span class="perfil-label">Telefone:</span>
-                                    <span id="telefone">...</span>
-                                </div>
-                                <div class="perfil-item">
-                                    <span class="perfil-label">Ocupação:</span>
-                                    <span id="ocupacao">...</span>
-                                </div>
-                            </div>
-                        
-                            <span style="color: #465640; font-weight: bold; font-size: 25px; margin-top:5% ;">Fazenda:</span>
-                            <div class="perfil-secao">
-                                <div class="perfil-item">
-                                    <span class="perfil-label">CEP:</span>
-                                    <span id="cep">...</span>
-                                </div>
-                                <div class="perfil-item">
-                                    <span class="perfil-label">Rua:</span>
-                                    <span id="rua">...</span>
-                                </div>
-                                <div class="perfil-item">
-                                    <span class="perfil-label">Logradouro:</span>
-                                    <span id="logradouro">...</span>
-                                </div>
-                                <div class="perfil-item">
-                                    <span class="perfil-label">Número:</span>
-                                    <span id="numero">...</span>
-                                </div>
-                                <div class="perfil-item">
-                                    <span class="perfil-label">Estado:</span>
-                                    <span id="estado">...</span>
-                                </div>
-                                <div class="perfil-item">
-                                    <span class="perfil-label">Cidade:</span>
-                                    <span id="cidade">...</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="margin-top: 20px; text-align: center;">
-    <button id="editarPerfilBtn" class="botaoEnviar">Editar Perfil</button>
+                  <div class="perfil-box">
+                      <span style="color: #465640; font-weight: bold; font-size: 25px;">Cliente:</span>
+                      <div class="perfil-secao">
+                          
+                          <div class="perfil-item">
+                              
+                              <span class="perfil-label">Nome:</span>
+                              <span id="nome">...</span>
+                          </div>
+                          <div class="perfil-item">
+                              <span class="perfil-label">E-mail:</span>
+                              <span id="email">...</span>
+                          </div>
+                          <div class="perfil-item">
+                              <span class="perfil-label">Data de Cadastro:</span>
+                              <span id="dataCadastro">...</span>
+                          </div>
+                          <div class="perfil-item">
+                              <span class="perfil-label">Data de Nascimento:</span>
+                              <span id="dataNascimento">...</span>
+                          </div>
+                          <div class="perfil-item">
+                              <span class="perfil-label">CNPJ:</span>
+                              <span id="cnpj">...</span>
+                          </div>
+                          <div class="perfil-item">
+                              <span class="perfil-label">CPF:</span>
+                              <span id="cpf">...</span>
+                          </div>
+                          <div class="perfil-item">
+                              <span class="perfil-label">Telefone:</span>
+                              <span id="telefone">...</span>
+                          </div>
+                          <div class="perfil-item">
+                              <span class="perfil-label">Ocupação:</span>
+                              <span id="ocupacao">...</span>
+                          </div>
+                      </div>
+                  
+                      <span style="color: #465640; font-weight: bold; font-size: 25px; margin-top:5% ;">Fazenda:</span>
+                      <div class="perfil-secao">
+                          <div class="perfil-item">
+                              <span class="perfil-label">CEP:</span>
+                              <span id="cep">...</span>
+                          </div>
+                          <div class="perfil-item">
+                              <span class="perfil-label">Rua:</span>
+                              <span id="rua">...</span>
+                          </div>
+                          <div class="perfil-item">
+                              <span class="perfil-label">Logradouro:</span>
+                              <span id="logradouro">...</span>
+                          </div>
+                          <div class="perfil-item">
+                              <span class="perfil-label">Número:</span>
+                              <span id="numero">...</span>
+                          </div>
+                          <div class="perfil-item">
+                              <span class="perfil-label">Estado:</span>
+                              <span id="estado">...</span>
+                          </div>
+                          <div class="perfil-item">
+                              <span class="perfil-label">Cidade:</span>
+                              <span id="cidade">...</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div style="margin-top: 20px; text-align: center;">
+<button id="editarPerfilBtn" class="botaoEnviar">Editar Perfil</button>
 </div>
-                    </div>
-                </div>
-                       
+              </div>
+          </div>
+        </div>
+    </div>
     <div class="footer">
         <div class="footer-sub">
             <div class="footer-children">
@@ -182,68 +210,70 @@
     <div id="entreemcontato"></div>
 
 </body>
+
 <script>
-window.addEventListener('DOMContentLoaded', async () => {
-  const token = localStorage.getItem('token');
-  if (!token) return;
-
-  try {
-    const res = await fetch('http://localhost:3000/auth/me', {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`
+  window.addEventListener('DOMContentLoaded', async () => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+  
+    try {
+      const res = await fetch('http://localhost:3000/auth/me', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+  
+      if (!res.ok) {
+        console.error('Erro ao buscar os dados do usuário.');
+        return;
       }
+  
+      const data = await res.json();
+      const user = data.user || {};
+      const cliente = data.cliente || {};
+      const fazenda = data.fazenda || {};
+  
+      // ===== Dados do usuário =====
+      document.getElementById('nome').textContent = user.name || '---';
+      document.getElementById('email').textContent = user.email || '---';
+      document.getElementById('dataCadastro').textContent = user.createdAt
+        ? new Date(user.createdAt).toLocaleDateString('pt-BR')
+        : '---';
+      document.getElementById('telefone').textContent = user.telefone || '---';
+  
+      // ===== Dados do cliente =====
+      document.getElementById('dataNascimento').textContent = cliente.dataNascimento || '---';
+      document.getElementById('cnpj').textContent = cliente.cnpj || '---';
+      document.getElementById('cpf').textContent = cliente.cpf || '---';
+      document.getElementById('ocupacao').textContent = cliente.ocupacao || '---';
+  
+      // ===== Imagem do cliente =====
+      if (cliente.imagem) {
+        const fotoPerfil = document.getElementById('fotoPerfil');
+        fotoPerfil.src = `data:image/png;base64,${cliente.imagem}`;
+      }
+  
+      // ===== Dados da fazenda =====
+      document.getElementById('cep').textContent = fazenda.cep || '---';
+      document.getElementById('rua').textContent = fazenda.rua || '---';
+      document.getElementById('logradouro').textContent = fazenda.logradouro || '---';
+      document.getElementById('numero').textContent = fazenda.numero || '---';
+      document.getElementById('estado').textContent = fazenda.estado || '---';
+      document.getElementById('cidade').textContent = fazenda.cidade || '---';
+  
+    } catch (error) {
+      console.error('Erro na requisição:', error);
+    }
+  
+    // Botão de edição de perfil
+    document.getElementById("editarPerfilBtn").addEventListener("click", () => {
+      window.location.href = "http://127.0.0.1:5500/html/EdicaoCliente%20copy.html";
     });
-
-    if (!res.ok) {
-      console.error('Erro ao buscar os dados do usuário.');
-      return;
-    }
-
-    const data = await res.json();
-    const user = data.user || {};
-    const cliente = data.cliente || {};
-    const fazenda = data.fazenda || {};
-
-    // ===== Dados do usuário =====
-    document.getElementById('nome').textContent = user.name || '---';
-    document.getElementById('email').textContent = user.email || '---';
-    document.getElementById('dataCadastro').textContent = user.createdAt
-      ? new Date(user.createdAt).toLocaleDateString('pt-BR')
-      : '---';
-    document.getElementById('telefone').textContent = user.telefone || '---';
-
-    // ===== Dados do cliente =====
-    document.getElementById('dataNascimento').textContent = cliente.dataNascimento || '---';
-    document.getElementById('cnpj').textContent = cliente.cnpj || '---';
-    document.getElementById('cpf').textContent = cliente.cpf || '---';
-    document.getElementById('ocupacao').textContent = cliente.ocupacao || '---';
-
-    // ===== Imagem do cliente =====
-    if (cliente.imagem) {
-      const fotoPerfil = document.getElementById('fotoPerfil');
-      fotoPerfil.src = `data:image/png;base64,${cliente.imagem}`;
-    }
-
-    // ===== Dados da fazenda =====
-    document.getElementById('cep').textContent = fazenda.cep || '---';
-    document.getElementById('rua').textContent = fazenda.rua || '---';
-    document.getElementById('logradouro').textContent = fazenda.logradouro || '---';
-    document.getElementById('numero').textContent = fazenda.numero || '---';
-    document.getElementById('estado').textContent = fazenda.estado || '---';
-    document.getElementById('cidade').textContent = fazenda.cidade || '---';
-
-  } catch (error) {
-    console.error('Erro na requisição:', error);
-  }
-
-  // Botão de edição de perfil
-  document.getElementById("editarPerfilBtn").addEventListener("click", () => {
-    window.location.href = "http://127.0.0.1:5500/html/EdicaoCliente%20copy.html";
   });
-});
-</script>
+  </script>
 
+<script src="/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="../js/script.js"></script>
 

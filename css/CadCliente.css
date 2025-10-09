@@ -5,54 +5,7 @@
     position: relative;
     height: 65px;
 }
-.perfil-box {
-    max-width: 600px;          /* largura máxima para não ficar enorme */
-    width: 90%;                /* ocupar até 90% da tela, mas respeitando max-width */
-    margin: 30px auto;         /* centraliza horizontalmente e dá espaço vertical */
-    background-color: #F8F5F0;
-    padding: 20px 25px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    color: #465640;
-    font-family: "Montserrat", sans-serif;
-    overflow-wrap: break-word;
-}
-.perfil-secao {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* colunas flexíveis */
-    gap: 25px 30px;
-    margin-bottom: 5%;
-}
-.perfil-foto-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
 
-.perfil-foto {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #5E7153;
-}
-.perfil-item {
-    background-color: #CCB487;
-    padding: 12px 18px;
-    border-radius: 6px;
-    font-weight: bold;
-    color: #465640;
-    font-size: 15px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-.perfil-label {
-    display: block;
-    font-size: 13px;
-    color: #5E7153;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
 .campoCadastro {
     width: 275px;
     height: 35px;
@@ -281,7 +234,7 @@ select:focus {
 }
 
 .cadastroBox {
-    width: 80%;
+    width: 85%;
     height: auto;
     background-color: #F8F5F0;
     padding: 20px;
@@ -295,11 +248,13 @@ select:focus {
     display: flex;
     align-items: center;
     height: 100px;
+    margin-left: 2%;
 }
 
 .cadastroBox form {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    
 
 }
 
@@ -314,7 +269,7 @@ body {
 }
 
 .cabecalho {
-  
+    display: flex;
     background-color: #F8F5F0;
 
 }
@@ -627,11 +582,15 @@ body {
 }
 
 .dashboard {
+    height: calc(100vh - 15vh);
+    width: 100%;
+    background-color: #F8F5F0;
     display: flex;
-    flex-direction: column; /* adiciona essa linha */
-    justify-content: flex-start; /* para começar de cima */
+    justify-content: center;
     align-items: center;
-    /* mantém o resto */
+    margin-top: 5%;
+    margin-bottom: 5%;
+
 }
 
 .dashboard-children {
@@ -643,11 +602,10 @@ body {
     align-items: center;
     flex-direction: column;
     border-radius: 5px;
-    margin-top: 100px;
-    padding: 40px 0px 40px 0px;
-    flex-direction: column;
+    margin-top: 30%;
     margin-bottom: 5%;
-    margin-top: 5%;
+    padding: 100px 0px 100px 0px;
+    flex-direction: column;
 
 
 
@@ -856,7 +814,7 @@ body {
     /* botão alinhado à direita */
     width: 100%;
     /* ocupa toda a largura do pai */
-    margin-left: 20%;
+    margin-left: 2%;
     
 }
 
@@ -879,6 +837,7 @@ body {
     max-width: 140px;
     /* opcional para limitar o tamanho */
     text-align: center;
+    margin-left: 3%;
 
 
 }
@@ -897,7 +856,7 @@ body {
     height: 150px;
     width: 100%;
     background-color: #465640;
-    margin-top: 290px;
+    margin-top: 30%;
     padding-top: 10px;
 }
 

@@ -13,7 +13,7 @@
   <div class="cabecalho">
     <div class="cabecalho-div-">
         <div class="cabecalho-div-login">
-            <img src="/IMG/Group 1.png" width="80px" class="imgLogo">      
+            <img src="/IMG/Group 5.png" width="80px" class="imgLogo">      
                 <div class="cabecalho-div">
                     <!-- Ícone para abrir o menu -->
                     <!-- Ícone para abrir o menu -->
@@ -23,7 +23,7 @@
                         <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
                         <ul>
                             <li>
-                                <a href="../index.html">
+                                <a href="servicos.html">
                                     <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
                                 </a>
                             </li>
@@ -43,12 +43,7 @@
                                     <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/IMG/telefone 2.png" alt="Contatos" class="icon"
-                                        style="width: 50px;margin-left: -6px;"> Contatos
-                                </a>
-                            </li>
+                         
                             <li>
                                 <a href="veterinarios.html">
                                     <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
@@ -65,8 +60,8 @@
                 <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px">
             </div>
 
-            <a href="login.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
-                <p style="color: #5E7153;font-size: 10.5px;font-weight: bold;">Login</p>
+            <a href="perfil.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
+               
             </a>
         </div>
         
@@ -75,39 +70,34 @@
             <p>Bem vindo a ConectaBov</p>
         </div>
 
-            <div class="climabox">
-              <div class="monitoramentoClima">
-                  <div class="regiaoClima">
-                      <h3>Clima de <span>Campinas</span></h3>
-
-                      <div class="temperatura">
-                          <div class="sol">
-                              <img src="../IMG/sun 1.png" alt="sol">
-                              <span><h1>21°</h1></span>
-                          </div>
-                          <div class="relogio">
-                              <img src="../IMG/clock 1.png" alt="clock">
-                              <span><h1>13:44</h1></span>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="animacao">
-                      <hr>
-                      <div class="circulo"></div>
-                      <hr>
-                  </div>
-                  <div class="infoClima">
-                      <p>Umidade: <span id="umidade"></span></p>
-                      <p>Velocidade do vento: <span id="velocidade"></span></p>
-                      <p>Descrição: <span id="descrição"></span></p>
-                  </div>
-              </div>
+        <div class="chat-container">
+          <!-- Botão aparece só quando o chat está fechado -->
+          <button class="chat-btn" id="chatBtn">
+            <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov">
+          </button>
+        
+          <!-- Caixa de chat escondida inicialmente -->
+          <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+              ConectaBov I.A
+              <span class="close-chat" id="closeChat">✖</span>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+              <p class="bot-msg">Olá! Eu sou a I.A da ConectaBov, como posso ajudar?</p>
+            </div>
+            <div class="chat-input">
+              <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+              <button id="sendBtn">➤</button>
+            </div>
           </div>
+        </div>
+
+         
           
             <div class="dashboard">
                 <div class="dashboard-children">
                     <div class="tituloCadastroGeral">
-                        <img src="/IMG/pesquisa 2.png" alt="" width="32px" class="tituloCadastroGeralImg">Cadastro
+                        <img src="/IMG/pesquisa 2.png" alt="" width="45px" class="tituloCadastroGeralImg">Cadastro
                         Animal
                     </div>
 
@@ -182,7 +172,7 @@
 
                     <div class="cadastroBox">
                         <div class="cadastroBox1">
-                            <span style="color: #465640; font-weight: bold; font-size: 35px;">Vacinação:</span>
+                            <span style="color: #465640; font-weight: bold; font-size: 35px;">Vacinação</span>
                         </div>
                         <form action="" method="">
                             <div class="area">
@@ -191,19 +181,19 @@
                               </div>
                             <div class="area">
                                 <input type="text" name="" id="" required class="campoCadastro input"
-                                    placeholder=" Nome da vacina:">
+                                    placeholder=" Nome da vacina">
                                 <div class="labelline">Nome da vacina</div>
                             </div>
 
                             <div class="area">
                                 <input type="text" name="" id="" required class="campoCadastro input"
-                                    placeholder=" Data da vacinação:">
+                                    placeholder=" Data da vacinação">
                                 <div class="labelline">Data da vacinação</div>
                             </div>
 
                             <div class="area">
                                 <input type="text" name="" id="" required class="campoCadastro input"
-                                    placeholder=" Dose:">
+                                    placeholder=" Dose">
                                 <div class="labelline">Dose</div>
                             </div>
 
@@ -321,6 +311,7 @@
 
 </script>
 
+<script src="/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="../js/script.js"></script>
 

@@ -4,184 +4,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/EdicaoCliente.css">
+    <link rel="stylesheet" href="/css/editarCliente.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <title>Cadastro Animal - ConectaBov</title>
 </head>
 
 <body>
-    <div class="cabecalho">
-        <div class="cabecalho-div-">
-            <div class="cabecalho-div-login">
-                <div class="cabecalho-children">
-            <div class="cabecalho-div">
-                <!-- Ícone para abrir o menu -->
-                <!-- Ícone para abrir o menu -->
-                <span class="cabecalho-icone" onclick="abrirMenu()">
-                            <img src="/IMG/1-removebg-preview 4.png" width="150px">
-                        </span>
-
-                <!-- Menu lateral com botão de fechar -->
-                <div id="menuLateral" class="menu-lateral">
-                    <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta Mensal
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="/IMG/telefone 2.png" alt="Contatos" class="icon"
-                                    style="width: 50px;margin-left: -6px;"> Contatos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
-                                    style="width: 50px;margin-left: -6px;"> Veterinários
-                            </a>
-                        </li>
-                    </ul>
+  <div class="cabecalho">
+    <div class="cabecalho-div-">
+        <div class="cabecalho-div-login">
+            <img src="/IMG/Group 5.png" width="80px" class="imgLogo">      
+                <div class="cabecalho-div">
+                    <!-- Ícone para abrir o menu -->
+                    <!-- Ícone para abrir o menu -->
+                    
+                    <!-- Menu lateral com botão de fechar -->
+                    <div id="menuLateral" class="menu-lateral">
+                        <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
+                        <ul>
+                            <li>
+                                <a href="servicos.html">
+                                    <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
+                                </a>
+                            </li>
+                            <li>
+                                <a href="cadastroAnimal.html">
+                                    <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultaMensal.html">
+                                    <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta
+                                    Mensal
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
+                                </a>
+                            </li>
+                         
+                            <li>
+                                <a href="veterinarios.html">
+                                    <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
+                                        style="width: 50px;margin-left: -6px;"> Veterinários
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+       
 
-
+            <div class="pesquisa-dad">
+                <input class="pesquisa" type="text" name="" id="" size="80px">
+                <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px">
             </div>
+
+            <a href="perfil.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
+               
+            </a>
         </div>
-                <div class="pesquisa-dad"><input class="pesquisa" type="text" name="" id="" size="80px"><img
-                        class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px"></div>
-                        <a href="#" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
-                   
-                </a>
-            </div>
-            <div class="dashboard">
-                <div class="dashboard-children">
-                    <div class="tituloCadastroGeral">
-                        <img src="/IMG/pesquisa 2.png" alt="" width="45px" class="tituloCadastroGeralImg">Alteração de Dados
-                    </div>
-
-                    <div class="cadastroBox">
-                        <div class="cadastroBox1">
-                            <img src="../IMG/vaca (1) 1.png" alt="" width="50px">
-                            <span style="color: #465640; font-weight: bold; font-size: 35px; margin-left: 10px;"> Cliente
-                               </span>
-                        </div>
-                        <form action="" method="" id="formCliente">
-                            <div class="area">
-                                <input type="text" name="nome" id="" required class="campoCadastro input"
-                                    placeholder=" Nome Completo">
-                                <div class="labelline">Nome Completo</div>
-                            </div>
-
-                            <div class="area">
-                                <input type="date" name="dataNascimento" id="" required class="campoCadastro input">
-                                <div class="labelline">Data de Nascimento</div>
-                            </div>
-
-                            <div class="area">
-                                <input type="text" name="cnpj" id="" required class="campoCadastro input"
-                                    placeholder=" CNPJ">
-                                <div class="labelline">CNPJ</div>
-                            </div>
-
-                            <div class="area">
-                                <input type="text" name="cpf" id="" required class="campoCadastro input"
-                                    placeholder=" CPF">
-                                <div class="labelline">CPF</div>
-                            </div>
-
-                            <div class="area">
-                                <input type="text" name="telefone" id="" required class="campoCadastro input"
-                                    placeholder=" Telefone">
-                                <div class="labelline">Telefone</div>
-                            </div>
-
-                            <div class="area">
-                                <input type="text" name="ocupacao" id="" required class="campoCadastro input"
-                                    placeholder=" Ocupação">
-                                <div class="labelline">Ocupação</div>
-                            </div>
-                            <div class="area">
-                                <input type="file" name="imagem" id="foto" required class="campoCadastro input" accept="image/*">
-                                <div class="labelline">Foto do Perfil</div>
-                            </div>
-                              <div class="area">
-                                                        </div>
-
-                            
-
-                        </form>
-                    </div>
-
-                    <div class="cadastroBox">
-                        <div class="cadastroBox1">
-                            <span style="color: #465640; font-weight: bold; font-size: 35px;">Fazenda:</span>
-                        </div>
-                        <form action="" method="" id="formFazenda">
-                            <div class="area">
-                                <input type="text" name="cep" id="" required class="campoCadastro input"
-                                    placeholder=" CEP:">
-                                <div class="labelline">CEP</div>
-                            </div>
-
-                            <div class="area">
-                                <input type="text" name="rua" id="" required class="campoCadastro input"
-                                    placeholder=" Rua:">
-                                <div class="labelline">Rua</div>
-                            </div>
-
-                            <div class="area">
-                                <input type="text" name="logradouro" id="" required class="campoCadastro input"
-                                    placeholder=" Logradouro:">
-                                <div class="labelline">Logradouro</div>
-                            </div>
-
-                            <div class="area">
-                                <input type="text" name="numero" id="" required class="campoCadastro input"
-                                    placeholder=" Número:">
-                                <div class="labelline">Número</div>
-                            </div>
-
-                            <div class="area">
-                                <input type="text" name="estado" id="" required class="campoCadastro input"
-                                    placeholder=" Estado:">
-                                <div class="labelline">Estado</div>
-                            </div>
-
-                            <div class="area">
-                                <input type="text" name="cidade" id="" required class="campoCadastro input"
-                                    placeholder=" Cidade:">
-                                <div class="labelline">Cidade</div>
-                            </div>
-
-                           
-
-
-                        </form>
         
-                    </div>
+        <div class="menu">
+            <img src="/IMG/bars-solid-full.svg" alt="" width="35px" onclick="abrirMenu()">
+            <p>Bem vindo a ConectaBov</p>
+        </div>
 
-                                 <div class="botaoContainer">
-    <input type="button" id="btnSalvarTudo"  value="Salvar" class="botaoEnviar">
+        <div class="chat-container">
+          <!-- Botão aparece só quando o chat está fechado -->
+          <button class="chat-btn" id="chatBtn">
+            <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov">
+          </button>
+        
+          <!-- Caixa de chat escondida inicialmente -->
+          <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+              ConectaBov I.A
+              <span class="close-chat" id="closeChat">✖</span>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+              <p class="bot-msg">Olá! Eu sou a I.A da ConectaBov, como posso ajudar?</p>
+            </div>
+            <div class="chat-input">
+              <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+              <button id="sendBtn">➤</button>
+            </div>
+          </div>
+        </div>
+
+         
+          
+        <div class="dashboard">
+          <div class="dashboard-children">
+              <div class="tituloCadastroGeral">
+                  <img src="/IMG/pesquisa 2.png" alt="" width="45px" class="tituloCadastroGeralImg">Alteração de Dados
+              </div>
+
+              <div class="cadastroBox">
+                  <div class="cadastroBox1">
+                      <img src="../IMG/vaca (1) 1.png" alt="" width="50px">
+                      <span style="color: #465640; font-weight: bold; font-size: 35px; margin-left: 10px;"> Cliente
+                         </span>
+                  </div>
+                  <form action="" method="" id="formCliente">
+                      <div class="area">
+                          <input type="text" name="nome" id="" required class="campoCadastro input"
+                              placeholder=" Nome Completo">
+                          <div class="labelline">Nome Completo</div>
+                      </div>
+
+                      <div class="area">
+                          <input type="date" name="dataNascimento" id="" required class="campoCadastro input">
+                          <div class="labelline">Data de Nascimento</div>
+                      </div>
+
+                      <div class="area">
+                          <input type="text" name="cnpj" id="" required class="campoCadastro input"
+                              placeholder=" CNPJ">
+                          <div class="labelline">CNPJ</div>
+                      </div>
+
+                      <div class="area">
+                          <input type="text" name="cpf" id="" required class="campoCadastro input"
+                              placeholder=" CPF">
+                          <div class="labelline">CPF</div>
+                      </div>
+
+                      <div class="area">
+                          <input type="text" name="telefone" id="" required class="campoCadastro input"
+                              placeholder=" Telefone">
+                          <div class="labelline">Telefone</div>
+                      </div>
+
+                      <div class="area">
+                          <input type="text" name="ocupacao" id="" required class="campoCadastro input"
+                              placeholder=" Ocupação">
+                          <div class="labelline">Ocupação</div>
+                      </div>
+                      <div class="area">
+                          <input type="file" name="imagem" id="foto" required class="campoCadastro input" accept="image/*">
+                          <div class="labelline">Foto do Perfil</div>
+                      </div>
+                        <div class="area">
+                                                  </div>
+
+                      
+
+                  </form>
+              </div>
+
+              <div class="cadastroBox">
+                  <div class="cadastroBox1">
+                      <span style="color: #465640; font-weight: bold; font-size: 35px;">Fazenda:</span>
+                  </div>
+                  <form action="" method="" id="formFazenda">
+                      <div class="area">
+                          <input type="text" name="cep" id="" required class="campoCadastro input"
+                              placeholder=" CEP:">
+                          <div class="labelline">CEP</div>
+                      </div>
+
+                      <div class="area">
+                          <input type="text" name="rua" id="" required class="campoCadastro input"
+                              placeholder=" Rua:">
+                          <div class="labelline">Rua</div>
+                      </div>
+
+                      <div class="area">
+                          <input type="text" name="logradouro" id="" required class="campoCadastro input"
+                              placeholder=" Logradouro:">
+                          <div class="labelline">Logradouro</div>
+                      </div>
+
+                      <div class="area">
+                          <input type="text" name="numero" id="" required class="campoCadastro input"
+                              placeholder=" Número:">
+                          <div class="labelline">Número</div>
+                      </div>
+
+                      <div class="area">
+                          <input type="text" name="estado" id="" required class="campoCadastro input"
+                              placeholder=" Estado:">
+                          <div class="labelline">Estado</div>
+                      </div>
+
+                      <div class="area">
+                          <input type="text" name="cidade" id="" required class="campoCadastro input"
+                              placeholder=" Cidade:">
+                          <div class="labelline">Cidade</div>
+                      </div>
+
+                     
+
+
+                  </form>
+  
+              </div>
+
+                           <div class="botaoContainer">
+<input type="button" id="btnSalvarTudo"  value="Salvar" class="botaoEnviar">
 </div>
 
-                </div>
-            </div>
+          </div>
+      </div>
         </div>
     </div>
     <div class="footer">
@@ -211,94 +236,97 @@
     <div id="entreemcontato"></div>
 
 </body>
+
 <script>
-    async function carregarDados() {
-      const token = localStorage.getItem('token');
-      const resp = await fetch("http://localhost:3000/auth/me", {
-        method: "GET",
-        headers: { "Authorization": `Bearer ${token}` }
+  async function carregarDados() {
+    const token = localStorage.getItem('token');
+    const resp = await fetch("http://localhost:3000/auth/me", {
+      method: "GET",
+      headers: { "Authorization": `Bearer ${token}` }
+    });
+  
+    if (!resp.ok) {
+      alert("Erro ao carregar dados");
+      return;
+    }
+  
+    const { cliente, fazenda } = await resp.json();
+  
+    // Preenche cliente
+    const formCliente = document.getElementById("formCliente");
+    for (const [chave, valor] of Object.entries(cliente)) {
+      if (formCliente.elements[chave]) {
+        formCliente.elements[chave].value = valor || "";
+      }
+    }
+  
+    // Preenche fazenda
+    if (fazenda) {
+      const formFazenda = document.getElementById("formFazenda");
+      for (const [chave, valor] of Object.entries(fazenda)) {
+        if (formFazenda.elements[chave]) {
+          formFazenda.elements[chave].value = valor || "";
+        }
+      }
+    }
+  }
+  
+  async function salvarTudo() {
+    const token = localStorage.getItem('token');
+  
+    try {
+      // ========== Envia Cliente com imagem ==========
+      const clienteForm = document.getElementById("formCliente");
+      const clienteFormData = new FormData(clienteForm);
+  
+      const respCliente = await fetch("http://localhost:3000/auth/cliente", {
+        method: "PUT",
+        headers: {
+          "Authorization": `Bearer ${token}`
+          // ⚠️ NÃO colocar Content-Type aqui!
+        },
+        body: clienteFormData
       });
-    
-      if (!resp.ok) {
-        alert("Erro ao carregar dados");
-        return;
+  
+      if (!respCliente.ok) {
+        throw new Error("Erro ao atualizar dados do cliente");
       }
-    
-      const { cliente, fazenda } = await resp.json();
-    
-      // Preenche cliente
-      const formCliente = document.getElementById("formCliente");
-      for (const [chave, valor] of Object.entries(cliente)) {
-        if (formCliente.elements[chave]) {
-          formCliente.elements[chave].value = valor || "";
-        }
+  
+      // ========== Envia Fazenda (JSON) ==========
+      const fazendaForm = document.getElementById("formFazenda");
+      const fazendaDados = Object.fromEntries(new FormData(fazendaForm));
+  
+      const respFazenda = await fetch("http://localhost:3000/auth/fazenda", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(fazendaDados)
+      });
+  
+      if (!respFazenda.ok) {
+        throw new Error("Erro ao atualizar dados da fazenda");
       }
-    
-      // Preenche fazenda
-      if (fazenda) {
-        const formFazenda = document.getElementById("formFazenda");
-        for (const [chave, valor] of Object.entries(fazenda)) {
-          if (formFazenda.elements[chave]) {
-            formFazenda.elements[chave].value = valor || "";
-          }
-        }
-      }
+  
+      // Sucesso
+      alert("Dados atualizados com sucesso!");
+      window.location.href = "perfil.html";
+  
+    } catch (error) {
+      alert(error.message);
+      console.error(error);
     }
-    
-    async function salvarTudo() {
-      const token = localStorage.getItem('token');
-    
-      try {
-        // ========== Envia Cliente com imagem ==========
-        const clienteForm = document.getElementById("formCliente");
-        const clienteFormData = new FormData(clienteForm);
-    
-        const respCliente = await fetch("http://localhost:3000/auth/cliente", {
-          method: "PUT",
-          headers: {
-            "Authorization": `Bearer ${token}`
-            // ⚠️ NÃO colocar Content-Type aqui!
-          },
-          body: clienteFormData
-        });
-    
-        if (!respCliente.ok) {
-          throw new Error("Erro ao atualizar dados do cliente");
-        }
-    
-        // ========== Envia Fazenda (JSON) ==========
-        const fazendaForm = document.getElementById("formFazenda");
-        const fazendaDados = Object.fromEntries(new FormData(fazendaForm));
-    
-        const respFazenda = await fetch("http://localhost:3000/auth/fazenda", {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-          },
-          body: JSON.stringify(fazendaDados)
-        });
-    
-        if (!respFazenda.ok) {
-          throw new Error("Erro ao atualizar dados da fazenda");
-        }
-    
-        // Sucesso
-        alert("Dados atualizados com sucesso!");
-        window.location.href = "perfil.html";
-    
-      } catch (error) {
-        alert(error.message);
-        console.error(error);
-      }
-    }
-    
-    // Carrega os dados ao abrir a página
-    window.onload = carregarDados;
-    
-    // Botão único de salvar
-    document.getElementById("btnSalvarTudo")?.addEventListener("click", salvarTudo);
-    </script>
+  }
+  
+  // Carrega os dados ao abrir a página
+  window.onload = carregarDados;
+  
+  // Botão único de salvar
+  document.getElementById("btnSalvarTudo")?.addEventListener("click", salvarTudo);
+  </script>
+
+<script src="/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="../js/script.js"></script>
 
