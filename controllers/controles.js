@@ -85,3 +85,53 @@ exports.deleteAnimal = async (req, res) => {
     return res.status(500).json({ message: 'Erro interno ao deletar animal.', error: error.message });
   }
 };
+
+exports.updateAnimal = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    // Dados enviados pelo front
+    const {
+      codigoSisbov,
+      nome,
+      altura,
+      peso,
+      sexo,
+      dataNascimento,
+      pelagem,
+      especie,
+      raca,
+      tipoProducao,
+      producaoMensal
+    } = req.body;
+
+    // Atualiza o animal pertencente ao usuário logado
+    const animal = await Model.findOneAndUpdate(
+      { _id: id, userId: req.userId },
+      {
+        codigoSisbov,
+        nome,
+        altura,
+        peso,
+        sexo,
+        dataNascimento,
+        pelagem,
+        especie,
+        raca,
+        tipoProducao,
+        producaoMensal
+      },
+      { new: true }
+    );
+
+    if (!animal) {
+      return res.status(404).json({ message: 'Animal não encontrado ou acesso não autorizado.' });
+    }
+
+    res.status(200).json({ message: 'Animal atualizado com sucesso.', animal });
+
+  } catch (error) {
+    console.error("Erro ao atualizar animal:", error.message);
+    res.status(500).json({ message: 'Erro ao atualizar animal.', error: error.message });
+  }
+};
