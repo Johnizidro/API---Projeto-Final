@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/ClimaAPI.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Cadastro Animal - ConectaBov</title>
+</head>
+
+<body>
+  <div class="cabecalho">
+    <div class="cabecalho-div-">
+        <div class="cabecalho-div-login">
+            <img src="/IMG/Group 5.png" width="80px" class="imgLogo">      
+                <div class="cabecalho-div">
+                    <!-- Ícone para abrir o menu -->
+                    <!-- Ícone para abrir o menu -->
+                    
+                    <!-- Menu lateral com botão de fechar -->
+                    <div id="menuLateral" class="menu-lateral">
+                        <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
+                        <ul>
+                            <li>
+                                <a href="servicos.html">
+                                    <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
+                                </a>
+                            </li>
+                            <li>
+                                <a href="cadastroAnimal.html">
+                                    <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultaMensal.html">
+                                    <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta
+                                    Mensal
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
+                                </a>
+                            </li>
+                         
+                            <li>
+                                <a href="veterinarios.html">
+                                    <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
+                                        style="width: 50px;margin-left: -6px;"> Veterinários
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+       
+
+            <div class="pesquisa-dad">
+                <input class="pesquisa" type="text" name="" id="" size="80px">
+                <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset="" width="18px">
+            </div>
+
+            <a href="perfil.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
+               
+            </a>
+        </div>
+        
+        <div class="menu">
+            <img src="/IMG/bars-solid-full.svg" alt="" width="35px" onclick="abrirMenu()">
+            <p>Bem vindo a ConectaBov</p>
+        </div>
+
+        <div class="chat-container">
+          <!-- Botão aparece só quando o chat está fechado -->
+          <button class="chat-btn" id="chatBtn">
+            <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov">
+          </button>
+        
+          <!-- Caixa de chat escondida inicialmente -->
+          <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+              ConectaBov I.A
+              <span class="close-chat" id="closeChat">✖</span>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+              <p class="bot-msg">Olá! Eu sou a I.A da ConectaBov, como posso ajudar?</p>
+            </div>
+            <div class="chat-input">
+              <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+              <button id="sendBtn">➤</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="weather-section">
+        <h1>Clima da Cidade</h1>
+        <form id="city-form">
+            <input type="text" id="city-name" placeholder="Digite o nome da cidade" required>
+            <button type="submit">Buscar Clima</button>
+        </form>
+        
+        <div id="weather-result" class="weather-info"></div>
+    
+        <!-- Seção do relógio -->
+        <div id="clock"></div>
+    
+        <!-- Seção da saudação -->
+        <div id="greeting"></div>
+        </div>
+        
+
+      </div>
+          
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-sub">
+            <div class="footer-children">
+                <div class="entre-em-contato">
+                    <p style="color: white;">Entre em </p>
+                    <p style="color: white;">Contato</p>
+                </div>
+                <div class="logo-rede">
+                    <div class="facebook"><img src="/IMG/facebook-f-brands.svg" width="16px"></div>
+                    <div class="instagram"><img src="/IMG/instagram-brands.svg" width="16px"></div>
+                    <div class="whatsaap"><img src="/IMG/whatsapp-brands.svg" width="16px"></div>
+                    <div class="linkedin"><img src="/IMG/linkedin-in-brands.svg" width="16px"></div>
+                </div>
+            </div>
+            <div class="img-gado">
+                <img src="/IMG/1-removebg-preview 3.png" alt="">
+            </div>
+        </div>
+
+        <div class="divis">
+            <hr class="divisao">
+        </div>
+        <center style="color: white; opacity: 0.5; padding: 0.5%; font-size: small;"><p>© 2025 Todos os direitos reservados. ConectaBov</p></center>
+    </div>
+    <div id="entreemcontato"></div>
+
+</body>
+
+<script>
+  // Função para obter a saudação com base na hora
+  function getGreeting() {
+      const now = new Date();
+      const hours = now.getHours();
+      let greeting = "";
+
+      if (hours >= 6 && hours < 12) {
+          greeting = "Bom dia!";
+      } else if (hours >= 12 && hours < 18) {
+          greeting = "Boa tarde!";
+      } else {
+          greeting = "Boa noite!";
+      }
+
+      // Exibe a saudação na página
+      document.getElementById('greeting').textContent = greeting;
+  }
+
+  // Função para atualizar o relógio
+  function updateClock() {
+      const now = new Date();
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+
+      // Adicionar 0 à esquerda, se necessário
+      hours = hours < 10 ? '0' + hours : hours;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      // Exibir a hora no formato HH:MM:SS
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+  }
+
+  // Atualiza o relógio a cada 1 segundo
+  setInterval(updateClock, 1000);
+
+  // Chama a função para garantir que o relógio inicie imediatamente
+  updateClock();
+  
+  // Chama a função para exibir a saudação baseada no horário
+  getGreeting();
+
+  // Função para pegar o clima e exibir na página
+  document.getElementById("city-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const city = document.getElementById("city-name").value;
+      const resultDiv = document.getElementById("weather-result");
+      resultDiv.innerHTML = "Carregando...";
+
+      try {
+          const response = await fetch(`http://localhost:3000/weather/${city}`);
+          const data = await response.json();
+
+          if (response.ok) {
+              const state = data.state ? `, ${data.state}` : ""; // Exibe a sigla do estado, se disponível
+              const country = data.country ? `, ${data.country}` : ""; // Exibe o país, se disponível
+
+              resultDiv.innerHTML = `
+                  <h2>Clima em ${data.city}${state}${country}</h2>
+                  <p><strong>Temperatura:</strong> ${data.temperature}°C</p>
+                  <p><strong>Descrição:</strong> ${data.description}</p>
+                  <p><strong>Umidade:</strong> ${data.humidity}%</p>
+                  <p><strong>Velocidade do vento:</strong> ${data.windSpeed} m/s</p>
+                  <img src="${data.icon}" alt="Ícone do clima">
+              `;
+          } else {
+              resultDiv.innerHTML = `<p class="error">${data.error}</p>`;
+          }
+      } catch (error) {
+          resultDiv.innerHTML = `<p class="error">Erro ao buscar o clima. Tente novamente mais tarde.</p>`;
+      }
+  });
+</script>
+
+<script src="/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="../js/script.js"></script>
+
+</html>

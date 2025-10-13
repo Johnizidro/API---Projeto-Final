@@ -9,18 +9,22 @@ const app = express();  // Primeiro define o app
 app.use(cors());        // Depois usa o cors
 app.use(express.json()); // Para parsear JSON no body das requisições
 
+app.use(express.static('public'));
+
 require("./config/db"); // conecta no banco
 
 const authRoutes = require("./routes/authRoutes");
 const tarefasRoutes = require("./routes/rotas");
 const CliFazend = require("./routes/rotasCli");
 const perguntaRoutes = require('./routes/rotasIA');
+const weatherRoutes = require('./routes/weatherRoutes');
 
 
 app.use("/auth", authRoutes);
 app.use("/tarefas", tarefasRoutes);
 app.use("/client", CliFazend);
 app.use('/api/pergunta', perguntaRoutes);
+app.use('/weather', weatherRoutes);
 
 
 
