@@ -306,6 +306,7 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 300px 0 200px 0;
+    margin-top: 20%;
 }
 
 .imgLogo{
@@ -570,6 +571,157 @@ body {
     width: 80px;
     height: 80px;
   }
+
+  /* HEADER - ocupa toda a largura */
+/* HEADER - alinhado à esquerda */
+.weather-header {
+  display: block;
+  margin-bottom: 6%;
+  background-color: #465640;
+  color: white;
+  padding: 40px 60px; /* padding lateral maior pra afastar do canto */
+  text-align: left; /* tudo alinhado à esquerda */
+  border-radius: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.weather-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+  margin-left: 3%;
+}
+
+.weather-header h3 {
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+  margin-left: 3%;
+}
+
+.weather-header form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.weather-header input {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  width: 40%;
+  max-width: 400px;
+  font-size: 1rem;
+  margin-left: 3%;
+}
+
+.weather-header button {
+  background-color: #fff;
+  color: #465640;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+.weather-header button:hover {
+  background-color: #e6e6e6;
+}
+
+/* TRÊS BLOCOS ABAIXO */
+.weather-cards {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 95px;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 1900px;
+  flex-wrap: wrap;
+}
+
+.weather-card {
+  flex: 1;
+  min-width: 380px;
+  max-width: 380px;
+  background-color: #f4f6f8;
+  border-radius: 12px;
+  padding: 55px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.weather-card h3 {
+  color: #357ABD;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.icon-card {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+/* Relógio e saudação */
+#clock {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+#greeting {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* Clima principal */
+.weather-info {
+  font-size: 1.2rem; /* aumentado */
+  line-height: 1.6;
+}
+
+.weather-info h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.weather-info p {
+  margin: 5px 0;
+  font-size: 1.6rem;
+}
+
+.weather-info img {
+  width: 80px; /* ícone maior */
+  margin-top: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+}
+
+
+
+/* Bloco 3 - Detalhes */
+#weather-details {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* espaçamento maior entre os itens */
+  margin-top: 10px;
+  color: #333;
+}
+
+#weather-details p {
+  margin: 0;
+}
 
 .fechar-menu {
     background-color: transparent;

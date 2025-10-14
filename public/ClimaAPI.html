@@ -92,26 +92,48 @@
           </div>
         </div>
 
-        <div class="weather-section">
-        <h1>Clima da Cidade</h1>
-        <form id="city-form">
-            <input type="text" id="city-name" placeholder="Digite o nome da cidade" required>
-            <button type="submit">Buscar Clima</button>
-        </form>
-        
-        <div id="weather-result" class="weather-info"></div>
-    
-        <!-- Seção do relógio -->
-        <div id="clock"></div>
-    
-        <!-- Seção da saudação -->
-        <div id="greeting"></div>
-        </div>
+    <!-- Cabeçalho principal -->
+<div class="weather-header">
+  <h1>Clima da Cidade</h1>
+  <h3>Pesquise o clima de sua cidade</h3>
+  <form id="city-form">
+    <input type="text" id="city-name" placeholder="Digite o nome da cidade" required>
+    <button type="submit">Buscar Clima</button>
+  </form>
+</div>
+
+<!-- Três blocos lado a lado -->
+<div class="weather-cards">
+  <!-- Bloco 1: Relógio e saudação -->
+  <div class="weather-card">
+    <h3>Horário Atual</h3>
+    <img src="/IMG/clock.png" alt="Relógio" class="icon-card">
+    <div id="clock"></div>
+    <div id="greeting"></div>
+  </div>
+
+  <!-- Bloco 2: Clima principal -->
+  <div class="weather-card" id="weather-main">
+    <h3>Clima da Cidade</h3>
+    <div id="weather-result" class="weather-info"></div>
+  </div>
+
+  <!-- Bloco 3: Detalhes -->
+  <div class="weather-card" id="weather-extra">
+    <h3>Detalhes</h3>
+    <div id="weather-details"></div>
+  </div>
+</div>
         
 
       </div>
           
         </div>
+
+ 
+
+
+    
     </div>
     <div class="footer">
         <div class="footer-sub">
@@ -142,6 +164,10 @@
 </body>
 
 <script>
+  // Inicializa os cards com mensagem padrão
+  document.getElementById("weather-result").innerHTML = "<p>Faça sua pesquisa</p>";
+  document.getElementById("weather-details").innerHTML = "<p>Faça sua pesquisa</p>";
+
   // Função para obter a saudação com base na hora
   function getGreeting() {
       const now = new Date();
@@ -197,25 +223,31 @@
           const data = await response.json();
 
           if (response.ok) {
-              const state = data.state ? `, ${data.state}` : ""; // Exibe a sigla do estado, se disponível
-              const country = data.country ? `, ${data.country}` : ""; // Exibe o país, se disponível
+              const state = data.state ? `, ${data.state}` : "";
+              const country = data.country ? `, ${data.country}` : "";
 
-              resultDiv.innerHTML = `
-                  <h2>Clima em ${data.city}${state}${country}</h2>
-                  <p><strong>Temperatura:</strong> ${data.temperature}°C</p>
+              document.getElementById("weather-result").innerHTML = `
+                  <h2>${data.city}${state}${country}</h2>
+                  <p><strong>${data.temperature}°C</strong></p>
+                  <img src="${data.icon}" alt="Ícone do clima">
+              `;
+
+              document.getElementById("weather-details").innerHTML = `
                   <p><strong>Descrição:</strong> ${data.description}</p>
                   <p><strong>Umidade:</strong> ${data.humidity}%</p>
-                  <p><strong>Velocidade do vento:</strong> ${data.windSpeed} m/s</p>
-                  <img src="${data.icon}" alt="Ícone do clima">
+                  <p><strong>Vento:</strong> ${data.windSpeed} m/s</p>
               `;
           } else {
               resultDiv.innerHTML = `<p class="error">${data.error}</p>`;
+              document.getElementById("weather-details").innerHTML = `<p class="error">${data.error}</p>`;
           }
       } catch (error) {
           resultDiv.innerHTML = `<p class="error">Erro ao buscar o clima. Tente novamente mais tarde.</p>`;
+          document.getElementById("weather-details").innerHTML = `<p class="error">Erro ao buscar os detalhes. Tente novamente mais tarde.</p>`;
       }
   });
 </script>
+
 
 <script src="/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
