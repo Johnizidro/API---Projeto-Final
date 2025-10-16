@@ -10,6 +10,7 @@ app.use(cors());        // Depois usa o cors
 app.use(express.json()); // Para parsear JSON no body das requisições
 
 app.use(express.static('public'));
+app.use(express.static('html')); // adiciona essa linha
 
 require("./config/db"); // conecta no banco
 

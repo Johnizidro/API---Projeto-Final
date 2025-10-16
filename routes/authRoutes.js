@@ -14,6 +14,8 @@ router.post("/login", authController.loginUser);
 router.get("/me", authMiddleware ,authController.getUserData); 
 router.put("/cliente",upload.single("imagem"), authMiddleware, authController.updateCliente);
 router.put("/fazenda", authMiddleware,authController.updateFazenda);
+router.post("/forgot-password", authController.forgotPassword);
+router.post("/reset-password", authController.resetPassword);
 
 console.log("authRoutes carregado");
 

@@ -4,6 +4,7 @@ const User = require("../models/userModel");
 const { Cliente, Fazenda } = require("../models/modelosCli");
 const transportador = require("../config/configEmail");
 const dotenv = require("dotenv");
+const crypto = require('crypto');
 dotenv.config();
 
 exports.registerUser = async (req, res) => {
@@ -166,6 +167,87 @@ exports.updateFazenda = async (req, res) => {
     res.json({ msg: "Fazenda atualizada com sucesso!" });
   } catch (error) {
     console.error("Erro ao atualizar fazenda:", error);
+    res.status(500).json({ msg: "Erro no servidor" });
+  }
+};
+
+
+exports.forgotPassword = async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) return res.status(422).json({ msg: "Email é obrigatório" });
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user) return res.status(404).json({ msg: "Usuário não encontrado" });
+
+    // Gerar token aleatório para reset de senha
+    const token = crypto.randomBytes(20).toString("hex");
+
+    // Definir expiração (ex: 1 hora)
+    const now = Date.now();
+    user.resetPasswordToken = token;
+    user.resetPasswordExpires = now + 3600000; // 1 hora em ms
+
+    await user.save();
+
+    const resetUrl = `${process.env.FRONTEND_URL}/resetarSenha.html?token=${token}&email=${email}`;
+
+    const mailOptions = {
+      from: `"ConectaBov" <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: "Recuperação de senha",
+      html: `
+        <p>Você solicitou a recuperação de senha.</p>
+        <p>Por favor, clique no link abaixo para criar uma nova senha:</p>
+        <a href="${resetUrl}">${resetUrl}</a>
+        <p>Esse link expira em 1 hora.</p>
+      `,
+    };
+
+    await transportador.sendMail(mailOptions);
+
+    res.status(200).json({ msg: "E-mail de recuperação enviado" });
+  } catch (error) {
+    console.error("Erro no forgotPassword:", error);
+    res.status(500).json({ msg: "Erro no servidor" });
+  }
+};
+
+exports.resetPassword = async (req, res) => {
+  const { email, token, newPassword, confPassword } = req.body;
+
+  if (!email || !token || !newPassword || !confPassword) {
+    return res.status(422).json({ msg: "Todos os campos são obrigatórios" });
+  }
+
+  if (newPassword !== confPassword) {
+    return res.status(422).json({ msg: "As senhas não conferem" });
+  }
+
+  try {
+    const user = await User.findOne({
+      email,
+      resetPasswordToken: token,
+      resetPasswordExpires: { $gt: Date.now() }, // token ainda válido
+    });
+
+    if (!user) {
+      return res.status(400).json({ msg: "Token inválido ou expirado" });
+    }
+
+    const salt = await bcrypt.genSalt(12);
+    user.password = await bcrypt.hash(newPassword, salt);
+
+    // Limpar token e expiração
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpires = undefined;
+
+    await user.save();
+
+    res.status(200).json({ msg: "Senha atualizada com sucesso" });
+  } catch (error) {
+    console.error("Erro no resetPassword:", error);
     res.status(500).json({ msg: "Erro no servidor" });
   }
 };
