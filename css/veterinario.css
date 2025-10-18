@@ -657,7 +657,7 @@ body {
 .card-vet {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     background-color: #d2b886;
     margin: 12px 0;
     padding: 15px;
@@ -669,16 +669,45 @@ body {
     width: 90px;
     height: 80px;
     border-radius: 5px;
+    display: flex;              /* ativa flexbox */
+    align-items: center;        /* centraliza verticalmente */
+    justify-content: center;    /* centraliza horizontalmente */
+    overflow: hidden; 
 }
 
 .vet-icons {
     display: flex;
     gap: 10px;
+    margin-right: 20px; /* mantém distância constante da área de texto */
+    flex-shrink: 0;
 }
 
 .icone-mini {
     width: 28px;
     cursor: pointer;
+}
+
+.vet-dados {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px; /* distância fixa da vet-info */
+  gap: 4px; /* espaçamento entre linhas de dados */
+  flex: 1; /* ocupa espaço disponível */
+}
+
+.linha-dados {
+  display: flex;
+  justify-content: flex-start; /* alinha todos à esquerda, sem expandir */
+  gap: 15px; 
+  margin-bottom: 1%;
+  margin-top: 1%;/* distância entre os dois itens da linha */
+}
+
+.linha-dados p {
+  font-size: 1rem;
+  margin: 0;
+  min-width: 150px; /* garante largura mínima para uniformidade */
 }
 
 body {
