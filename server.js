@@ -10,7 +10,12 @@ app.use(cors());        // Depois usa o cors
 app.use(express.json()); // Para parsear JSON no body das requisições
 
 app.use(express.static('public'));
-app.use(express.static('html')); // adiciona essa linha
+const path = require("path");
+
+app.use("/html", express.static(path.join(__dirname, "html")));
+app.use("/css", express.static(path.join(__dirname, "css")));
+app.use("/js", express.static(path.join(__dirname, "js")));
+app.use("/IMG", express.static(path.join(__dirname, "IMG")));; // adiciona essa linha
 
 require("./config/db"); // conecta no banco
 

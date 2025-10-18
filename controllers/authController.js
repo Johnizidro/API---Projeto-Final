@@ -191,7 +191,7 @@ exports.forgotPassword = async (req, res) => {
 
     await user.save();
 
-    const resetUrl = `${process.env.FRONTEND_URL}/resetarSenha.html?token=${token}&email=${email}`;
+    const resetUrl = `${process.env.FRONTEND_URL}/html/resetarSenha.html?token=${token}&email=${email}`;
 
     const mailOptions = {
       from: `"ConectaBov" <${process.env.SMTP_USER}>`,
