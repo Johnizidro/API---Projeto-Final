@@ -652,6 +652,20 @@ body {
     padding: 5px;             /* espaço interno */
     box-sizing: content-box;
     margin-top: 1%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rede img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.rede span {
+    transition: color 0.2s ease;
+}
+
+.rede:hover span {
+    color: #3b3b3b; /* muda cor do texto quando hover na linha inteira */
 }
 
 /* Caixa de Contato */
@@ -662,6 +676,11 @@ body {
     margin: 15px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     gap: 12px; 
+    transition: box-shadow 0.3s ease;
+}
+
+.caixa-contato:hover {
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.25);
 }
 
 /* Lista de veterinários */
@@ -681,7 +700,14 @@ body {
     margin: 12px 0;
     padding: 15px;
     border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.card-vet:hover {
+    transform: translateY(-4px); /* leve elevação */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* sombra mais intensa */
+}
+
 
 .vet-info {
     background-color: #5d6c4e;
@@ -692,6 +718,7 @@ body {
     align-items: center;        /* centraliza verticalmente */
     justify-content: center;    /* centraliza horizontalmente */
     overflow: hidden; 
+    
 }
 
 .vet-icons {
@@ -704,6 +731,12 @@ body {
 .icone-mini {
     width: 28px;
     cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.icone-mini:hover {
+    transform: scale(1.2); /* aumenta levemente */
+    filter: brightness(1.2); /* mais brilho ao passar o mouse */
 }
 
 .vet-dados {
@@ -727,6 +760,14 @@ body {
   font-size: 1rem;
   margin: 0;
   min-width: 150px; /* garante largura mínima para uniformidade */
+}
+
+.vet-info img {
+    transition: transform 0.3s ease;
+}
+
+.vet-info img:hover {
+    transform: scale(1.05); /* leve zoom */
 }
 
 body {
