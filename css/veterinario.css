@@ -604,8 +604,8 @@ body {
     border-radius: 5px;
     margin-top: 270px;
     flex-direction: column;
-    padding-top: 5%;
-    padding-bottom: 6%;
+    padding-top: 7%;
+    padding-bottom: 8%;
 
 
 
@@ -636,13 +636,32 @@ body {
     margin-right: 10px;
 }
 
+/* Cada item de contato */
+.rede {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* espaçamento entre ícone e texto */
+}
+
+/* Ícones */
+.rede img {
+    width: 36px;              /* tamanho uniforme dos ícones */
+    height: 36px;
+    background-color: #f5f5dc; /* fundo claro atrás do ícone */
+    border-radius: 6px;
+    padding: 5px;             /* espaço interno */
+    box-sizing: content-box;
+    margin-top: 1%;
+}
+
 /* Caixa de Contato */
 .caixa-contato {
     background-color: #d2b886;
     padding: 20px;
-    height: 150px;
+    height: 220px;
     margin: 15px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    gap: 12px; 
 }
 
 /* Lista de veterinários */
