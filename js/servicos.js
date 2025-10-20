@@ -56,3 +56,30 @@ $(document).ready(function() {
       });
     
     });
+
+
+    window.addEventListener('DOMContentLoaded', async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        // Se quiser, redireciona ou mostra alerta
+        return;
+      }
+    
+      try {
+        const res = await fetch('http://localhost:3000/tarefas/listaAni', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+    
+        if (!res.ok) throw new Error('Erro ao buscar animais');
+    
+        const animais = await res.json();
+    
+        const contadorGado = document.getElementById('contador-gado');
+        if (contadorGado) {
+          contadorGado.textContent = animais.length.toFixed(1); // Mantendo formato "4.0"
+        }
+      } catch (error) {
+        console.error('Erro ao carregar animais:', error);
+      }
+    });
+    
