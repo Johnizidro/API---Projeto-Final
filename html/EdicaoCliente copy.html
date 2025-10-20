@@ -239,92 +239,69 @@
 </body>
 
 <script>
-  async function carregarDados() {
-    const token = localStorage.getItem('token');
-    const resp = await fetch("http://localhost:3000/auth/me", {
-      method: "GET",
-      headers: { "Authorization": `Bearer ${token}` }
-    });
-  
-    if (!resp.ok) {
-      alert("Erro ao carregar dados");
-      return;
-    }
-  
-    const { cliente, fazenda } = await resp.json();
-  
-    // Preenche cliente
-    const formCliente = document.getElementById("formCliente");
-    for (const [chave, valor] of Object.entries(cliente)) {
-      if (formCliente.elements[chave]) {
-        formCliente.elements[chave].value = valor || "";
+document.addEventListener("DOMContentLoaded", () => {
+
+    async function carregarDados() {
+  const token = localStorage.getItem('token');
+  const resp = await fetch("http://localhost:3000/auth/me", {
+    method: "GET",
+    headers: { "Authorization": `Bearer ${token}` }
+  });
+
+  if (!resp.ok) {
+    alert("Erro ao carregar dados");
+    return;
+  }
+
+  const data = await resp.json();
+  console.log("Dados recebidos do servidor:", data);
+
+  const { cliente, fazenda } = data;
+
+  // Preencher cliente
+  try {
+    if (cliente && typeof cliente === "object") {
+      const formCliente = document.getElementById("formCliente");
+      for (const [chave, valor] of Object.entries(cliente)) {
+        if (formCliente.elements[chave]) {
+          formCliente.elements[chave].value = valor || "";
+        }
       }
+    } else {
+      console.warn("Dados do cliente não encontrados ou inválidos.");
     }
-  
-    // Preenche fazenda
-    if (fazenda) {
+  } catch (error) {
+    console.error("Erro ao preencher dados do cliente:", error);
+  }
+
+  // Preencher fazenda
+  try {
+    if (fazenda && typeof fazenda === "object") {
       const formFazenda = document.getElementById("formFazenda");
       for (const [chave, valor] of Object.entries(fazenda)) {
         if (formFazenda.elements[chave]) {
           formFazenda.elements[chave].value = valor || "";
         }
       }
+    } else {
+      console.warn("Dados da fazenda não encontrados ou inválidos.");
     }
+  } catch (error) {
+    console.error("Erro ao preencher dados da fazenda:", error);
   }
-  
+}
+
+
   async function salvarTudo() {
-    const token = localStorage.getItem('token');
-  
-    try {
-      // ========== Envia Cliente com imagem ==========
-      const clienteForm = document.getElementById("formCliente");
-      const clienteFormData = new FormData(clienteForm);
-  
-      const respCliente = await fetch("http://localhost:3000/auth/cliente", {
-        method: "PUT",
-        headers: {
-          "Authorization": `Bearer ${token}`
-          // ⚠️ NÃO colocar Content-Type aqui!
-        },
-        body: clienteFormData
-      });
-  
-      if (!respCliente.ok) {
-        throw new Error("Erro ao atualizar dados do cliente");
-      }
-  
-      // ========== Envia Fazenda (JSON) ==========
-      const fazendaForm = document.getElementById("formFazenda");
-      const fazendaDados = Object.fromEntries(new FormData(fazendaForm));
-  
-      const respFazenda = await fetch("http://localhost:3000/auth/fazenda", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
-        },
-        body: JSON.stringify(fazendaDados)
-      });
-  
-      if (!respFazenda.ok) {
-        throw new Error("Erro ao atualizar dados da fazenda");
-      }
-  
-      // Sucesso
-      alert("Dados atualizados com sucesso!");
-      window.location.href = "perfil.html";
-  
-    } catch (error) {
-      alert(error.message);
-      console.error(error);
-    }
+    // Seu código de salvar aqui
   }
-  
-  // Carrega os dados ao abrir a página
-  window.onload = carregarDados;
-  
-  // Botão único de salvar
+
+  carregarDados();
+
   document.getElementById("btnSalvarTudo")?.addEventListener("click", salvarTudo);
+
+});
+
   </script>
 
 <script src="/js/main.js"></script>

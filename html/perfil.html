@@ -210,69 +210,74 @@
     </div>
     <div id="entreemcontato"></div>
 
+
+
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+          const token = localStorage.getItem('token');
+          if (!token) return;
+        
+          try {
+            const res = await fetch('http://localhost:3000/auth/me', {
+              method: 'GET',
+              headers: {
+                Authorization: `Bearer ${token}`
+              }
+            });
+        
+            if (!res.ok) {
+              console.error('Erro ao buscar os dados do usuário.');
+              return;
+            }
+        
+            const data = await res.json();
+            console.log(data);
+            const user = data.user || {};
+            const cliente = data.cliente || {};
+            const fazenda = data.fazenda || {};
+        
+            // ===== Dados do usuário =====
+            document.getElementById('nome').textContent = user.name || '---';
+            document.getElementById('email').textContent = user.email || '---';
+            document.getElementById('dataCadastro').textContent = user.createdAt
+              ? new Date(user.createdAt).toLocaleDateString('pt-BR')
+              : '---';
+            document.getElementById('telefone').textContent = user.telefone || '---';
+        
+            // ===== Dados do cliente =====
+            document.getElementById('dataNascimento').textContent = cliente.dataNascimento || '---';
+            document.getElementById('cnpj').textContent = cliente.cnpj || '---';
+            document.getElementById('cpf').textContent = cliente.cpf || '---';
+            document.getElementById('ocupacao').textContent = cliente.ocupacao || '---';
+        
+            // ===== Imagem do cliente =====
+            if (cliente.imagem) {
+              const fotoPerfil = document.getElementById('fotoPerfil');
+              fotoPerfil.src = `data:image/png;base64,${cliente.imagem}`;
+            }
+        
+            // ===== Dados da fazenda =====
+            document.getElementById('cep').textContent = fazenda.cep || '---';
+            document.getElementById('rua').textContent = fazenda.rua || '---';
+            document.getElementById('logradouro').textContent = fazenda.logradouro || '---';
+            document.getElementById('numero').textContent = fazenda.numero || '---';
+            document.getElementById('estado').textContent = fazenda.estado || '---';
+            document.getElementById('cidade').textContent = fazenda.cidade || '---';
+        
+          } catch (error) {
+            console.error('Erro na requisição:', error);
+          }
+        
+          // Botão de edição de perfil
+          document.getElementById("editarPerfilBtn").addEventListener("click", () => {
+            window.location.href = "http://127.0.0.1:5500/html/EdicaoCliente%20copy.html";
+          });
+        });
+        </script>
+      
+
 </body>
 
-<script>
-  window.addEventListener('DOMContentLoaded', async () => {
-    const token = localStorage.getItem('token');
-    if (!token) return;
-  
-    try {
-      const res = await fetch('http://localhost:3000/auth/me', {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-  
-      if (!res.ok) {
-        console.error('Erro ao buscar os dados do usuário.');
-        return;
-      }
-  
-      const data = await res.json();
-      const user = data.user || {};
-      const cliente = data.cliente || {};
-      const fazenda = data.fazenda || {};
-  
-      // ===== Dados do usuário =====
-      document.getElementById('nome').textContent = user.name || '---';
-      document.getElementById('email').textContent = user.email || '---';
-      document.getElementById('dataCadastro').textContent = user.createdAt
-        ? new Date(user.createdAt).toLocaleDateString('pt-BR')
-        : '---';
-      document.getElementById('telefone').textContent = user.telefone || '---';
-  
-      // ===== Dados do cliente =====
-      document.getElementById('dataNascimento').textContent = cliente.dataNascimento || '---';
-      document.getElementById('cnpj').textContent = cliente.cnpj || '---';
-      document.getElementById('cpf').textContent = cliente.cpf || '---';
-      document.getElementById('ocupacao').textContent = cliente.ocupacao || '---';
-  
-      // ===== Imagem do cliente =====
-      if (cliente.imagem) {
-        const fotoPerfil = document.getElementById('fotoPerfil');
-        fotoPerfil.src = `data:image/png;base64,${cliente.imagem}`;
-      }
-  
-      // ===== Dados da fazenda =====
-      document.getElementById('cep').textContent = fazenda.cep || '---';
-      document.getElementById('rua').textContent = fazenda.rua || '---';
-      document.getElementById('logradouro').textContent = fazenda.logradouro || '---';
-      document.getElementById('numero').textContent = fazenda.numero || '---';
-      document.getElementById('estado').textContent = fazenda.estado || '---';
-      document.getElementById('cidade').textContent = fazenda.cidade || '---';
-  
-    } catch (error) {
-      console.error('Erro na requisição:', error);
-    }
-  
-    // Botão de edição de perfil
-    document.getElementById("editarPerfilBtn").addEventListener("click", () => {
-      window.location.href = "http://127.0.0.1:5500/html/EdicaoCliente%20copy.html";
-    });
-  });
-  </script>
 
 <script src="/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

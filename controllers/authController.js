@@ -84,6 +84,7 @@ exports.loginUser = async (req, res) => {
 
 exports.getUserData = async (req, res) => {
   try {
+
     if (!req.userId) {
       return res.status(401).json({ msg: "Token inválido ou ausente" });
     }
