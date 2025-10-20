@@ -191,18 +191,16 @@ exports.forgotPassword = async (req, res) => {
 
     await user.save();
 
-    const resetUrl = `${process.env.FRONTEND_URL}/html/resetarSenha.html?token=${token}&email=${email}`;
+    const link = `http://127.0.0.1:5500/html/resetarSenha.html?token=${user.resetPasswordToken}`; // link para sua página de redefinição
 
     const mailOptions = {
       from: `"ConectaBov" <${process.env.SMTP_USER}>`,
-      to: email,
+      to: user.email,
       subject: "Recuperação de senha",
-      html: `
-        <p>Você solicitou a recuperação de senha.</p>
-        <p>Por favor, clique no link abaixo para criar uma nova senha:</p>
-        <a href="${resetUrl}">${resetUrl}</a>
-        <p>Esse link expira em 1 hora.</p>
-      `,
+      html: `<p>Você solicitou a redefinição de senha.</p>
+             <p>Clique no link abaixo para criar uma nova senha (válido por 1 hora):</p>
+             <a href="${link}">${link}</a>`
+      ,
     };
 
     await transportador.sendMail(mailOptions);
@@ -215,39 +213,31 @@ exports.forgotPassword = async (req, res) => {
 };
 
 exports.resetPassword = async (req, res) => {
-  const { email, token, newPassword, confPassword } = req.body;
+  const { token } = req.params;
+  const { novaSenha } = req.body;
 
-  if (!email || !token || !newPassword || !confPassword) {
-    return res.status(422).json({ msg: "Todos os campos são obrigatórios" });
-  }
 
-  if (newPassword !== confPassword) {
-    return res.status(422).json({ msg: "As senhas não conferem" });
-  }
+  if (!novaSenha) return res.status(400).json({ msg: "A nova senha é obrigatória." });
+
 
   try {
     const user = await User.findOne({
-      email,
       resetPasswordToken: token,
-      resetPasswordExpires: { $gt: Date.now() }, // token ainda válido
+      resetPasswordExpires: { $gt: Date.now() } // ainda válido
     });
 
-    if (!user) {
-      return res.status(400).json({ msg: "Token inválido ou expirado" });
-    }
+    if (!user) return res.status(400).json({ msg: "Token inválido ou expirado." });
 
-    const salt = await bcrypt.genSalt(12);
-    user.password = await bcrypt.hash(newPassword, salt);
-
-    // Limpar token e expiração
+    // Atualizar senha
+    const senhaHash = await bcrypt.hash(novaSenha, 10);
+    user.password = senhaHash;
     user.resetPasswordToken = undefined;
     user.resetPasswordExpires = undefined;
-
     await user.save();
 
-    res.status(200).json({ msg: "Senha atualizada com sucesso" });
-  } catch (error) {
-    console.error("Erro no resetPassword:", error);
-    res.status(500).json({ msg: "Erro no servidor" });
+    return res.json({ msg: "Senha redefinida com sucesso." });
+  } catch (erro) {
+    console.error("Erro ao redefinir senha:", erro);
+    return res.status(500).json({ msg: "Erro interno no servidor." });
   }
 };

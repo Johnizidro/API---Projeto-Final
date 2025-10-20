@@ -6,10 +6,8 @@ const userSchema = new mongoose.Schema({
   telefone: { type: String, required: true, trim: true },
   password: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
-
-
-  resetPasswordToken: String,
-  resetPasswordExpires: Date,
+  resetPasswordToken: { type: String },
+  resetPasswordExpires: { type: Date },
 });
 
 module.exports = mongoose.model("User", userSchema);
