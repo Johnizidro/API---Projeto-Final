@@ -112,8 +112,8 @@
                       </div>
                       <div class="campo-busca">
                           <div class="pesquisa-dad">
-                              <input class="pesquisa" type="text" name="" id="" placeholder="Código Sisbov"
-                                  size="30px">
+                            <input class="pesquisa" type="text" id="campoPesquisa" placeholder="Código Sisbov" size="30px">
+
                               <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset=""
                                   width="18px">
                           </div>
@@ -159,34 +159,43 @@
 </body>
 
 <script>
-  window.addEventListener('DOMContentLoaded', async () => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      alert('Usuário não autenticado. Faça login.');
-      window.location.href = 'login.html';
-      return;
-    }
+window.addEventListener('DOMContentLoaded', async () => {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    alert('Usuário não autenticado. Faça login.');
+    window.location.href = 'login.html';
+    return;
+  }
 
-    try {
-      const res = await fetch('http://localhost:3000/tarefas/listaAni', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+  try {
+    const res = await fetch('http://localhost:3000/tarefas/listaAni', {
+      headers: { Authorization: `Bearer ${token}` }
+    });
 
-      if (!res.ok) throw new Error('Erro ao buscar animais');
+    if (!res.ok) throw new Error('Erro ao buscar animais');
 
-      const animais = await res.json();
+    const animais = await res.json();
 
-      // Atualiza a contagem de animais
-      const numeroAnimais = document.querySelector('.quantidade .numero');
-      if (numeroAnimais) numeroAnimais.textContent = animais.length;
+    const numeroAnimais = document.querySelector('.quantidade .numero');
+    if (numeroAnimais) numeroAnimais.textContent = animais.length;
 
-      const lista = document.querySelector('.lista-animais');
-      lista.innerHTML = ''; // limpa os itens anteriores
+    const lista = document.querySelector('.lista-animais');
 
-      // Renderiza cada animal com botões
-      animais.forEach(animal => {
+    // Função para renderizar os animais na lista
+    function renderAnimais(animaisToRender, destaqueCodigo = null) {
+      lista.innerHTML = ''; // limpa a lista antes
+
+      animaisToRender.forEach(animal => {
         const div = document.createElement('div');
         div.classList.add('item-animal');
+
+        // Se for o destaque, adiciona classe extra e estilo
+        if (animal.codigoSisbov === destaqueCodigo) {
+          div.classList.add('destaque');
+          // Você pode ajustar a cor no CSS para .destaque, ou usar style aqui:
+          div.style.backgroundColor = '#fffae6'; // exemplo de cor clara
+          div.style.border = '2px solid #f1c40f';
+        }
 
         div.innerHTML = `
           <div class="campo"><strong>Nome:</strong> ${animal.nome}</div>
@@ -203,47 +212,76 @@
 
         lista.appendChild(div);
       });
+    }
 
-      // Eventos dos botões
-      lista.addEventListener('click', async (e) => {
-        const target = e.target;
+    // Renderiza inicialmente todos os animais
+    renderAnimais(animais);
 
-        // 🗑️ DELETAR
-        if (target.classList.contains('btn-deletar')) {
-          const id = target.getAttribute('data-id');
-          if (confirm('Deseja realmente deletar este animal?')) {
-            try {
-              const res = await fetch(`http://localhost:3000/tarefas/deletar/${id}`, {
-                method: 'DELETE',
-                headers: {
-                  Authorization: `Bearer ${token}`
-                }
-              });
+    // Captura o input da busca
+    const campoPesquisa = document.getElementById('campoPesquisa');
 
-              if (!res.ok) throw new Error('Erro ao deletar animal');
+    campoPesquisa.addEventListener('input', () => {
+      const valorBusca = campoPesquisa.value.trim();
 
-              alert('Animal deletado com sucesso!');
-              location.reload(); // recarrega a lista
+      if (valorBusca === '') {
+        // Se vazio, renderiza tudo normal
+        renderAnimais(animais);
+        return;
+      }
 
-            } catch (error) {
-              console.error(error);
-              alert('Erro ao deletar animal');
-            }
+      // Procura animal que tem código exatamente igual
+      const animalDestaque = animais.find(a => a.codigoSisbov === valorBusca);
+
+      if (animalDestaque) {
+        // Cria nova lista com o destaque primeiro e os demais depois (sem repetir)
+        const outros = animais.filter(a => a.codigoSisbov !== valorBusca);
+        const novaLista = [animalDestaque, ...outros];
+        renderAnimais(novaLista, valorBusca);
+      } else {
+        // Se não encontrar nenhum, pode mostrar todos normalmente, ou uma mensagem
+        renderAnimais(animais);
+      }
+    });
+
+    // Eventos dos botões continuam iguais
+    lista.addEventListener('click', async (e) => {
+      const target = e.target;
+
+      if (target.classList.contains('btn-deletar')) {
+        const id = target.getAttribute('data-id');
+        if (confirm('Deseja realmente deletar este animal?')) {
+          try {
+            const res = await fetch(`http://localhost:3000/tarefas/deletar/${id}`, {
+              method: 'DELETE',
+              headers: {
+                Authorization: `Bearer ${token}`
+              }
+            });
+
+            if (!res.ok) throw new Error('Erro ao deletar animal');
+
+            alert('Animal deletado com sucesso!');
+            location.reload();
+
+          } catch (error) {
+            console.error(error);
+            alert('Erro ao deletar animal');
           }
         }
+      }
 
-        // ✏️ EDITAR
-        if (target.classList.contains('btn-editar')) {
-          const id = target.getAttribute('data-id');
-          window.location.href = `EditarAnimal.html?id=${id}`;
-        }
-      });
+      if (target.classList.contains('btn-editar')) {
+        const id = target.getAttribute('data-id');
+        window.location.href = `EditarAnimal.html?id=${id}`;
+      }
+    });
 
-    } catch (error) {
-      console.error(error);
-      alert('Erro ao carregar animais');
-    }
-  });
+  } catch (error) {
+    console.error(error);
+    alert('Erro ao carregar animais');
+  }
+});
+
 </script>
 
 <script src="/js/main.js"></script>
