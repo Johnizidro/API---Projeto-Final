@@ -95,3 +95,12 @@ userInput.addEventListener("keydown", (event) => {
     enviarMensagem();
   }
 });
+
+
+function logout() {
+  // Remove o token de autenticação
+  localStorage.removeItem('token');
+
+  // Redireciona para a tela de login
+  window.location.href = 'login.html'; // Ajuste o caminho conforme sua estrutura
+}
