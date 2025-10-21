@@ -172,6 +172,30 @@
                               <span class="perfil-label">Cidade:</span>
                               <span id="cidade">...</span>
                           </div>
+                          <div class="perfil-item">
+  <span class="perfil-label">Comedouros:</span>
+  <span id="comedouro">...</span>
+</div>
+<div class="perfil-item">
+  <span class="perfil-label">Piquetes:</span>
+  <span id="piquete">...</span>
+</div>
+<div class="perfil-item">
+  <span class="perfil-label">Bebedouros:</span>
+  <span id="bebedouro">...</span>
+</div>
+<div class="perfil-item">
+  <span class="perfil-label">Estoque (Kg):</span>
+  <span id="estoque">...</span>
+</div>
+<div class="perfil-item">
+  <span class="perfil-label">Sensores:</span>
+  <span id="sensor">...</span>
+</div>
+<div class="perfil-item">
+  <span class="perfil-label">Tamanho (m²):</span>
+  <span id="metros">...</span>
+</div>
                       </div>
                   </div>
                   <div style="margin-top: 20px; text-align: center;">
@@ -260,6 +284,12 @@
             document.getElementById('numero').textContent = fazenda.numero || '---';
             document.getElementById('estado').textContent = fazenda.estado || '---';
             document.getElementById('cidade').textContent = fazenda.cidade || '---';
+            document.getElementById('comedouro').textContent = fazenda.comedouro ?? '---';
+            document.getElementById('piquete').textContent = fazenda.piquete ?? '---';
+            document.getElementById('bebedouro').textContent = fazenda.bebedouro ?? '---';
+            document.getElementById('estoque').textContent = fazenda.estoque ?? '---';
+            document.getElementById('sensor').textContent = fazenda.sensor ?? '---';
+            document.getElementById('metros').textContent = fazenda.metros ?? '---';
         
           } catch (error) {
             console.error('Erro na requisição:', error);

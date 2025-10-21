@@ -15,66 +15,53 @@
         <div class="cabecalho-div-">
             <div class="cabecalho-div-login">
                 <img src="/IMG/Group 5.png" width="80px" class="imgLogo">      
-                    <div class="cabecalho-div">
-                        <!-- Ícone para abrir o menu -->
-                        <!-- Ícone para abrir o menu -->
-                        
-                        <!-- Menu lateral com botão de fechar -->
-                        <div id="menuLateral" class="menu-lateral">
-                            <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
-                            <ul>
-                                <li>
-                                    <a href="servicos.html">
-                                        <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="cadastroAnimal.html">
-                                        <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="consultaMensal.html">
-                                        <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta
-                                        Mensal
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/public/CLimaAPI.html">
-                                        <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
-                                    </a>
-                                </li>
-                               
-                                <li>
-                                    <a href="veterinarios.html">
-                                        <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
-                                            style="width: 50px;margin-left: -6px;"> Veterinários
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="cabecalho-div">
+                    <div id="menuLateral" class="menu-lateral">
+                        <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
+                        <ul>
+                            <li>
+                                <a href="servicos.html">
+                                    <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
+                                </a>
+                            </li>
+                            <li>
+                                <a href="cadastroAnimal.html">
+                                    <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultaMensal.html">
+                                    <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta Mensal
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/public/CLimaAPI.html">
+                                    <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
+                                </a>
+                            </li>
+                            <li>
+                                <a href="veterinarios.html">
+                                    <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
+                                        style="width: 50px;margin-left: -6px;"> Veterinários
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-           
-
-               
-
-                <a href="perfil.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
-                    
+                </div>
+                <a href="perfil.html" class="icon-login">
+                    <img class="user-solid" src="/IMG/user-solid.svg" alt="" width="30px">
                 </a>
             </div>
-            
+
             <div class="menu">
                 <img src="/IMG/bars-solid-full.svg" alt="" width="35px" onclick="abrirMenu()">
                 <p>Bem vindo a ConectaBov</p>
             </div>
 
             <div class="chat-container">
-                <!-- Botão aparece só quando o chat está fechado -->
                 <button class="chat-btn" id="chatBtn">
                   <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov">
                 </button>
-              
-                <!-- Caixa de chat escondida inicialmente -->
                 <div class="chat-box" id="chatBox">
                   <div class="chat-header">
                     ConectaBov I.A
@@ -88,109 +75,107 @@
                     <button id="sendBtn">➤</button>
                   </div>
                 </div>
-              </div>
-
-           
+            </div>
 
             <div class="dashboard">
                 <div class="dashboard-children">
                     <div class="registro-fileira1">
-                        <!-- <div class="registro-fileira1"> -->
-                            <div class="registro-gado">
-                                <div class="registro-gado-dado">
-                                    <div class="register-number">
-                                        <h1 class="colorh1" id="contador-gado">4.0</h1>
-                                    </div>
-                                    <img src="/IMG/imgDashBoard/vaca (1) 1.png" width="70px" height="70px">
+
+                        <!-- Animais: não mexer -->
+                        <div class="registro-gado">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1" id="contador-gado">4</h1>
                                 </div>
-                                <h3 class="colorh3">Gado</h3>
+                                <img src="/IMG/imgDashBoard/vaca (1) 1.png" width="70px" height="70px">
                             </div>
-    
-                            <div class="registro-comedouros">
-                                <div class="registro-gado-dado">
-                                    <div class="register-number">
-                                        <h1 class="colorh1">3.0</h1>
-                                    </div>
-                                    <img src="/IMG/imgDashBoard/trigo 1.png" width="70px" height="70px">
+                            <h3 class="colorh3">Gado</h3>
+                        </div>
+
+                        <!-- Campos novos: atualizáveis -->
+                        <div class="registro-comedouros">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
                                 </div>
-                                <h3 class="colorh3">Comedouros</h3>
+                                <img src="/IMG/imgDashBoard/trigo 1.png" width="70px" height="70px">
                             </div>
-    
-                            <div class="registro-bebedouros">
-                                <div class="registro-gado-dado">
-                                    <div class="register-number">
-                                        <h1 class="colorh1">5.0</h1>
-                                    </div>
-                                    <img src="/IMG/imgDashBoard/gota-de-agua 1.png" width="70px" height="70px">
+                            <h3 class="colorh3">Comedouros</h3>
+                        </div>
+
+                        <div class="registro-bebedouros">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
                                 </div>
-                                <h3 class="colorh3">Bebedouros</h3>
+                                <img src="/IMG/imgDashBoard/gota-de-agua 1.png" width="70px" height="70px">
                             </div>
-    
-                            <div class="registro-metros">
-                                <div class="registro-gado-dado">
-                                    <div class="register-number">
-                                        <h1 class="colorh1">0.0</h1>
-                                    </div>
-                                    <img src="/IMG/imgDashBoard/area 1.png" width="70px" height="70px">
+                            <h3 class="colorh3">Bebedouros</h3>
+                        </div>
+
+                        <div class="registro-metros">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
                                 </div>
-                                <h3 class="colorh3">Metros</h3>
+                                <img src="/IMG/imgDashBoard/area 1.png" width="70px" height="70px">
                             </div>
-                        <!-- </div> -->
-    
-                        <!-- <div class="registro-fileira2"> -->
-                            <div class="registro-sensores">
-                                <div class="registro-gado-dado">
-                                    <div class="register-number">
-                                        <h1 class="colorh1">0.0</h1>
-                                    </div>
-                                    <img src="/IMG/imgDashBoard/sensor 1.png" width="70px" height="70px">
+                            <h3 class="colorh3">Metros</h3>
+                        </div>
+
+                        <div class="registro-sensores">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
                                 </div>
-                                <h3 class="colorh3">Sensores</h3>
+                                <img src="/IMG/imgDashBoard/sensor 1.png" width="70px" height="70px">
                             </div>
-    
-                            <div class="regitro-piquetes">
-                                <div class="registro-gado-dado">
-                                    <div class="register-number">
-                                        <h1 class="colorh1">0.0</h1>
-                                    </div>
-                                    <img src="/IMG/imgDashBoard/piquete 1.png" width="70px" height="70px">
+                            <h3 class="colorh3">Sensores</h3>
+                        </div>
+
+                        <div class="regitro-piquetes">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
                                 </div>
-                                <h3 class="colorh3">Piquetes</h3>
+                                <img src="/IMG/imgDashBoard/piquete 1.png" width="70px" height="70px">
                             </div>
-    
-                            <div class="registro-estoque">
-                                <div class="registro-gado-dado">
-                                    <div class="register-number">
-                                        <h1 class="colorh1">0.0</h1>
-                                    </div>
-                                    <img src="/IMG/imgDashBoard/pacote-de-feno (1) 1.png" width="70px" height="70px">
+                            <h3 class="colorh3">Piquetes</h3>
+                        </div>
+
+                        <div class="registro-estoque">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
                                 </div>
-                                <h3 class="colorh3">Estoque</h3>
+                                <img src="/IMG/imgDashBoard/pacote-de-feno (1) 1.png" width="70px" height="70px">
                             </div>
-    
-                            <div class="registro-rodizio">
-                                <div class="registro-gado-dado">
-                                    <div class="register-number">
-                                        <h1 class="colorh1">0.0</h1>
-                                    </div>
-                                    <img src="/IMG/imgDashBoard/troca 1.png" width="70px" height="70px">
+                            <h3 class="colorh3">Estoque</h3>
+                        </div>
+
+                        <div class="registro-rodizio">
+                            <div class="registro-gado-dado">
+                                <div class="register-number">
+                                    <h1 class="colorh1">0.0</h1>
                                 </div>
-                                <h3 class="colorh3">Rodízio</h3>
+                                <img src="/IMG/imgDashBoard/troca 1.png" width="70px" height="70px">
                             </div>
-                        <!-- </div> -->
+                            <h3 class="colorh3">Rodízio</h3>
+                        </div>
+
                     </div>
+
+                    <!-- Div de gráficos: mantida -->
                     <div class="registro-graficos"></div>
+
                 </div>
             </div>
         </div>
     </div>
 
-
     <div class="b3">
         <img src="../IMG/Sem Título-1.png" alt="" width="60%">
-        
     </div>
-
 
     <div class="footer">
         <div class="footer-sub">
@@ -221,34 +206,52 @@
     <div id="entreemcontato"></div>
 
 </body>
+
 <script>
-    window.addEventListener('DOMContentLoaded', async () => {
-      const token = localStorage.getItem('token');
-      if (!token) return;
-  
-      try {
-        const res = await fetch('http://localhost:3000/auth/me', {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-  
-        if (res.ok) {
-          const user = await res.json();
-          const nomeUsuario = document.getElementById('nome-usuario');
-          if (nomeUsuario) nomeUsuario.textContent = user.name;
-        } else {
-          console.warn("Token inválido ou usuário não encontrado");
+window.addEventListener('DOMContentLoaded', async () => {
+  const token = localStorage.getItem('token');
+  if (!token) return;
+
+  try {
+    const res = await fetch('http://localhost:3000/auth/me', {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${token}` }
+    });
+
+    if (!res.ok) throw new Error('Erro ao buscar dados do usuário');
+
+    const data = await res.json();
+    const fazenda = data.fazenda || {};
+
+    const camposDashboard = {
+      'registro-comedouros': 'comedouro',
+      'registro-bebedouros': 'bebedouro',
+      'registro-metros': 'metros',
+      'registro-sensores': 'sensor',
+      'regitro-piquetes': 'piquete',
+      'registro-estoque': 'estoque',
+      'registro-rodizio': 'rodizio'
+    };
+
+    Object.entries(camposDashboard).forEach(([classeDiv, campoFazenda]) => {
+      const div = document.querySelector(`.${classeDiv}`);
+      if (div) {
+        const h1 = div.querySelector('h1');
+        if (h1) {
+          h1.textContent = fazenda[campoFazenda] || 0; // Se não tiver, mostra 0
         }
-      } catch (err) {
-        console.error("Erro ao buscar dados do usuário:", err);
       }
     });
-  </script>
+
+  } catch (err) {
+    console.error('Erro ao atualizar dashboard:', err);
+  }
+});
+
+</script>
+
 <script src="/js/main.js"></script>
 <script src="/js/script.js"></script>
 <script src="/js/servicos.js"></script>
-
 
 </html>

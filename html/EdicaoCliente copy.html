@@ -1,79 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/editarCliente.css">
-    <link rel="shortcut icon" href="../IMG/Group 5.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/editarCliente.css" />
+    <link rel="shortcut icon" href="../IMG/Group 5.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <title>ConectaBov</title>
-</head>
+  </head>
 
-<body>
-  <div class="cabecalho">
-    <div class="cabecalho-div-">
+  <body>
+    <div class="cabecalho">
+      <div class="cabecalho-div-">
         <div class="cabecalho-div-login">
-            <img src="/IMG/Group 5.png" width="80px" class="imgLogo">      
-                <div class="cabecalho-div">
-                    <!-- Ícone para abrir o menu -->
-                    <!-- Ícone para abrir o menu -->
-                    
-                    <!-- Menu lateral com botão de fechar -->
-                    <div id="menuLateral" class="menu-lateral">
-                        <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
-                        <ul>
-                            <li>
-                                <a href="servicos.html">
-                                    <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
-                                </a>
-                            </li>
-                            <li>
-                                <a href="cadastroAnimal.html">
-                                    <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
-                                </a>
-                            </li>
-                            <li>
-                                <a href="consultaMensal.html">
-                                    <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta
-                                    Mensal
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/public/CLimaAPI.html">
-                                    <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
-                                </a>
-                            </li>
-                         
-                            <li>
-                                <a href="veterinarios.html">
-                                    <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
-                                        style="width: 50px;margin-left: -6px;"> Veterinários
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-       
+          <img src="/IMG/Group 5.png" width="80px" class="imgLogo" />
+          <div class="cabecalho-div">
+            <!-- Ícone para abrir o menu -->
+            <!-- Ícone para abrir o menu -->
 
-          
+            <!-- Menu lateral com botão de fechar -->
+            <div id="menuLateral" class="menu-lateral">
+              <button class="fechar-menu" onclick="fecharMenu()">
+                ← Voltar
+              </button>
+              <ul>
+                <li>
+                  <a href="servicos.html">
+                    <img src="/IMG/cardapio 2.png" alt="Início" class="icon" />
+                    Início
+                  </a>
+                </li>
+                <li>
+                  <a href="cadastroAnimal.html">
+                    <img
+                      src="/IMG/cadastro 2.png"
+                      alt="Cadastro"
+                      class="icon"
+                    />
+                    Cadastro
+                  </a>
+                </li>
+                <li>
+                  <a href="consultaMensal.html">
+                    <img
+                      src="/IMG/pesquisa 2.png"
+                      alt="Consulta Mensal"
+                      class="icon"
+                    />
+                    Consulta Mensal
+                  </a>
+                </li>
+                <li>
+                  <a href="/public/CLimaAPI.html">
+                    <img
+                      src="/IMG/dia-ensolarado 2.png"
+                      alt="Clima"
+                      class="icon"
+                    />
+                    Clima
+                  </a>
+                </li>
 
-            <a href="perfil.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
-               
-            </a>
+                <li>
+                  <a href="veterinarios.html">
+                    <img
+                      src="/IMG/vaca 2.png"
+                      alt="Veterinários"
+                      class="icon"
+                      style="width: 50px; margin-left: -6px"
+                    />
+                    Veterinários
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <a href="perfil.html" class="icon-login"
+            ><img
+              class="user-solid"
+              src="/IMG/user-solid.svg"
+              alt=""
+              srcset=""
+              width="30px"
+            />
+          </a>
         </div>
-        
+
         <div class="menu">
-            <img src="/IMG/bars-solid-full.svg" alt="" width="35px" onclick="abrirMenu()">
-            <p>Bem vindo a ConectaBov</p>
+          <img
+            src="/IMG/bars-solid-full.svg"
+            alt=""
+            width="35px"
+            onclick="abrirMenu()"
+          />
+          <p>Bem vindo a ConectaBov</p>
         </div>
 
         <div class="chat-container">
           <!-- Botão aparece só quando o chat está fechado -->
           <button class="chat-btn" id="chatBtn">
-            <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov">
+            <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov" />
           </button>
-        
+
           <!-- Caixa de chat escondida inicialmente -->
           <div class="chat-box" id="chatBox">
             <div class="chat-header">
@@ -81,273 +113,439 @@
               <span class="close-chat" id="closeChat">✖</span>
             </div>
             <div class="chat-messages" id="chatMessages">
-              <p class="bot-msg">Olá! Eu sou a I.A da ConectaBov, como posso ajudar?</p>
+              <p class="bot-msg">
+                Olá! Eu sou a I.A da ConectaBov, como posso ajudar?
+              </p>
             </div>
             <div class="chat-input">
-              <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+              <input
+                type="text"
+                id="userInput"
+                placeholder="Digite sua mensagem..."
+              />
               <button id="sendBtn">➤</button>
             </div>
           </div>
         </div>
 
-         
-          
         <div class="dashboard">
           <div class="dashboard-children">
-              <div class="tituloCadastroGeral">
-                  <img src="/IMG/pesquisa 2.png" alt="" width="45px" class="tituloCadastroGeralImg">Alteração de Dados
+            <div class="tituloCadastroGeral">
+              <img
+                src="/IMG/pesquisa 2.png"
+                alt=""
+                width="45px"
+                class="tituloCadastroGeralImg"
+              />Alteração de Dados
+            </div>
+
+            <div class="cadastroBox">
+              <div class="cadastroBox1">
+                <img src="../IMG/vaca (1) 1.png" alt="" width="50px" />
+                <span
+                  style="
+                    color: #465640;
+                    font-weight: bold;
+                    font-size: 35px;
+                    margin-left: 10px;
+                  "
+                >
+                  Cliente
+                </span>
               </div>
+              <form action="" method="" id="formCliente">
+                <div class="area">
+                  <input
+                    type="text"
+                    name="nome"
+                    id=""
+                    required
+                    class="campoCadastro input"
+                    placeholder=" Nome Completo"
+                  />
+                  <div class="labelline">Nome Completo</div>
+                </div>
 
-              <div class="cadastroBox">
-                  <div class="cadastroBox1">
-                      <img src="../IMG/vaca (1) 1.png" alt="" width="50px">
-                      <span style="color: #465640; font-weight: bold; font-size: 35px; margin-left: 10px;"> Cliente
-                         </span>
-                  </div>
-                  <form action="" method="" id="formCliente">
-                      <div class="area">
-                          <input type="text" name="nome" id="" required class="campoCadastro input"
-                              placeholder=" Nome Completo">
-                          <div class="labelline">Nome Completo</div>
-                      </div>
+                <div class="area">
+                  <input
+                    type="date"
+                    name="dataNascimento"
+                    id=""
+                    required
+                    class="campoCadastro input"
+                  />
+                  <div class="labelline">Data de Nascimento</div>
+                </div>
 
-                      <div class="area">
-                          <input type="date" name="dataNascimento" id="" required class="campoCadastro input">
-                          <div class="labelline">Data de Nascimento</div>
-                      </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="cnpj"
+                    id=""
+                    required
+                    class="campoCadastro input"
+                    placeholder=" CNPJ"
+                  />
+                  <div class="labelline">CNPJ</div>
+                </div>
 
-                      <div class="area">
-                          <input type="text" name="cnpj" id="" required class="campoCadastro input"
-                              placeholder=" CNPJ">
-                          <div class="labelline">CNPJ</div>
-                      </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="cpf"
+                    id=""
+                    required
+                    class="campoCadastro input"
+                    placeholder=" CPF"
+                  />
+                  <div class="labelline">CPF</div>
+                </div>
 
-                      <div class="area">
-                          <input type="text" name="cpf" id="" required class="campoCadastro input"
-                              placeholder=" CPF">
-                          <div class="labelline">CPF</div>
-                      </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="telefone"
+                    id=""
+                    required
+                    class="campoCadastro input"
+                    placeholder=" Telefone"
+                  />
+                  <div class="labelline">Telefone</div>
+                </div>
 
-                      <div class="area">
-                          <input type="text" name="telefone" id="" required class="campoCadastro input"
-                              placeholder=" Telefone">
-                          <div class="labelline">Telefone</div>
-                      </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="ocupacao"
+                    id=""
+                    required
+                    class="campoCadastro input"
+                    placeholder=" Ocupação"
+                  />
+                  <div class="labelline">Ocupação</div>
+                </div>
+                <div class="area">
+                  <input
+                    type="file"
+                    name="imagem"
+                    id="foto"
+                    required
+                    class="campoCadastro input"
+                    accept="image/*"
+                  />
+                  <div class="labelline">Foto do Perfil</div>
+                </div>
+                <div class="area"></div>
+              </form>
+            </div>
 
-                      <div class="area">
-                          <input type="text" name="ocupacao" id="" required class="campoCadastro input"
-                              placeholder=" Ocupação">
-                          <div class="labelline">Ocupação</div>
-                      </div>
-                      <div class="area">
-                          <input type="file" name="imagem" id="foto" required class="campoCadastro input" accept="image/*">
-                          <div class="labelline">Foto do Perfil</div>
-                      </div>
-                        <div class="area">
-                                                  </div>
-
-                      
-
-                  </form>
+            <div class="cadastroBox">
+              <div class="cadastroBox1">
+                <span style="color: #465640; font-weight: bold; font-size: 35px"
+                  >Fazenda:</span
+                >
               </div>
+              <form action="" method="" id="formFazenda">
+                <div class="area">
+                  <input
+                    type="text"
+                    name="cep"
+                    id=""
+                    required
+                    class="campoCadastro input"
+                    placeholder=" CEP:"
+                  />
+                  <div class="labelline">CEP</div>
+                </div>
 
-              <div class="cadastroBox">
-                  <div class="cadastroBox1">
-                      <span style="color: #465640; font-weight: bold; font-size: 35px;">Fazenda:</span>
-                  </div>
-                  <form action="" method="" id="formFazenda">
-                      <div class="area">
-                          <input type="text" name="cep" id="" required class="campoCadastro input"
-                              placeholder=" CEP:">
-                          <div class="labelline">CEP</div>
-                      </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="rua"
+                    id=""
+                    required
+                    class="campoCadastro input"
+                    placeholder=" Rua:"
+                  />
+                  <div class="labelline">Rua</div>
+                </div>
 
-                      <div class="area">
-                          <input type="text" name="rua" id="" required class="campoCadastro input"
-                              placeholder=" Rua:">
-                          <div class="labelline">Rua</div>
-                      </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="logradouro"
+                    id=""
+                    required
+                    class="campoCadastro input"
+                    placeholder=" Logradouro:"
+                  />
+                  <div class="labelline">Logradouro</div>
+                </div>
 
-                      <div class="area">
-                          <input type="text" name="logradouro" id="" required class="campoCadastro input"
-                              placeholder=" Logradouro:">
-                          <div class="labelline">Logradouro</div>
-                      </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="numero"
+                    id=""
+                    required
+                    class="campoCadastro input"
+                    placeholder=" Número:"
+                  />
+                  <div class="labelline">Número</div>
+                </div>
 
-                      <div class="area">
-                          <input type="text" name="numero" id="" required class="campoCadastro input"
-                              placeholder=" Número:">
-                          <div class="labelline">Número</div>
-                      </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="estado"
+                    id=""
+                    required
+                    class="campoCadastro input"
+                    placeholder=" Estado:"
+                  />
+                  <div class="labelline">Estado</div>
+                </div>
 
-                      <div class="area">
-                          <input type="text" name="estado" id="" required class="campoCadastro input"
-                              placeholder=" Estado:">
-                          <div class="labelline">Estado</div>
-                      </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="cidade"
+                    id=""
+                    required
+                    class="campoCadastro input"
+                    placeholder=" Cidade:"
+                  />
+                  <div class="labelline">Cidade</div>
+                </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="comedouro"
+                    id=""
+                    class="campoCadastro input"
+                    placeholder="Comedouros"
+                  />
+                  <div class="labelline">Comedouros</div>
+                </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="piquete"
+                    id=""
+                    class="campoCadastro input"
+                    placeholder="Piquetes"
+                  />
+                  <div class="labelline">Piquetes</div>
+                </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="bebedouro"
+                    id=""
+                    class="campoCadastro input"
+                    placeholder="Bebedouros"
+                  />
+                  <div class="labelline">Bebedouros</div>
+                </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="estoque"
+                    id=""
+                    class="campoCadastro input"
+                    placeholder="Estoque"
+                  />
+                  <div class="labelline">Kg de alimento</div>
+                </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="sensor"
+                    id=""
+                    class="campoCadastro input"
+                    placeholder="Sensores"
+                  />
+                  <div class="labelline">Sensores</div>
+                </div>
+                <div class="area">
+                  <input
+                    type="text"
+                    name="metros"
+                    id=""
+                    class="campoCadastro input"
+                    placeholder="Metros"
+                  />
+                  <div class="labelline">Metros</div>
+                </div>
+              </form>
+            </div>
 
-                      <div class="area">
-                          <input type="text" name="cidade" id="" required class="campoCadastro input"
-                              placeholder=" Cidade:">
-                          <div class="labelline">Cidade</div>
-                      </div>
-
-                     
-
-
-                  </form>
-  
-              </div>
-
-                           <div class="botaoContainer">
-<input type="button" id="btnSalvarTudo"  value="Salvar" class="botaoEnviar">
-</div>
-
+            <div class="botaoContainer">
+              <input
+                type="button"
+                id="btnSalvarTudo"
+                value="Salvar"
+                class="botaoEnviar"
+              />
+            </div>
           </div>
-      </div>
         </div>
+      </div>
     </div>
     <div class="footer">
-        <div class="footer-sub">
-            <div class="footer-children">
-                <div class="entre-em-contato">
-                    <p style="color: white;">Entre em </p>
-                    <p style="color: white;">Contato</p>
-                </div>
-                <div class="logo-rede">
-                    <div class="facebook"><img src="/IMG/facebook-f-brands.svg" width="16px"></div>
-                    <div class="instagram"><img src="/IMG/instagram-brands.svg" width="16px"></div>
-                    <div class="whatsaap"><img src="/IMG/whatsapp-brands.svg" width="16px"></div>
-                    <div class="linkedin"><img src="/IMG/linkedin-in-brands.svg" width="16px"></div>
-                </div>
+      <div class="footer-sub">
+        <div class="footer-children">
+          <div class="entre-em-contato">
+            <p style="color: white">Entre em</p>
+            <p style="color: white">Contato</p>
+          </div>
+          <div class="logo-rede">
+            <div class="facebook">
+              <img src="/IMG/facebook-f-brands.svg" width="16px" />
             </div>
-            <div class="img-gado">
-                <img src="/IMG/1-removebg-preview 3.png" alt="">
+            <div class="instagram">
+              <img src="/IMG/instagram-brands.svg" width="16px" />
             </div>
+            <div class="whatsaap">
+              <img src="/IMG/whatsapp-brands.svg" width="16px" />
+            </div>
+            <div class="linkedin">
+              <img src="/IMG/linkedin-in-brands.svg" width="16px" />
+            </div>
+          </div>
         </div>
+        <div class="img-gado">
+          <img src="/IMG/1-removebg-preview 3.png" alt="" />
+        </div>
+      </div>
 
-        <div class="divis">
-            <hr class="divisao">
-        </div>
-        <center style="color: white; opacity: 0.5; padding: 0.5%; font-size: small;"><p>© 2025 Todos os direitos reservados. ConectaBov</p></center>
+      <div class="divis">
+        <hr class="divisao" />
+      </div>
+      <center
+        style="color: white; opacity: 0.5; padding: 0.5%; font-size: small"
+      >
+        <p>© 2025 Todos os direitos reservados. ConectaBov</p>
+      </center>
     </div>
     <div id="entreemcontato"></div>
+  </body>
 
-</body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      async function carregarDados() {
+        const token = localStorage.getItem("token");
+        const resp = await fetch("http://localhost:3000/auth/me", {
+          method: "GET",
+          headers: { Authorization: `Bearer ${token}` },
+        });
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+        if (!resp.ok) {
+          alert("Erro ao carregar dados");
+          return;
+        }
 
-    async function carregarDados() {
-  const token = localStorage.getItem('token');
-  const resp = await fetch("http://localhost:3000/auth/me", {
-    method: "GET",
-    headers: { "Authorization": `Bearer ${token}` }
-  });
+        const data = await resp.json();
+        console.log("Dados recebidos do servidor:", data);
 
-  if (!resp.ok) {
-    alert("Erro ao carregar dados");
-    return;
-  }
+        const { cliente, fazenda } = data;
 
-  const data = await resp.json();
-  console.log("Dados recebidos do servidor:", data);
+        // Preencher cliente
+        try {
+          if (cliente && typeof cliente === "object") {
+            const formCliente = document.getElementById("formCliente");
+            for (const [chave, valor] of Object.entries(cliente)) {
+              if (formCliente.elements[chave]) {
+                formCliente.elements[chave].value = valor || "";
+              }
+            }
+          } else {
+            console.warn("Dados do cliente não encontrados ou inválidos.");
+          }
+        } catch (error) {
+          console.error("Erro ao preencher dados do cliente:", error);
+        }
 
-  const { cliente, fazenda } = data;
-
-  // Preencher cliente
-  try {
-    if (cliente && typeof cliente === "object") {
-      const formCliente = document.getElementById("formCliente");
-      for (const [chave, valor] of Object.entries(cliente)) {
-        if (formCliente.elements[chave]) {
-          formCliente.elements[chave].value = valor || "";
+        // Preencher fazenda
+        try {
+          if (fazenda && typeof fazenda === "object") {
+            const formFazenda = document.getElementById("formFazenda");
+            for (const [chave, valor] of Object.entries(fazenda)) {
+              if (formFazenda.elements[chave]) {
+                formFazenda.elements[chave].value = valor || "";
+              }
+            }
+          } else {
+            console.warn("Dados da fazenda não encontrados ou inválidos.");
+          }
+        } catch (error) {
+          console.error("Erro ao preencher dados da fazenda:", error);
         }
       }
-    } else {
-      console.warn("Dados do cliente não encontrados ou inválidos.");
-    }
-  } catch (error) {
-    console.error("Erro ao preencher dados do cliente:", error);
-  }
 
-  // Preencher fazenda
-  try {
-    if (fazenda && typeof fazenda === "object") {
-      const formFazenda = document.getElementById("formFazenda");
-      for (const [chave, valor] of Object.entries(fazenda)) {
-        if (formFazenda.elements[chave]) {
-          formFazenda.elements[chave].value = valor || "";
+      async function salvarTudo() {
+        const token = localStorage.getItem("token");
+
+        try {
+          // Envia Cliente com imagem
+          const clienteForm = document.getElementById("formCliente");
+          const clienteFormData = new FormData(clienteForm);
+
+          const respCliente = await fetch(
+            "http://localhost:3000/auth/cliente",
+            {
+              method: "PUT",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                // NÃO colocar Content-Type, deixa o fetch definir com multipart/form-data
+              },
+              body: clienteFormData,
+            }
+          );
+
+          if (!respCliente.ok) {
+            throw new Error("Erro ao atualizar dados do cliente");
+          }
+
+          // Envia Fazenda (JSON)
+          const fazendaForm = document.getElementById("formFazenda");
+          const fazendaDados = Object.fromEntries(new FormData(fazendaForm));
+
+          const respFazenda = await fetch(
+            "http://localhost:3000/auth/fazenda",
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify(fazendaDados),
+            }
+          );
+
+          if (!respFazenda.ok) {
+            throw new Error("Erro ao atualizar dados da fazenda");
+          }
+
+          alert("Dados atualizados com sucesso!");
+          window.location.href = "perfil.html";
+        } catch (error) {
+          alert(error.message);
+          console.error(error);
         }
       }
-    } else {
-      console.warn("Dados da fazenda não encontrados ou inválidos.");
-    }
-  } catch (error) {
-    console.error("Erro ao preencher dados da fazenda:", error);
-  }
-}
 
+      // Chama o carregamento de dados ao carregar a página
+      carregarDados();
 
-async function salvarTudo() {
-    const token = localStorage.getItem('token');
-
-    try {
-      // Envia Cliente com imagem
-      const clienteForm = document.getElementById("formCliente");
-      const clienteFormData = new FormData(clienteForm);
-
-      const respCliente = await fetch("http://localhost:3000/auth/cliente", {
-        method: "PUT",
-        headers: {
-          "Authorization": `Bearer ${token}`
-          // NÃO colocar Content-Type, deixa o fetch definir com multipart/form-data
-        },
-        body: clienteFormData
-      });
-
-      if (!respCliente.ok) {
-        throw new Error("Erro ao atualizar dados do cliente");
-      }
-
-      // Envia Fazenda (JSON)
-      const fazendaForm = document.getElementById("formFazenda");
-      const fazendaDados = Object.fromEntries(new FormData(fazendaForm));
-
-      const respFazenda = await fetch("http://localhost:3000/auth/fazenda", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
-        },
-        body: JSON.stringify(fazendaDados)
-      });
-
-      if (!respFazenda.ok) {
-        throw new Error("Erro ao atualizar dados da fazenda");
-      }
-
-      alert("Dados atualizados com sucesso!");
-      window.location.href = "perfil.html";
-
-    } catch (error) {
-      alert(error.message);
-      console.error(error);
-    }
-  }
-
-  // Chama o carregamento de dados ao carregar a página
-  carregarDados();
-
-  // Adiciona evento no botão salvar
-  document.getElementById("btnSalvarTudo")?.addEventListener("click", salvarTudo);
-
-});
-
+      // Adiciona evento no botão salvar
+      document
+        .getElementById("btnSalvarTudo")
+        ?.addEventListener("click", salvarTudo);
+    });
   </script>
 
-<script src="/js/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="../js/script.js"></script>
-
+  <script src="/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="../js/script.js"></script>
 </html>
