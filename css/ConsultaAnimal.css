@@ -758,7 +758,7 @@ body {
     display: flex;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 20px;
 }
 
@@ -774,6 +774,30 @@ body {
     display: flex;
     align-items: center;
 }
+
+.btn-add-animal {
+    background-color: #465640;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-add-animal:hover {
+    background-color: #65775e;
+}
+
 
 .icone-lupa {
     background-color: transparent;

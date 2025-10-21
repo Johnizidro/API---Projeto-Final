@@ -106,6 +106,8 @@
                       <span style="color: white;font-weight: bold;font-size: 30px;">Consulta Mensal</span>
                   </div>
 
+ 
+               
                   <div class="painel-topo">
                       <div class="quantidade">
                           <span class="numero">0.0</span>
@@ -120,6 +122,7 @@
                                   width="18px">
                           </div>
                       </div>
+                      <a href="cadastroAnimal.html" class="btn-add-animal" title="Adicionar novo animal">+</a>
                   </div>
 
                   <div class="lista-animais">
@@ -283,6 +286,17 @@ window.addEventListener('DOMContentLoaded', async () => {
     alert('Erro ao carregar animais');
   }
 });
+
+
+document.querySelector('.btn-add-animal').addEventListener('click', (e) => {
+  e.preventDefault(); // evita navegação imediata
+
+  // aqui você pode colocar alguma lógica antes
+
+  // navega para a página de cadastro
+  window.location.href = 'cadastroAnimal.html';
+});
+
 
 </script>
 
