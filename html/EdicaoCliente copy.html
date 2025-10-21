@@ -509,8 +509,10 @@
           );
 
           if (!respCliente.ok) {
-            throw new Error("Erro ao atualizar dados do cliente");
-          }
+  const errorData = await respCliente.json();
+  alert(errorData.errors ? errorData.errors.join("\n") : "Erro ao atualizar dados do cliente");
+  throw new Error("Erro ao atualizar dados do cliente");
+}
 
           // Envia Fazenda (JSON)
           const fazendaForm = document.getElementById("formFazenda");

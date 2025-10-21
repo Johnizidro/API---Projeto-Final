@@ -207,106 +207,129 @@
 </body>
 
 <script>
-document.addEventListener("DOMContentLoaded", async function () {
-  const botaoEnviar = document.querySelector('.botaoContainerCad .botaoEnviar');
-  const form = document.getElementById('form-animal');
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('id'); // pega o ID do animal (se houver)
-  const token = localStorage.getItem('token');
-
-  if (!botaoEnviar || !form) {
-    console.warn("Botão ou formulário não encontrado.");
-    return;
-  }
-
-  // 🔹 Se for edição, muda título e texto do botão
-  if (id) {
-    document.title = "Editar Animal - ConectaBov";
-    document.querySelector(".tituloCadastroGeral").innerHTML = `
-      <img src="/IMG/pesquisa 2.png" alt="" width="45px" class="tituloCadastroGeralImg">
-      Edição dos dados do Animal
-    `;
-    botaoEnviar.value = "Salvar Alterações";
-  }
-
-  // 🔹 Função para preencher campos (modo edição)
-  async function carregarDadosAnimal() {
-    try {
-      const res = await fetch('http://localhost:3000/tarefas/listaAni', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-
-      if (!res.ok) throw new Error("Erro ao buscar animais.");
-
-      const animais = await res.json();
-      const animal = animais.find(a => a._id === id);
-
-      if (!animal) {
-        alert("Animal não encontrado.");
-        return;
-      }
-
-      // Preenche campos automaticamente
-      for (const [key, value] of Object.entries(animal)) {
-        const input = form.querySelector(`[name="${key}"]`);
-        if (input) input.value = value;
-      }
-
-    } catch (error) {
-      console.error(error);
-      alert("Erro ao carregar dados do animal.");
-    }
-  }
-
-  // 🔹 Se for edição, carrega os dados ao abrir a página
-  if (id) await carregarDadosAnimal();
-
-  // 🔹 Evento do botão (funciona tanto para cadastro quanto edição)
-  botaoEnviar.addEventListener('click', async (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-
-    data.peso = parseFloat(data.peso);
-    data.altura = parseFloat(data.altura);
-
-    if (!token) {
-      alert('Usuário não autenticado');
+  document.addEventListener("DOMContentLoaded", async function () {
+    const botaoEnviar = document.querySelector('.botaoContainerCad .botaoEnviar');
+    const form = document.getElementById('form-animal');
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id'); // pega o ID do animal (se houver)
+    const token = localStorage.getItem('token');
+  
+    if (!botaoEnviar || !form) {
+      console.warn("Botão ou formulário não encontrado.");
       return;
     }
-
-    try {
-      const url = id
-        ? `http://localhost:3000/tarefas/editar/${id}` // PUT
-        : `http://localhost:3000/tarefas/CadAni`;      // POST
-      const method = id ? 'PUT' : 'POST';
-
-      const response = await fetch(url, {
-        method,
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(data)
-      });
-
-      if (response.ok) {
-        alert(id ? 'Animal atualizado com sucesso!' : 'Animal cadastrado com sucesso!');
-        if (id) window.location.href = "consultaMensal.html";
-        else form.reset();
-      } else {
-        const erro = await response.json();
-        alert('Erro: ' + (erro.message || 'Falha na operação.'));
-      }
-
-    } catch (error) {
-      alert('Erro na comunicação com o servidor.');
-      console.error(error);
+  
+    // 🔹 Se for edição, muda título e texto do botão
+    if (id) {
+      document.title = "Editar Animal - ConectaBov";
+      document.querySelector(".tituloCadastroGeral").innerHTML = `
+        <img src="/IMG/pesquisa 2.png" alt="" width="45px" class="tituloCadastroGeralImg">
+        Edição dos dados do Animal
+      `;
+      botaoEnviar.value = "Salvar Alterações";
     }
+  
+    // 🔹 Função para preencher campos (modo edição)
+    async function carregarDadosAnimal() {
+      try {
+        const res = await fetch('http://localhost:3000/tarefas/listaAni', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+  
+        if (!res.ok) throw new Error("Erro ao buscar animais.");
+  
+        const animais = await res.json();
+        const animal = animais.find(a => a._id === id);
+  
+        if (!animal) {
+          alert("Animal não encontrado.");
+          return;
+        }
+  
+        // Preenche campos automaticamente
+        for (const [key, value] of Object.entries(animal)) {
+          const input = form.querySelector(`[name="${key}"]`);
+          if (input) {
+            if (key === "dataNascimento") {
+              const data = new Date(value);
+              input.value = data.toISOString().split("T")[0]; // yyyy-MM-dd
+            } else {
+              input.value = value;
+            }
+          }
+        }
+  
+        // Opcional: desabilita código Sisbov na edição
+        const codigoInput = form.querySelector('[name="codigoSisbov"]');
+        if (codigoInput) {
+          codigoInput.readOnly = true;
+
+        }
+  
+      } catch (error) {
+        console.error(error);
+        alert("Erro ao carregar dados do animal.");
+      }
+    }
+  
+    // 🔹 Se for edição, carrega os dados ao abrir a página
+    if (id) await carregarDadosAnimal();
+  
+    // 🔹 Evento do botão (funciona tanto para cadastro quanto edição)
+    botaoEnviar.addEventListener('click', async (event) => {
+      event.preventDefault();
+  
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+  
+      data.peso = parseFloat(data.peso);
+      data.altura = parseFloat(data.altura);
+  
+      if (!token) {
+        alert('Usuário não autenticado');
+        return;
+      }
+  
+      try {
+        const url = id
+          ? `http://localhost:3000/tarefas/editar/${id}` // PUT
+          : `http://localhost:3000/tarefas/CadAni`;      // POST
+        const method = id ? 'PUT' : 'POST';
+
+        console.log("Dados enviados para o backend:", data);
+
+  
+        const response = await fetch(url, {
+          method,
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(data)
+        });
+  
+        if (response.ok) {
+          alert(id ? 'Animal atualizado com sucesso!' : 'Animal cadastrado com sucesso!');
+          if (id) window.location.href = "consultaMensal.html";
+          else form.reset();
+        } else {
+          const erro = await response.json();
+if (erro.erros) {
+  alert('Erros:\n' + erro.erros.join('\n'));
+} else {
+  alert('Erro: ' + (erro.message || 'Falha na operação.'));
+}
+
+        }
+  
+      } catch (error) {
+        alert('Erro na comunicação com o servidor.');
+        console.error(error);
+      }
+    });
   });
-});
-</script>
+  </script>
+  
 <script src="/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="../js/script.js"></script>
