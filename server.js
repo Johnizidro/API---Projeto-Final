@@ -19,6 +19,7 @@ const tarefasRoutes = require("./routes/rotas");
 const CliFazend = require("./routes/rotasCli");
 const perguntaRoutes = require('./routes/rotasIA');
 const weatherRoutes = require('./routes/weatherRoutes');
+const faleConoscoRoutes = require('./routes/faleConoscoRoutes');
 
 
 app.use("/auth", authRoutes);
@@ -26,6 +27,7 @@ app.use("/tarefas", tarefasRoutes);
 app.use("/client", CliFazend);
 app.use('/api/pergunta', perguntaRoutes);
 app.use('/weather', weatherRoutes);
+app.use('/api/faleconosco', faleConoscoRoutes);
 
 
 
