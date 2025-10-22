@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/cadastroBov.css" />
-    <link rel="shortcut icon" href="../IMG/Group 5.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../IMG/Group 5.png" type="image/x-icon" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <title>ConectaBov</title>
@@ -100,41 +100,46 @@
     </div>
   </body>
   <script>
-  const registerForm = document.getElementById("formCadastro");
+    const registerForm = document.getElementById("formCadastro");
 
-registerForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const name = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
-  const telefone = document.getElementById("telefone").value;
-  const password = document.getElementById("senha").value;
-  const confPassword = document.getElementById("confsenha").value;
+    registerForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const telefone = document.getElementById("telefone").value;
+      const password = document.getElementById("senha").value;
+      const confPassword = document.getElementById("confsenha").value;
 
-  try {
-    const res = await fetch("http://localhost:3000/auth/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, telefone, password, confPassword }),
-    });
+      try {
+        const res = await fetch("http://localhost:3000/auth/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            email,
+            telefone,
+            password,
+            confPassword,
+          }),
+        });
 
-    const data = await res.json();
+        const data = await res.json();
 
-    if (res.ok) {
-      alert(data.msg);
-      window.location.href = "http://127.0.0.1:5500/html/login.html";
-    } else {
-      if (data.erros && Array.isArray(data.erros)) {
-        alert("Erros de validação:\n" + data.erros.join("\n"));
-      } else {
-        alert("Erro: " + (data.msg || "Não foi possível cadastrar"));
+        if (res.ok) {
+          alert(data.msg);
+          window.location.href = "http://127.0.0.1:5500/html/login.html";
+        } else {
+          if (data.erros && Array.isArray(data.erros)) {
+            alert("Erros de validação:\n" + data.erros.join("\n"));
+          } else {
+            alert("Erro: " + (data.msg || "Não foi possível cadastrar"));
+          }
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Erro na comunicação com o servidor.");
       }
-    }
-  } catch (error) {
-    console.error(error);
-    alert("Erro na comunicação com o servidor.");
-  }
-});
-
-</script>
+    });
+  </script>
   <script src="../js/cadastro.js"></script>
 </html>

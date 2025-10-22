@@ -1,84 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/editaranimal.css">
-    <link rel="shortcut icon" href="../IMG/Group 5.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/editaranimal.css" />
+    <link rel="shortcut icon" href="../IMG/Group 5.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <title>ConectaBov</title>
-</head>
+  </head>
 
-<body>
-  <div class="cabecalho">
-    <div class="cabecalho-div-">
+  <body>
+    <div class="cabecalho">
+      <div class="cabecalho-div-">
         <div class="cabecalho-div-login">
-            <img src="/IMG/Group 5.png" width="80px" class="imgLogo">      
-                <div class="cabecalho-div">
-                    <!-- Ícone para abrir o menu -->
-                    <!-- Ícone para abrir o menu -->
-                    
-                    <!-- Menu lateral com botão de fechar -->
-                    <div id="menuLateral" class="menu-lateral">
-                        <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
-                        <ul>
-                            <li>
-                                <a href="servicos.html">
-                                    <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
-                                </a>
-                            </li>
-                            <li>
-                                <a href="cadastroAnimal.html">
-                                    <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
-                                </a>
-                            </li>
-                            <li>
-                                <a href="consultaMensal.html">
-                                    <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta
-                                    Mensal
-                                </a>
-                            </li>
-                            <li>
-                              <a href="/public/CLimaAPI.html">
-                                    <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
-                                </a>
-                            </li>
-                         
-                            <li>
-                                <a href="veterinarios.html">
-                                    <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
-                                        style="width: 50px;margin-left: -6px;"> Veterinários
-                                </a>
-                            </li>
-                            <li>
-                              <a href="#" onclick="logout()" style="display: flex; align-items: center;">
-                                  ←  Sair
-                              </a>
-                          </li>
-                        </ul>
-                    </div>
-                </div>
-       
+          <img src="/IMG/Group 5.png" width="80px" class="imgLogo" />
+          <div class="cabecalho-div">
+            <!-- Ícone para abrir o menu -->
+            <!-- Ícone para abrir o menu -->
 
-          
+            <!-- Menu lateral com botão de fechar -->
+            <div id="menuLateral" class="menu-lateral">
+              <button class="fechar-menu" onclick="fecharMenu()">
+                ← Voltar
+              </button>
+              <ul>
+                <li>
+                  <a href="servicos.html">
+                    <img src="/IMG/cardapio 2.png" alt="Início" class="icon" />
+                    Início
+                  </a>
+                </li>
+                <li>
+                  <a href="cadastroAnimal.html">
+                    <img
+                      src="/IMG/cadastro 2.png"
+                      alt="Cadastro"
+                      class="icon"
+                    />
+                    Cadastro
+                  </a>
+                </li>
+                <li>
+                  <a href="consultaMensal.html">
+                    <img
+                      src="/IMG/pesquisa 2.png"
+                      alt="Consulta Mensal"
+                      class="icon"
+                    />
+                    Consulta Mensal
+                  </a>
+                </li>
+                <li>
+                  <a href="/public/CLimaAPI.html">
+                    <img
+                      src="/IMG/dia-ensolarado 2.png"
+                      alt="Clima"
+                      class="icon"
+                    />
+                    Clima
+                  </a>
+                </li>
 
-            <a href="perfil.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
-               
-            </a>
+                <li>
+                  <a href="veterinarios.html">
+                    <img
+                      src="/IMG/vaca 2.png"
+                      alt="Veterinários"
+                      class="icon"
+                      style="width: 50px; margin-left: -6px"
+                    />
+                    Veterinários
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onclick="logout()"
+                    style="display: flex; align-items: center"
+                  >
+                    ← Sair
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <a href="perfil.html" class="icon-login"
+            ><img
+              class="user-solid"
+              src="/IMG/user-solid.svg"
+              alt=""
+              srcset=""
+              width="30px"
+            />
+          </a>
         </div>
-        
+
         <div class="menu">
-            <img src="/IMG/bars-solid-full.svg" alt="" width="35px" onclick="abrirMenu()">
-            <p>Bem vindo a ConectaBov</p>
+          <img
+            src="/IMG/bars-solid-full.svg"
+            alt=""
+            width="35px"
+            onclick="abrirMenu()"
+          />
+          <p>Bem vindo a ConectaBov</p>
         </div>
 
         <div class="chat-container">
           <!-- Botão aparece só quando o chat está fechado -->
           <button class="chat-btn" id="chatBtn">
-            <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov">
+            <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov" />
           </button>
-        
+
           <!-- Caixa de chat escondida inicialmente -->
           <div class="chat-box" id="chatBox">
             <div class="chat-header">
@@ -86,252 +122,345 @@
               <span class="close-chat" id="closeChat">✖</span>
             </div>
             <div class="chat-messages" id="chatMessages">
-              <p class="bot-msg">Olá! Eu sou a I.A da ConectaBov, como posso ajudar?</p>
+              <p class="bot-msg">
+                Olá! Eu sou a I.A da ConectaBov, como posso ajudar?
+              </p>
             </div>
             <div class="chat-input">
-              <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+              <input
+                type="text"
+                id="userInput"
+                placeholder="Digite sua mensagem..."
+              />
               <button id="sendBtn">➤</button>
             </div>
           </div>
         </div>
 
-         
-          
-            <div class="dashboard">
-                <div class="dashboard-children">
-                    <div class="tituloCadastroGeral">
-                        <img src="/IMG/pesquisa 2.png" alt="" width="45px" class="tituloCadastroGeralImg">Edição dos dados do
-                        Animal
-                    </div>
-
-                    <div class="cadastroBox">
-                        <div class="cadastroBox1">
-                            <img src="../IMG/vaca (1) 1.png" alt="" width="50px">
-                            <span style="color: #465640; font-weight: bold; font-size: 35px; margin-left: 10px;"> Cliente
-                               </span>
-                        </div>
-                        <form id="form-animal">
-                            <div class="area">
-                              <input type="text" name="nome" required class="campoCadastro input" placeholder="Nome do Animal">
-                              <div class="labelline">Nome do Animal</div>
-                            </div>
-                          
-                            <div class="area">
-                              <input type="text" name="codigoSisbov" required class="campoCadastro input" placeholder="Código Sisbov">
-                              <div class="labelline">Código Sisbov</div>
-                            </div>
-                          
-                            <div class="area">
-                              <input type="date" name="dataNascimento" required class="campoCadastro input" placeholder="Data de Nascimento">
-                              <div class="labelline">Data de Nascimento</div>
-                            </div>
-                          
-                            <div class="area">
-                              <input type="text" name="especie" required class="campoCadastro input" placeholder="Espécie">
-                              <div class="labelline">Espécie</div>
-                            </div>
-                          
-                            <div class="area">
-                              <input type="text" name="tipoProducao" required class="campoCadastro input" placeholder="Tipo de Produção">
-                              <div class="labelline">Tipo de Produção</div>
-                            </div>
-                          
-                            <div class="area">
-                              <input type="number" name="peso" required class="campoCadastro input" placeholder="Peso" step="0.1" min="0">
-                              <div class="labelline">Peso</div>
-                            </div>
-                          
-                            <div class="area">
-                              <input type="number" name="altura" required class="campoCadastro input" placeholder="Altura" step="0.01" min="0">
-                              <div class="labelline">Altura</div>
-                            </div>
-                          
-                            <div class="area">
-                                <input type="text" name="sexo" required class="campoCadastro input" placeholder="F ou M">
-                                <div class="labelline">Sexo</div>
-                              </div>
-                          
-                            <div class="area">
-                              <input type="text" name="pelagem" required class="campoCadastro input" placeholder="Pelagem">
-                              <div class="labelline">Pelagem</div>
-                            </div>
-                          
-                            <div class="area">
-                              <input type="text" name="raca" required class="campoCadastro input" placeholder="Raça">
-                              <div class="labelline">Raça</div>
-                            </div>
-                          
-                            <div class="area">
-                              <input type="text" name="producaoMensal" required class="campoCadastro input" placeholder="Produção Mensal">
-                              <div class="labelline">Produção Mensal</div>
-                            </div>
-                          
-                            
-                          </form>
-                          <div class="botaoContainerCad">
-                            <input type="button" value="Salvar" class="botaoEnviar">
-                          </div>
-                    </div>               
-
-
-                </div>
+        <div class="dashboard">
+          <div class="dashboard-children">
+            <div class="tituloCadastroGeral">
+              <img
+                src="/IMG/pesquisa 2.png"
+                alt=""
+                width="45px"
+                class="tituloCadastroGeralImg"
+              />Edição dos dados do Animal
             </div>
+
+            <div class="cadastroBox">
+              <div class="cadastroBox1">
+                <img src="../IMG/vaca (1) 1.png" alt="" width="50px" />
+                <span
+                  style="
+                    color: #465640;
+                    font-weight: bold;
+                    font-size: 35px;
+                    margin-left: 10px;
+                  "
+                >
+                  Cliente
+                </span>
+              </div>
+              <form id="form-animal">
+                <div class="area">
+                  <input
+                    type="text"
+                    name="nome"
+                    required
+                    class="campoCadastro input"
+                    placeholder="Nome do Animal"
+                  />
+                  <div class="labelline">Nome do Animal</div>
+                </div>
+
+                <div class="area">
+                  <input
+                    type="text"
+                    name="codigoSisbov"
+                    required
+                    class="campoCadastro input"
+                    placeholder="Código Sisbov"
+                  />
+                  <div class="labelline">Código Sisbov</div>
+                </div>
+
+                <div class="area">
+                  <input
+                    type="date"
+                    name="dataNascimento"
+                    required
+                    class="campoCadastro input"
+                    placeholder="Data de Nascimento"
+                  />
+                  <div class="labelline">Data de Nascimento</div>
+                </div>
+
+                <div class="area">
+                  <input
+                    type="text"
+                    name="especie"
+                    required
+                    class="campoCadastro input"
+                    placeholder="Espécie"
+                  />
+                  <div class="labelline">Espécie</div>
+                </div>
+
+                <div class="area">
+                  <input
+                    type="text"
+                    name="tipoProducao"
+                    required
+                    class="campoCadastro input"
+                    placeholder="Tipo de Produção"
+                  />
+                  <div class="labelline">Tipo de Produção</div>
+                </div>
+
+                <div class="area">
+                  <input
+                    type="number"
+                    name="peso"
+                    required
+                    class="campoCadastro input"
+                    placeholder="Peso"
+                    step="0.1"
+                    min="0"
+                  />
+                  <div class="labelline">Peso</div>
+                </div>
+
+                <div class="area">
+                  <input
+                    type="number"
+                    name="altura"
+                    required
+                    class="campoCadastro input"
+                    placeholder="Altura"
+                    step="0.01"
+                    min="0"
+                  />
+                  <div class="labelline">Altura</div>
+                </div>
+
+                <div class="area">
+                  <input
+                    type="text"
+                    name="sexo"
+                    required
+                    class="campoCadastro input"
+                    placeholder="F ou M"
+                  />
+                  <div class="labelline">Sexo</div>
+                </div>
+
+                <div class="area">
+                  <input
+                    type="text"
+                    name="pelagem"
+                    required
+                    class="campoCadastro input"
+                    placeholder="Pelagem"
+                  />
+                  <div class="labelline">Pelagem</div>
+                </div>
+
+                <div class="area">
+                  <input
+                    type="text"
+                    name="raca"
+                    required
+                    class="campoCadastro input"
+                    placeholder="Raça"
+                  />
+                  <div class="labelline">Raça</div>
+                </div>
+
+                <div class="area">
+                  <input
+                    type="text"
+                    name="producaoMensal"
+                    required
+                    class="campoCadastro input"
+                    placeholder="Produção Mensal"
+                  />
+                  <div class="labelline">Produção Mensal</div>
+                </div>
+              </form>
+              <div class="botaoContainerCad">
+                <input type="button" value="Salvar" class="botaoEnviar" />
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <div class="footer">
-        <div class="footer-sub">
-            <div class="footer-children">
-                <div class="entre-em-contato">
-                    <p style="color: white;">Entre em </p>
-                    <p style="color: white;">Contato</p>
-                </div>
-                <div class="logo-rede">
-                    <div class="facebook"><img src="/IMG/facebook-f-brands.svg" width="16px"></div>
-                    <div class="instagram"><img src="/IMG/instagram-brands.svg" width="16px"></div>
-                    <div class="whatsaap"><img src="/IMG/whatsapp-brands.svg" width="16px"></div>
-                    <div class="linkedin"><img src="/IMG/linkedin-in-brands.svg" width="16px"></div>
-                </div>
+      <div class="footer-sub">
+        <div class="footer-children">
+          <div class="entre-em-contato">
+            <p style="color: white">Entre em</p>
+            <p style="color: white">Contato</p>
+          </div>
+          <div class="logo-rede">
+            <div class="facebook">
+              <img src="/IMG/facebook-f-brands.svg" width="16px" />
             </div>
-            <div class="img-gado">
-                <img src="/IMG/1-removebg-preview 3.png" alt="">
+            <div class="instagram">
+              <img src="/IMG/instagram-brands.svg" width="16px" />
             </div>
+            <div class="whatsaap">
+              <img src="/IMG/whatsapp-brands.svg" width="16px" />
+            </div>
+            <div class="linkedin">
+              <img src="/IMG/linkedin-in-brands.svg" width="16px" />
+            </div>
+          </div>
         </div>
+        <div class="img-gado">
+          <img src="/IMG/1-removebg-preview 3.png" alt="" />
+        </div>
+      </div>
 
-        <div class="divis">
-            <hr class="divisao">
-        </div>
-        <center style="color: white; opacity: 0.5; padding: 0.5%; font-size: small;"><p>© 2025 Todos os direitos reservados. ConectaBov</p></center>
+      <div class="divis">
+        <hr class="divisao" />
+      </div>
+      <center
+        style="color: white; opacity: 0.5; padding: 0.5%; font-size: small"
+      >
+        <p>© 2025 Todos os direitos reservados. ConectaBov</p>
+      </center>
     </div>
     <div id="entreemcontato"></div>
+  </body>
 
-</body>
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      const botaoEnviar = document.querySelector(
+        ".botaoContainerCad .botaoEnviar"
+      );
+      const form = document.getElementById("form-animal");
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id"); // pega o ID do animal (se houver)
+      const token = localStorage.getItem("token");
 
-<script>
-  document.addEventListener("DOMContentLoaded", async function () {
-    const botaoEnviar = document.querySelector('.botaoContainerCad .botaoEnviar');
-    const form = document.getElementById('form-animal');
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id'); // pega o ID do animal (se houver)
-    const token = localStorage.getItem('token');
-  
-    if (!botaoEnviar || !form) {
-      console.warn("Botão ou formulário não encontrado.");
-      return;
-    }
-  
-    // 🔹 Se for edição, muda título e texto do botão
-    if (id) {
-      document.title = "Editar Animal - ConectaBov";
-      document.querySelector(".tituloCadastroGeral").innerHTML = `
+      if (!botaoEnviar || !form) {
+        console.warn("Botão ou formulário não encontrado.");
+        return;
+      }
+
+      // 🔹 Se for edição, muda título e texto do botão
+      if (id) {
+        document.title = "Editar Animal - ConectaBov";
+        document.querySelector(".tituloCadastroGeral").innerHTML = `
         <img src="/IMG/pesquisa 2.png" alt="" width="45px" class="tituloCadastroGeralImg">
         Edição dos dados do Animal
       `;
-      botaoEnviar.value = "Salvar Alterações";
-    }
-  
-    // 🔹 Função para preencher campos (modo edição)
-    async function carregarDadosAnimal() {
-      try {
-        const res = await fetch('http://localhost:3000/tarefas/listaAni', {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-  
-        if (!res.ok) throw new Error("Erro ao buscar animais.");
-  
-        const animais = await res.json();
-        const animal = animais.find(a => a._id === id);
-  
-        if (!animal) {
-          alert("Animal não encontrado.");
-          return;
-        }
-  
-        // Preenche campos automaticamente
-        for (const [key, value] of Object.entries(animal)) {
-          const input = form.querySelector(`[name="${key}"]`);
-          if (input) {
-            if (key === "dataNascimento") {
-              const data = new Date(value);
-              input.value = data.toISOString().split("T")[0]; // yyyy-MM-dd
-            } else {
-              input.value = value;
+        botaoEnviar.value = "Salvar Alterações";
+      }
+
+      // 🔹 Função para preencher campos (modo edição)
+      async function carregarDadosAnimal() {
+        try {
+          const res = await fetch("http://localhost:3000/tarefas/listaAni", {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+
+          if (!res.ok) throw new Error("Erro ao buscar animais.");
+
+          const animais = await res.json();
+          const animal = animais.find((a) => a._id === id);
+
+          if (!animal) {
+            alert("Animal não encontrado.");
+            return;
+          }
+
+          // Preenche campos automaticamente
+          for (const [key, value] of Object.entries(animal)) {
+            const input = form.querySelector(`[name="${key}"]`);
+            if (input) {
+              if (key === "dataNascimento") {
+                const data = new Date(value);
+                input.value = data.toISOString().split("T")[0]; // yyyy-MM-dd
+              } else {
+                input.value = value;
+              }
             }
           }
+
+          // Opcional: desabilita código Sisbov na edição
+          const codigoInput = form.querySelector('[name="codigoSisbov"]');
+          if (codigoInput) {
+            codigoInput.readOnly = true;
+          }
+        } catch (error) {
+          console.error(error);
+          alert("Erro ao carregar dados do animal.");
         }
-  
-        // Opcional: desabilita código Sisbov na edição
-        const codigoInput = form.querySelector('[name="codigoSisbov"]');
-        if (codigoInput) {
-          codigoInput.readOnly = true;
+      }
 
+      // 🔹 Se for edição, carrega os dados ao abrir a página
+      if (id) await carregarDadosAnimal();
+
+      // 🔹 Evento do botão (funciona tanto para cadastro quanto edição)
+      botaoEnviar.addEventListener("click", async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        data.peso = parseFloat(data.peso);
+        data.altura = parseFloat(data.altura);
+
+        if (!token) {
+          alert("Usuário não autenticado");
+          return;
         }
-  
-      } catch (error) {
-        console.error(error);
-        alert("Erro ao carregar dados do animal.");
-      }
-    }
-  
-    // 🔹 Se for edição, carrega os dados ao abrir a página
-    if (id) await carregarDadosAnimal();
-  
-    // 🔹 Evento do botão (funciona tanto para cadastro quanto edição)
-    botaoEnviar.addEventListener('click', async (event) => {
-      event.preventDefault();
-  
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-  
-      data.peso = parseFloat(data.peso);
-      data.altura = parseFloat(data.altura);
-  
-      if (!token) {
-        alert('Usuário não autenticado');
-        return;
-      }
-  
-      try {
-        const url = id
-          ? `http://localhost:3000/tarefas/editar/${id}` // PUT
-          : `http://localhost:3000/tarefas/CadAni`;      // POST
-        const method = id ? 'PUT' : 'POST';
 
-        console.log("Dados enviados para o backend:", data);
+        try {
+          const url = id
+            ? `http://localhost:3000/tarefas/editar/${id}` // PUT
+            : `http://localhost:3000/tarefas/CadAni`; // POST
+          const method = id ? "PUT" : "POST";
 
-  
-        const response = await fetch(url, {
-          method,
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify(data)
-        });
-  
-        if (response.ok) {
-          alert(id ? 'Animal atualizado com sucesso!' : 'Animal cadastrado com sucesso!');
-          if (id) window.location.href = "consultaMensal.html";
-          else form.reset();
-        } else {
-          const erro = await response.json();
-if (erro.erros) {
-  alert('Erros:\n' + erro.erros.join('\n'));
-} else {
-  alert('Erro: ' + (erro.message || 'Falha na operação.'));
-}
+          console.log("Dados enviados para o backend:", data);
 
+          const response = await fetch(url, {
+            method,
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(data),
+          });
+
+          if (response.ok) {
+            alert(
+              id
+                ? "Animal atualizado com sucesso!"
+                : "Animal cadastrado com sucesso!"
+            );
+            if (id) window.location.href = "consultaMensal.html";
+            else form.reset();
+          } else {
+            const erro = await response.json();
+            if (erro.erros) {
+              alert("Erros:\n" + erro.erros.join("\n"));
+            } else {
+              alert("Erro: " + (erro.message || "Falha na operação."));
+            }
+          }
+        } catch (error) {
+          alert("Erro na comunicação com o servidor.");
+          console.error(error);
         }
-  
-      } catch (error) {
-        alert('Erro na comunicação com o servidor.');
-        console.error(error);
-      }
+      });
     });
-  });
   </script>
-  
-<script src="/js/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="../js/script.js"></script>
 
+  <script src="/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="../js/script.js"></script>
 </html>

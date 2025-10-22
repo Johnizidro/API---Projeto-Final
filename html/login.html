@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/login.css" />
-    <link rel="shortcut icon" href="../IMG/Group 5.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../IMG/Group 5.png" type="image/x-icon" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/login.js"></script>
     <title>ConectaBov</title>
@@ -24,7 +24,7 @@
             /></a>
           </div>
           <div class="titulo">
-            <img src="../IMG/2-removebg-preview 1.png" width="200px" />
+            <img src="../IMG/Group 5.png" id="logologin" />
           </div>
           <form id="formCadastro">
             <div class="area">
@@ -67,54 +67,55 @@
     </div>
   </body>
   <script>
-      const loginForm = document.getElementById("formCadastro");
+    const loginForm = document.getElementById("formCadastro");
 
-loginForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("senha").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("senha").value;
 
-  try {
-    const res = await fetch("http://localhost:3000/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+      try {
+        const res = await fetch("http://localhost:3000/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
 
-    const data = await res.json();
+        const data = await res.json();
 
-    if (res.ok) {
-      localStorage.setItem("token", data.token);
-      alert("Login realizado com sucesso!");
+        if (res.ok) {
+          localStorage.setItem("token", data.token);
+          alert("Login realizado com sucesso!");
 
-      // Agora verifica se o usuário já completou o cadastro
-      const meRes = await fetch("http://localhost:3000/auth/me", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${data.token}`
+          // Agora verifica se o usuário já completou o cadastro
+          const meRes = await fetch("http://localhost:3000/auth/me", {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${data.token}`,
+            },
+          });
+
+          const meData = await meRes.json();
+
+          const clienteExiste = meData.cliente && meData.cliente._id;
+          const fazendaExiste = meData.fazenda && meData.fazenda._id;
+
+          if (clienteExiste && fazendaExiste) {
+            // Já completou o cadastro
+            window.location.href = "http://127.0.0.1:5500/html/servicos.html";
+          } else {
+            // Ainda precisa completar o cadastro
+            window.location.href =
+              "http://127.0.0.1:5500/html/cadastroCliente.html";
+          }
+        } else {
+          alert(data.msg || "Erro ao fazer login");
         }
-      });
-
-      const meData = await meRes.json();
-
-      const clienteExiste = meData.cliente && meData.cliente._id;
-      const fazendaExiste = meData.fazenda && meData.fazenda._id;
-
-      if (clienteExiste && fazendaExiste) {
-        // Já completou o cadastro
-        window.location.href = "http://127.0.0.1:5500/html/servicos.html";
-      } else {
-        // Ainda precisa completar o cadastro
-        window.location.href = "http://127.0.0.1:5500/html/cadastroCliente.html";
+      } catch (err) {
+        console.error("Erro no login:", err);
+        alert("Erro inesperado ao fazer login");
       }
-    } else {
-      alert(data.msg || "Erro ao fazer login");
-    }
-  } catch (err) {
-    console.error("Erro no login:", err);
-    alert("Erro inesperado ao fazer login");
-  }
-});
+    });
   </script>
 </html>

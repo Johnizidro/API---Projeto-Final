@@ -1,84 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/esqueciSenha.css">
-    <link rel="shortcut icon" href="../IMG/Group 5.png" type="image/x-icon">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/esqueciSenha.css" />
+    <link rel="shortcut icon" href="../IMG/Group 5.png" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>ConectaBov</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="background-image">
-    <main>
+      <main>
         <div class="main">
-            <div class="voltar">
-                <a href="login.html"><img src="/IMG/arrow-left-solid.svg" alt="" width="16px" style="cursor: pointer;"></a>
+          <div class="voltar">
+            <a href="login.html"
+              ><img
+                src="/IMG/arrow-left-solid.svg"
+                alt=""
+                width="16px"
+                style="cursor: pointer"
+            /></a>
+          </div>
+          <div class="titulo">
+            <img src="../IMG/Group 5.png" id="logologin" />
+          </div>
+          <p class="bem-vindo">Recuperar senha</p>
+          <br />
+          <form class="input" id="form-esqueci">
+            <div class="container">
+              <input
+                class="input1"
+                type="email"
+                name=""
+                id="email"
+                placeholder="Digite o seu e-mail"
+              />
             </div>
-            <div class="titulo">
-                <img src="/IMG/2-removebg-preview 1.png" width="200px">
+            <div class="button">
+              <input type="submit" value="Enviar" class="entrar" />
             </div>
-            <p class="bem-vindo">Recuperar senha</p><br>
-            <form class="input" id="form-esqueci">
-                <div class="container">
-                    <input class="input1" type="email" name="" id="email" placeholder="Digite o seu e-mail">
-                   
-                </div>
-                <div class="button"><input type="submit" value="Enviar" class="entrar"></div>
-            </form>
+          </form>
 
-            <div id="mensagem" class="message"></div>
+          <div id="mensagem" class="message"></div>
 
-    <!-- Loading enquanto envia o e-mail -->
-    <div id="loading" style="display:none; margin-top:10px; font-size:0.9rem; color:#f5a623;">
-      Enviando e-mail...
-    </div>
-            
+          <!-- Loading enquanto envia o e-mail -->
+          <div
+            id="loading"
+            style="
+              display: none;
+              margin-top: 10px;
+              font-size: 0.9rem;
+              color: #f5a623;
+            "
+          >
+            Enviando e-mail...
+          </div>
         </div>
-    </main>
-</div>
-<script>
-    document.getElementById("form-esqueci").addEventListener("submit", async function(e) {
-      e.preventDefault();
-    
-      const emailInput = document.getElementById("email");
-      const email = emailInput.value;
-      const mensagemEl = document.getElementById("mensagem");
-      const loadingEl = document.getElementById("loading");
-    
-      // Mostra loading
-      loadingEl.style.display = "block";
-      mensagemEl.innerText = ""; // limpa mensagens anteriores
-    
-      try {
-        const res = await fetch("http://localhost:3000/auth/forgot-password", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email })
+      </main>
+    </div>
+    <script>
+      document
+        .getElementById("form-esqueci")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const emailInput = document.getElementById("email");
+          const email = emailInput.value;
+          const mensagemEl = document.getElementById("mensagem");
+          const loadingEl = document.getElementById("loading");
+
+          // Mostra loading
+          loadingEl.style.display = "block";
+          mensagemEl.innerText = ""; // limpa mensagens anteriores
+
+          try {
+            const res = await fetch(
+              "http://localhost:3000/auth/forgot-password",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email }),
+              }
+            );
+
+            const data = await res.json();
+
+            // Esconde loading
+            loadingEl.style.display = "none";
+
+            if (res.ok) {
+              emailInput.value = ""; // limpa o campo
+              mensagemEl.innerText =
+                "E-mail enviado com sucesso! Verifique sua caixa de entrada.";
+              mensagemEl.style.color = "#5E7153";
+            } else {
+              mensagemEl.innerText =
+                data.msg || "Erro ao solicitar recuperação.";
+              mensagemEl.style.color = "#5E7153";
+            }
+          } catch (err) {
+            loadingEl.style.display = "none";
+            mensagemEl.innerText = "Erro ao conectar com o servidor.";
+            mensagemEl.style.color = "#5E7153";
+            console.error(err);
+          }
         });
-    
-        const data = await res.json();
-    
-        // Esconde loading
-        loadingEl.style.display = "none";
-    
-        if (res.ok) {
-          emailInput.value = ""; // limpa o campo
-          mensagemEl.innerText = "E-mail enviado com sucesso! Verifique sua caixa de entrada.";
-          mensagemEl.style.color = "#5E7153";
-          
-        } else {
-          mensagemEl.innerText = data.msg || "Erro ao solicitar recuperação.";
-          mensagemEl.style.color = "#5E7153";
-        }
-    
-      } catch (err) {
-        loadingEl.style.display = "none";
-        mensagemEl.innerText = "Erro ao conectar com o servidor.";
-        mensagemEl.style.color = "#5E7153";
-        console.error(err);
-      }
-    });
     </script>
-</body>
+  </body>
 </html>

@@ -18,10 +18,6 @@
         <div class="cabecalho-div-login">
           <img src="/IMG/Group 5.png" width="80px" class="imgLogo" />
           <div class="cabecalho-div">
-            <!-- Ícone para abrir o menu -->
-            <!-- Ícone para abrir o menu -->
-
-            <!-- Menu lateral com botão de fechar -->
             <div id="menuLateral" class="menu-lateral">
               <button class="fechar-menu" onclick="fecharMenu()">
                 ← Voltar
@@ -76,10 +72,14 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#" onclick="logout()" style="display: flex; align-items: center;">
-                      ←  Sair
+                  <a
+                    href="#"
+                    onclick="logout()"
+                    style="display: flex; align-items: center"
+                  >
+                    ← Sair
                   </a>
-              </li>
+                </li>
               </ul>
             </div>
           </div>
@@ -509,10 +509,14 @@
           );
 
           if (!respCliente.ok) {
-  const errorData = await respCliente.json();
-  alert(errorData.errors ? errorData.errors.join("\n") : "Erro ao atualizar dados do cliente");
-  throw new Error("Erro ao atualizar dados do cliente");
-}
+            const errorData = await respCliente.json();
+            alert(
+              errorData.errors
+                ? errorData.errors.join("\n")
+                : "Erro ao atualizar dados do cliente"
+            );
+            throw new Error("Erro ao atualizar dados do cliente");
+          }
 
           // Envia Fazenda (JSON)
           const fazendaForm = document.getElementById("formFazenda");

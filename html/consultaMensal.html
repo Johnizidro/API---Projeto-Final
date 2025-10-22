@@ -1,84 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/ConsultaAnimal.css">
-    <link rel="shortcut icon" href="../IMG/Group 5.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/ConsultaAnimal.css" />
+    <link rel="shortcut icon" href="../IMG/Group 5.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <title>ConectaBov</title>
-</head>
+  </head>
 
-<body>
-  <div class="cabecalho">
-    <div class="cabecalho-div-">
+  <body>
+    <div class="cabecalho">
+      <div class="cabecalho-div-">
         <div class="cabecalho-div-login">
-            <img src="/IMG/Group 5.png" width="80px" class="imgLogo">      
-                <div class="cabecalho-div">
-                    <!-- Ícone para abrir o menu -->
-                    <!-- Ícone para abrir o menu -->
-                    
-                    <!-- Menu lateral com botão de fechar -->
-                    <div id="menuLateral" class="menu-lateral">
-                        <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
-                        <ul>
-                            <li>
-                                <a href="servicos.html">
-                                    <img src="/IMG/cardapio 2.png" alt="Início" class="icon"> Início
-                                </a>
-                            </li>
-                            <li>
-                                <a href="cadastroAnimal.html">
-                                    <img src="/IMG/cadastro 2.png" alt="Cadastro" class="icon"> Cadastro
-                                </a>
-                            </li>
-                            <li>
-                                <a href="consultaMensal.html">
-                                    <img src="/IMG/pesquisa 2.png" alt="Consulta Mensal" class="icon"> Consulta
-                                    Mensal
-                                </a>
-                            </li>
-                            <li>
-                              <a href="/public/CLimaAPI.html">
-                                    <img src="/IMG/dia-ensolarado 2.png" alt="Clima" class="icon"> Clima
-                                </a>
-                            </li>
-                         
-                            <li>
-                                <a href="veterinarios.html">
-                                    <img src="/IMG/vaca 2.png" alt="Veterinários" class="icon"
-                                        style="width: 50px;margin-left: -6px;"> Veterinários
-                                </a>
-                            </li>
-                            <li>
-                              <a href="#" onclick="logout()" style="display: flex; align-items: center;">
-                                  ←  Sair
-                              </a>
-                          </li>
-                        </ul>
-                    </div>
-                </div>
-       
+          <img src="/IMG/Group 5.png" width="80px" class="imgLogo" />
+          <div class="cabecalho-div">
+            <!-- Ícone para abrir o menu -->
+            <!-- Ícone para abrir o menu -->
 
-           
+            <!-- Menu lateral com botão de fechar -->
+            <div id="menuLateral" class="menu-lateral">
+              <button class="fechar-menu" onclick="fecharMenu()">
+                ← Voltar
+              </button>
+              <ul>
+                <li>
+                  <a href="servicos.html">
+                    <img src="/IMG/cardapio 2.png" alt="Início" class="icon" />
+                    Início
+                  </a>
+                </li>
+                <li>
+                  <a href="cadastroAnimal.html">
+                    <img
+                      src="/IMG/cadastro 2.png"
+                      alt="Cadastro"
+                      class="icon"
+                    />
+                    Cadastro
+                  </a>
+                </li>
+                <li>
+                  <a href="consultaMensal.html">
+                    <img
+                      src="/IMG/pesquisa 2.png"
+                      alt="Consulta Mensal"
+                      class="icon"
+                    />
+                    Consulta Mensal
+                  </a>
+                </li>
+                <li>
+                  <a href="/public/CLimaAPI.html">
+                    <img
+                      src="/IMG/dia-ensolarado 2.png"
+                      alt="Clima"
+                      class="icon"
+                    />
+                    Clima
+                  </a>
+                </li>
 
-            <a href="perfil.html" class="icon-login"><img class="user-solid" src="/IMG/user-solid.svg" alt="" srcset="" width="30px">
-               
-            </a>
+                <li>
+                  <a href="veterinarios.html">
+                    <img
+                      src="/IMG/vaca 2.png"
+                      alt="Veterinários"
+                      class="icon"
+                      style="width: 50px; margin-left: -6px"
+                    />
+                    Veterinários
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onclick="logout()"
+                    style="display: flex; align-items: center"
+                  >
+                    ← Sair
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <a href="perfil.html" class="icon-login"
+            ><img
+              class="user-solid"
+              src="/IMG/user-solid.svg"
+              alt=""
+              srcset=""
+              width="30px"
+            />
+          </a>
         </div>
-        
+
         <div class="menu">
-            <img src="/IMG/bars-solid-full.svg" alt="" width="35px" onclick="abrirMenu()">
-            <p>Bem vindo a ConectaBov</p>
+          <img
+            src="/IMG/bars-solid-full.svg"
+            alt=""
+            width="35px"
+            onclick="abrirMenu()"
+          />
+          <p>Bem vindo a ConectaBov</p>
         </div>
 
         <div class="chat-container">
           <!-- Botão aparece só quando o chat está fechado -->
           <button class="chat-btn" id="chatBtn">
-            <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov">
+            <img src="../img/scarecrow (1) 1.png" alt="Chat ConectaBov" />
           </button>
-        
+
           <!-- Caixa de chat escondida inicialmente -->
           <div class="chat-box" id="chatBox">
             <div class="chat-header">
@@ -86,123 +122,155 @@
               <span class="close-chat" id="closeChat">✖</span>
             </div>
             <div class="chat-messages" id="chatMessages">
-              <p class="bot-msg">Olá! Eu sou a I.A da ConectaBov, como posso ajudar?</p>
+              <p class="bot-msg">
+                Olá! Eu sou a I.A da ConectaBov, como posso ajudar?
+              </p>
             </div>
             <div class="chat-input">
-              <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+              <input
+                type="text"
+                id="userInput"
+                placeholder="Digite sua mensagem..."
+              />
               <button id="sendBtn">➤</button>
             </div>
           </div>
         </div>
 
-         
-          
         <div class="dashboard">
           <div class="dashboard-children">
+            <section class="secao-consulta">
+              <div class="titulo-consulta">
+                <img src="/IMG/pesquisa 2.png" class="icone" width="35px" />
+                <span style="color: white; font-weight: bold; font-size: 30px"
+                  >Consulta Mensal</span
+                >
+              </div>
 
-              <section class="secao-consulta">
-                  <div class="titulo-consulta">
-                      <img src="/IMG/pesquisa 2.png" class="icone" width="35px">
-                      <span style="color: white;font-weight: bold;font-size: 30px;">Consulta Mensal</span>
+              <div class="painel-topo">
+                <div class="quantidade">
+                  <span class="numero">0.0</span>
+                  <span class="texto">animais</span>
+                  <img
+                    src="/IMG/vaca (1) 1.png"
+                    class="icone-cabeca"
+                    style="width: 45px; margin-left: 5px"
+                  />
+                </div>
+                <div class="campo-busca">
+                  <div class="pesquisa-dad">
+                    <input
+                      class="pesquisa"
+                      type="text"
+                      id="campoPesquisa"
+                      placeholder="Código Sisbov"
+                      size="30px"
+                    />
+
+                    <img
+                      class="lupa"
+                      src="/IMG/magnifying-glass-solid.svg"
+                      alt=""
+                      srcset=""
+                      width="18px"
+                    />
                   </div>
+                </div>
+                <a
+                  href="cadastroAnimal.html"
+                  class="btn-add-animal"
+                  title="Adicionar novo animal"
+                  >+</a
+                >
+              </div>
 
- 
-               
-                  <div class="painel-topo">
-                      <div class="quantidade">
-                          <span class="numero">0.0</span>
-                          <span class="texto">animais</span>
-                          <img src="/IMG/vaca (1) 1.png" class="icone-cabeca" style=" width: 45px; margin-left:5px">
-                      </div>
-                      <div class="campo-busca">
-                          <div class="pesquisa-dad">
-                            <input class="pesquisa" type="text" id="campoPesquisa" placeholder="Código Sisbov" size="30px">
-
-                              <img class="lupa" src="/IMG/magnifying-glass-solid.svg" alt="" srcset=""
-                                  width="18px">
-                          </div>
-                      </div>
-                      <a href="cadastroAnimal.html" class="btn-add-animal" title="Adicionar novo animal">+</a>
-                  </div>
-
-                  <div class="lista-animais">
-                      <div class="item-animal"></div>
-                  </div>
-              </section>
-
-
+              <div class="lista-animais">
+                <div class="item-animal"></div>
+              </div>
+            </section>
           </div>
-      </div>
         </div>
+      </div>
     </div>
     <div class="footer">
-        <div class="footer-sub">
-            <div class="footer-children">
-                <div class="entre-em-contato">
-                    <p style="color: white;">Entre em </p>
-                    <p style="color: white;">Contato</p>
-                </div>
-                <div class="logo-rede">
-                    <div class="facebook"><img src="/IMG/facebook-f-brands.svg" width="16px"></div>
-                    <div class="instagram"><img src="/IMG/instagram-brands.svg" width="16px"></div>
-                    <div class="whatsaap"><img src="/IMG/whatsapp-brands.svg" width="16px"></div>
-                    <div class="linkedin"><img src="/IMG/linkedin-in-brands.svg" width="16px"></div>
-                </div>
+      <div class="footer-sub">
+        <div class="footer-children">
+          <div class="entre-em-contato">
+            <p style="color: white">Entre em</p>
+            <p style="color: white">Contato</p>
+          </div>
+          <div class="logo-rede">
+            <div class="facebook">
+              <img src="/IMG/facebook-f-brands.svg" width="16px" />
             </div>
-            <div class="img-gado">
-                <img src="/IMG/1-removebg-preview 3.png" alt="">
+            <div class="instagram">
+              <img src="/IMG/instagram-brands.svg" width="16px" />
             </div>
+            <div class="whatsaap">
+              <img src="/IMG/whatsapp-brands.svg" width="16px" />
+            </div>
+            <div class="linkedin">
+              <img src="/IMG/linkedin-in-brands.svg" width="16px" />
+            </div>
+          </div>
         </div>
+        <div class="img-gado">
+          <img src="/IMG/1-removebg-preview 3.png" alt="" />
+        </div>
+      </div>
 
-        <div class="divis">
-            <hr class="divisao">
-        </div>
-        <center style="color: white; opacity: 0.5; padding: 0.5%; font-size: small;"><p>© 2025 Todos os direitos reservados. ConectaBov</p></center>
+      <div class="divis">
+        <hr class="divisao" />
+      </div>
+      <center
+        style="color: white; opacity: 0.5; padding: 0.5%; font-size: small"
+      >
+        <p>© 2025 Todos os direitos reservados. ConectaBov</p>
+      </center>
     </div>
     <div id="entreemcontato"></div>
+  </body>
 
-</body>
+  <script>
+    window.addEventListener("DOMContentLoaded", async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        alert("Usuário não autenticado. Faça login.");
+        window.location.href = "login.html";
+        return;
+      }
 
-<script>
-window.addEventListener('DOMContentLoaded', async () => {
-  const token = localStorage.getItem('token');
-  if (!token) {
-    alert('Usuário não autenticado. Faça login.');
-    window.location.href = 'login.html';
-    return;
-  }
+      try {
+        const res = await fetch("http://localhost:3000/tarefas/listaAni", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
 
-  try {
-    const res = await fetch('http://localhost:3000/tarefas/listaAni', {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+        if (!res.ok) throw new Error("Erro ao buscar animais");
 
-    if (!res.ok) throw new Error('Erro ao buscar animais');
+        const animais = await res.json();
 
-    const animais = await res.json();
+        const numeroAnimais = document.querySelector(".quantidade .numero");
+        if (numeroAnimais) numeroAnimais.textContent = animais.length;
 
-    const numeroAnimais = document.querySelector('.quantidade .numero');
-    if (numeroAnimais) numeroAnimais.textContent = animais.length;
+        const lista = document.querySelector(".lista-animais");
 
-    const lista = document.querySelector('.lista-animais');
+        // Função para renderizar os animais na lista
+        function renderAnimais(animaisToRender, destaqueCodigo = null) {
+          lista.innerHTML = ""; // limpa a lista antes
 
-    // Função para renderizar os animais na lista
-    function renderAnimais(animaisToRender, destaqueCodigo = null) {
-      lista.innerHTML = ''; // limpa a lista antes
+          animaisToRender.forEach((animal) => {
+            const div = document.createElement("div");
+            div.classList.add("item-animal");
 
-      animaisToRender.forEach(animal => {
-        const div = document.createElement('div');
-        div.classList.add('item-animal');
+            // Se for o destaque, adiciona classe extra e estilo
+            if (animal.codigoSisbov === destaqueCodigo) {
+              div.classList.add("destaque");
+              // Você pode ajustar a cor no CSS para .destaque, ou usar style aqui:
+              div.style.backgroundColor = "#fffae6"; // exemplo de cor clara
+              div.style.border = "2px solid #f1c40f";
+            }
 
-        // Se for o destaque, adiciona classe extra e estilo
-        if (animal.codigoSisbov === destaqueCodigo) {
-          div.classList.add('destaque');
-          // Você pode ajustar a cor no CSS para .destaque, ou usar style aqui:
-          div.style.backgroundColor = '#fffae6'; // exemplo de cor clara
-          div.style.border = '2px solid #f1c40f';
-        }
-
-        div.innerHTML = `
+            div.innerHTML = `
           <div class="campo"><strong>Nome:</strong> ${animal.nome}</div>
           <div class="campo"><strong>Código Sisbov:</strong> ${animal.codigoSisbov}</div>
           <div class="campo"><strong>Sexo:</strong> ${animal.sexo}</div>
@@ -215,93 +283,92 @@ window.addEventListener('DOMContentLoaded', async () => {
           </div>
         `;
 
-        lista.appendChild(div);
-      });
-    }
-
-    // Renderiza inicialmente todos os animais
-    renderAnimais(animais);
-
-    // Captura o input da busca
-    const campoPesquisa = document.getElementById('campoPesquisa');
-
-    campoPesquisa.addEventListener('input', () => {
-      const valorBusca = campoPesquisa.value.trim();
-
-      if (valorBusca === '') {
-        // Se vazio, renderiza tudo normal
-        renderAnimais(animais);
-        return;
-      }
-
-      // Procura animal que tem código exatamente igual
-      const animalDestaque = animais.find(a => a.codigoSisbov === valorBusca);
-
-      if (animalDestaque) {
-        // Cria nova lista com o destaque primeiro e os demais depois (sem repetir)
-        const outros = animais.filter(a => a.codigoSisbov !== valorBusca);
-        const novaLista = [animalDestaque, ...outros];
-        renderAnimais(novaLista, valorBusca);
-      } else {
-        // Se não encontrar nenhum, pode mostrar todos normalmente, ou uma mensagem
-        renderAnimais(animais);
-      }
-    });
-
-    // Eventos dos botões continuam iguais
-    lista.addEventListener('click', async (e) => {
-      const target = e.target;
-
-      if (target.classList.contains('btn-deletar')) {
-        const id = target.getAttribute('data-id');
-        if (confirm('Deseja realmente deletar este animal?')) {
-          try {
-            const res = await fetch(`http://localhost:3000/tarefas/deletar/${id}`, {
-              method: 'DELETE',
-              headers: {
-                Authorization: `Bearer ${token}`
-              }
-            });
-
-            if (!res.ok) throw new Error('Erro ao deletar animal');
-
-            alert('Animal deletado com sucesso!');
-            location.reload();
-
-          } catch (error) {
-            console.error(error);
-            alert('Erro ao deletar animal');
-          }
+            lista.appendChild(div);
+          });
         }
-      }
 
-      if (target.classList.contains('btn-editar')) {
-        const id = target.getAttribute('data-id');
-        window.location.href = `EditarAnimal.html?id=${id}`;
+        // Renderiza inicialmente todos os animais
+        renderAnimais(animais);
+
+        // Captura o input da busca
+        const campoPesquisa = document.getElementById("campoPesquisa");
+
+        campoPesquisa.addEventListener("input", () => {
+          const valorBusca = campoPesquisa.value.trim();
+
+          if (valorBusca === "") {
+            // Se vazio, renderiza tudo normal
+            renderAnimais(animais);
+            return;
+          }
+
+          // Procura animal que tem código exatamente igual
+          const animalDestaque = animais.find(
+            (a) => a.codigoSisbov === valorBusca
+          );
+
+          if (animalDestaque) {
+            // Cria nova lista com o destaque primeiro e os demais depois (sem repetir)
+            const outros = animais.filter((a) => a.codigoSisbov !== valorBusca);
+            const novaLista = [animalDestaque, ...outros];
+            renderAnimais(novaLista, valorBusca);
+          } else {
+            // Se não encontrar nenhum, pode mostrar todos normalmente, ou uma mensagem
+            renderAnimais(animais);
+          }
+        });
+
+        // Eventos dos botões continuam iguais
+        lista.addEventListener("click", async (e) => {
+          const target = e.target;
+
+          if (target.classList.contains("btn-deletar")) {
+            const id = target.getAttribute("data-id");
+            if (confirm("Deseja realmente deletar este animal?")) {
+              try {
+                const res = await fetch(
+                  `http://localhost:3000/tarefas/deletar/${id}`,
+                  {
+                    method: "DELETE",
+                    headers: {
+                      Authorization: `Bearer ${token}`,
+                    },
+                  }
+                );
+
+                if (!res.ok) throw new Error("Erro ao deletar animal");
+
+                alert("Animal deletado com sucesso!");
+                location.reload();
+              } catch (error) {
+                console.error(error);
+                alert("Erro ao deletar animal");
+              }
+            }
+          }
+
+          if (target.classList.contains("btn-editar")) {
+            const id = target.getAttribute("data-id");
+            window.location.href = `EditarAnimal.html?id=${id}`;
+          }
+        });
+      } catch (error) {
+        console.error(error);
+        alert("Erro ao carregar animais");
       }
     });
 
-  } catch (error) {
-    console.error(error);
-    alert('Erro ao carregar animais');
-  }
-});
+    document.querySelector(".btn-add-animal").addEventListener("click", (e) => {
+      e.preventDefault(); // evita navegação imediata
 
+      // aqui você pode colocar alguma lógica antes
 
-document.querySelector('.btn-add-animal').addEventListener('click', (e) => {
-  e.preventDefault(); // evita navegação imediata
+      // navega para a página de cadastro
+      window.location.href = "cadastroAnimal.html";
+    });
+  </script>
 
-  // aqui você pode colocar alguma lógica antes
-
-  // navega para a página de cadastro
-  window.location.href = 'cadastroAnimal.html';
-});
-
-
-</script>
-
-<script src="/js/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="../js/script.js"></script>
-
+  <script src="/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="../js/script.js"></script>
 </html>
