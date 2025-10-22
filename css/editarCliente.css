@@ -424,7 +424,7 @@ body {
   border-radius: 5px;
   margin-top: 30%;
   margin-bottom: 15%;
-  padding: 180px 0px 170px 0px;
+  padding: 190px 0px 170px 0px;
   flex-direction: column;
 }
 
@@ -492,7 +492,7 @@ body {
 }
 
 .botaoEnviar:hover {
-  background-color: #5e7153;
+  background-color: #fff1cf;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -506,7 +506,7 @@ body {
   width: 100%;
   background-color: #465640;
   margin-top: 30%;
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 .divis {

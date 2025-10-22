@@ -5,7 +5,7 @@
   height: 65px;
 }
 .perfil-box {
-  max-width: 600px; /* largura máxima para não ficar enorme */
+  max-width: 800px; /* largura máxima para não ficar enorme */
   width: 90%; /* ocupar até 90% da tela, mas respeitando max-width */
   margin: 30px auto; /* centraliza horizontalmente e dá espaço vertical */
   background-color: #f8f5f0;
@@ -268,7 +268,7 @@ select:focus {
   width: 80%;
   height: auto;
   background-color: #f8f5f0;
-  padding: 20px;
+  padding: 45px;
   margin-top: 25px;
   box-shadow: rgb(82, 82, 82) 2px 4px 6px;
   border-radius: 5px;
@@ -439,16 +439,16 @@ body {
 }
 
 .dashboard-children {
-  width: 50%;
-  height: 100%;
+  width: 55%;
+  height: 90%;
   background-color: #465640;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-radius: 5px;
+  border-radius: 3px;
   margin-top: 100px;
-  padding: 40px 0px 40px 0px;
+  padding: 30px 0px 40px 0px;
   flex-direction: column;
   margin-bottom: 5%;
   margin-top: 5%;
@@ -533,7 +533,7 @@ body {
   width: 100%;
   background-color: #465640;
   margin-top: 190px;
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 .divis {
