@@ -23,9 +23,7 @@
 
             <!-- Menu lateral com botão de fechar -->
             <div id="menuLateral" class="menu-lateral">
-              <button class="fechar-menu" onclick="fecharMenu()">
-                ←
-              </button>
+              <button class="fechar-menu" onclick="fecharMenu()">←</button>
               <ul>
                 <li>
                   <a href="servicos.html">
@@ -76,18 +74,15 @@
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    onclick="logout()"
-                  
+                  <a href="#" onclick="logout()"
                     ><img
-                  src="/IMG/exit (1).png"
-                  class="icon"
-                  style="width: 30px;"
-                />
-                Logout
+                      src="/IMG/exit (1).png"
+                      class="icon"
+                      style="width: 30px"
+                    />
+                    Logout
                   </a>
-                </li> 
+                </li>
               </ul>
             </div>
           </div>
@@ -143,9 +138,11 @@
 
         <div class="dashboard">
           <div class="aviso-dashboard">
-            <p>⚠️ Atenção: Verifique todos os dados antes de enviar o cadastro do animal.</p>
+            <p>
+              ⚠️ Atenção: Verifique todos os dados antes de enviar o cadastro do
+              animal.
+            </p>
           </div>
-
 
           <div class="dashboard-children">
             <div class="tituloCadastroGeral">
@@ -390,7 +387,11 @@
             form.reset();
           } else {
             const erro = await response.json();
-            alert("Erro: " + (erro.message || "Erro ao cadastrar"));
+            if (erro.erros) {
+              alert("Erros:\n" + erro.erros.join("\n"));
+            } else {
+              alert("Erro: " + (erro.message || "Erro ao cadastrar"));
+            }
           }
         } catch (error) {
           alert("Erro na comunicação com o servidor.");
