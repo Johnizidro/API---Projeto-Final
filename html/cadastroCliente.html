@@ -21,7 +21,7 @@
                     
                     <!-- Menu lateral com botão de fechar -->
                     <div id="menuLateral" class="menu-lateral">
-                        <button class="fechar-menu" onclick="fecharMenu()">← Voltar</button>
+                        <button class="fechar-menu" onclick="fecharMenu()">←</button>
                         <ul>
                             <li>
                                 <a href="servicos.html">
@@ -52,10 +52,18 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" onclick="logout()" style="display: flex; align-items: center;">
-                                    ←  Sair
+                                <a
+                                  href="#"
+                                  onclick="logout()"
+                                
+                                  ><img
+                                src="/IMG/exit (1).png"
+                                class="icon"
+                                style="width: 30px;"
+                              />
+                              Logout
                                 </a>
-                            </li>
+                              </li>  
                         </ul>
                     </div>
                 </div>
@@ -98,6 +106,10 @@
          
           
         <div class="dashboard">
+
+            <div class="aviso-dashboard">
+                <p>⚠️ Atenção: Verifique todos os dados antes de enviar o cadastro do animal.</p>
+              </div>
           <div class="dashboard-children">
               <div class="tituloCadastroGeral">
                   <img src="/IMG/pesquisa 2.png" alt="" width="45px" class="tituloCadastroGeralImg">Cadastro
@@ -162,7 +174,7 @@
 
               <div class="cadastroBox">
                   <div class="cadastroBox1">
-                      <span style="color: #465640; font-weight: bold; font-size: 35px;">Fazenda:</span>
+                      <span style="color: #465640; font-weight: bold; font-size: 35px;">Fazenda</span>
                   </div>
                   <form action="" method="" id="formFazenda">
                       <div class="area">

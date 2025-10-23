@@ -246,6 +246,9 @@ body {
   color: white;
   text-decoration: none;
   font-size: 18px;
+  display: flex;              /* Garante alinhamento horizontal */
+  align-items: center;        /* Centraliza ícone e texto verticalmente */
+  gap: 10px;                  /* Espaço consistente entre imagem e texto */
 }
 
 .fechar-menu {
@@ -295,7 +298,6 @@ body {
 
 .menu-lateral img {
   width: 40px;
-  margin-bottom: -16px;
 }
 
 .cabecalho-children {
@@ -335,7 +337,7 @@ body {
   background-color: #465640;
   display: grid;
   grid-template-columns: 1fr; /* uma coluna só para as fileiras */
-  padding: 2%;
+  padding: 2.5%;
   margin-top: 5%;
 }
 
@@ -355,14 +357,14 @@ body {
 .registro-bebedouros,
 .registro-comedouros,
 .registro-gado {
-  height: 160px;
-  width: 200px;
+  height: 180px;
+  width: 220px;
   background-color: #ebddba;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 8px;
+  padding: 12px;
 }
 
 .registro-gado {
@@ -372,7 +374,7 @@ body {
 .registro-fileira1 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  gap: 20px;
   margin: 0 0 15px 0;
 }
 
@@ -380,13 +382,14 @@ body {
   background-color: #ebddba;
   grid-column: 1 / -1;
   background-color: #ebddba;
-  border-radius: 5px;
+
   /* Se quiser dividir o conteúdo interno em 4 colunas também */
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 15px;
   padding: 15px;
-  min-height: 300px; /* só um exemplo pra dar altura */
+  min-height: 300px;
+  margin-top: 1%; /* só um exemplo pra dar altura */
 }
 
 .colorh1 {

@@ -24,7 +24,7 @@
             <!-- Menu lateral com botão de fechar -->
             <div id="menuLateral" class="menu-lateral">
               <button class="fechar-menu" onclick="fecharMenu()">
-                ← Voltar
+                ←
               </button>
               <ul>
                 <li>
@@ -79,11 +79,15 @@
                   <a
                     href="#"
                     onclick="logout()"
-                    style="display: flex; align-items: center"
-                  >
-                    ← Sair
+                  
+                    ><img
+                  src="/IMG/exit (1).png"
+                  class="icon"
+                  style="width: 30px;"
+                />
+                Logout
                   </a>
-                </li>
+                </li>  
               </ul>
             </div>
           </div>
@@ -190,6 +194,10 @@
             </section>
           </div>
         </div>
+
+        <div class="b3">
+          <img src="../IMG/Sem Título-1.png" alt="" width="60%" />
+        </div>
       </div>
     </div>
     <div class="footer">
@@ -272,8 +280,9 @@
 
             div.innerHTML = `
           <div class="campo"><strong>Nome:</strong> ${animal.nome}</div>
-          <div class="campo"><strong>Código Sisbov:</strong> ${animal.codigoSisbov}</div>
+         
           <div class="campo"><strong>Sexo:</strong> ${animal.sexo}</div>
+           <div class="campo"><strong>Código Sisbov:</strong> ${animal.codigoSisbov}</div>
           <div class="campo"><strong>Tipo Produção:</strong> ${animal.tipoProducao}</div>
           <div class="campo"><strong>Peso:</strong> ${animal.peso} kg</div>
           <div class="campo"><strong>Altura:</strong> ${animal.altura} m</div>

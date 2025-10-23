@@ -354,7 +354,11 @@ body {
   color: white;
   text-decoration: none;
   font-size: 18px;
+  display: flex;              /* Garante alinhamento horizontal */
+  align-items: center;        /* Centraliza ícone e texto verticalmente */
+  gap: 10px;                  /* Espaço consistente entre imagem e texto */
 }
+
 
 .fechar-menu {
   background-color: transparent;
@@ -402,7 +406,6 @@ body {
 
 .menu-lateral img {
   width: 40px;
-  margin-bottom: -16px;
 }
 
 .cabecalho-children {

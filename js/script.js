@@ -36,19 +36,30 @@ const swiper = new Swiper('.swiper', {
 
 
 function abrirMenu() {
-    const menu = document.getElementById("menuLateral");
-    if (menu.style.left === "0px") {
-        menu.style.left = "-250px";
-    } else {
-        menu.style.left = "0px";
-    }
-}
+  const menu = document.getElementById("menuLateral");
+  menu.style.left = "0px";
 
-function abrirMenu() {
-    document.getElementById("menuLateral").style.left = "0px";
+  // Adiciona um listener para fechar o menu ao clicar fora
+  document.addEventListener("click", fecharAoClicarFora);
 }
 
 function fecharMenu() {
-    document.getElementById("menuLateral").style.left = "-250px";
+  const menu = document.getElementById("menuLateral");
+  menu.style.left = "-250px";
+
+  // Remove o listener quando o menu for fechado
+  document.removeEventListener("click", fecharAoClicarFora);
+}
+
+function fecharAoClicarFora(event) {
+  const menu = document.getElementById("menuLateral");
+
+  // Verifica se o clique foi fora do menu e fora do botão que abre o menu
+  if (
+    !menu.contains(event.target) &&
+    !event.target.closest(".menu img") // substitua por seu botão real de abertura se necessário
+  ) {
+    fecharMenu();
+  }
 }
 

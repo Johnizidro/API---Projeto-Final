@@ -229,7 +229,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 300px 0 200px 0;
+  padding: 150px 0 100px 0;
 }
 
 .imgLogo {
@@ -280,6 +280,9 @@ body {
   color: white;
   text-decoration: none;
   font-size: 18px;
+  display: flex;              /* Garante alinhamento horizontal */
+  align-items: center;        /* Centraliza ícone e texto verticalmente */
+  gap: 10px;                  /* Espaço consistente entre imagem e texto */
 }
 
 .fechar-menu {
@@ -328,7 +331,6 @@ body {
 
 .menu-lateral img {
   width: 40px;
-  margin-bottom: -16px;
 }
 
 .cabecalho-children {
@@ -406,7 +408,7 @@ body {
   align-items: center;
   flex-direction: column;
   border-radius: 5px;
-  padding: 60px 40px 80px 40px;
+  padding: 40px 40px 60px 40px;
   flex-direction: column;
   margin-top: 5%;
 }

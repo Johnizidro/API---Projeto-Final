@@ -234,6 +234,7 @@ body {
   align-items: center;
   flex-direction: column;
   padding: 300px 0 200px 0;
+  margin-top: 20%;
 }
 
 .imgLogo {
@@ -354,11 +355,14 @@ body {
   color: white;
   text-decoration: none;
   font-size: 18px;
+  display: flex;              /* Garante alinhamento horizontal */
+  align-items: center;        /* Centraliza ícone e texto verticalmente */
+  gap: 10px;                  /* Espaço consistente entre imagem e texto */
 }
+
 
 .menu-lateral img {
   width: 40px;
-  margin-bottom: -16px;
 }
 
 .cabecalho-children {
@@ -398,7 +402,7 @@ body {
 }
 
 .dashboard-children {
-  width: 46%;
+  width: 60%;
   height: 100%;
   background-color: #465640;
   display: flex;
@@ -416,8 +420,8 @@ body {
 .secao {
   margin: 10px;
   border: 1px solid #ccc;
-  max-width: 1000px;
-  min-width: 800px;
+  max-width: 2000px;
+  min-width: 1080px;
   margin-top: 2%;
 }
 

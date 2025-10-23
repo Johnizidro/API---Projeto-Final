@@ -6,15 +6,15 @@
 }
 
 .campoCadastro {
-  width: 275px;
-  height: 35px;
+  width: 295px;
+  height: 40px;
   padding-left: 5px;
   background-color: #ccb487;
   color: #465640;
   border-radius: 5px;
   font-weight: bold;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-left: 5%;
+  margin-left: 10%;
 }
 
 .chat-btn {
@@ -225,7 +225,7 @@ select:focus {
   transition: 0.2s ease;
   color: #ebddba;
   font-weight: bold;
-  margin-left: 5%;
+  margin-left: 10%;
 }
 
 .tituloCadastroGeral {
@@ -246,7 +246,7 @@ select:focus {
   width: 85%;
   height: auto;
   background-color: #f8f5f0;
-  padding: 20px;
+  padding: 30px;
   margin-top: 25px;
   box-shadow: rgb(82, 82, 82) 2px 4px 6px;
   border-radius: 5px;
@@ -326,6 +326,9 @@ body {
   color: white;
   text-decoration: none;
   font-size: 18px;
+  display: flex;              /* Garante alinhamento horizontal */
+  align-items: center;        /* Centraliza ícone e texto verticalmente */
+  gap: 10px;                  /* Espaço consistente entre imagem e texto */
 }
 
 .fechar-menu {
@@ -374,9 +377,7 @@ body {
 
 .menu-lateral img {
   width: 40px;
-  margin-bottom: -16px;
 }
-
 .cabecalho-children {
   width: 11%;
   height: 143px;
@@ -409,12 +410,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 7%;
+  margin-top: 18%;
   margin-bottom: 5%;
+  flex-direction: column;
 }
-
 .dashboard-children {
-  width: 50%;
+  width: 60%;
   height: 100%;
   background-color: #465640;
   display: flex;
@@ -422,11 +423,35 @@ body {
   align-items: center;
   flex-direction: column;
   border-radius: 5px;
-  margin-top: 30%;
-  margin-bottom: 15%;
-  padding: 190px 0px 170px 0px;
+  padding: 200px 0px 200px 0px;
   flex-direction: column;
+  margin-bottom: 3%;
 }
+
+.b3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 300px 0 200px 0;
+}
+
+
+
+.aviso-dashboard {
+  width: 55%;
+  background-color: #fff3cd; /* tom de amarelo leve */
+  color: #856404; /* texto em marrom escuro */
+  border: 1px solid #ffeeba;
+  border-radius: 3px;
+  padding: 12px 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 3%;
+  margin-top: 5%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 
 body {
   background-color: #f8f5f0;
@@ -505,7 +530,7 @@ body {
   height: 150px;
   width: 100%;
   background-color: #465640;
-  margin-top: 30%;
+  margin-top: 5%;
   padding-top: 30px;
 }
 

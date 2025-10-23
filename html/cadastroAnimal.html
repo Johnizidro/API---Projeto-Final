@@ -24,7 +24,7 @@
             <!-- Menu lateral com botão de fechar -->
             <div id="menuLateral" class="menu-lateral">
               <button class="fechar-menu" onclick="fecharMenu()">
-                ← Voltar
+                ←
               </button>
               <ul>
                 <li>
@@ -79,11 +79,15 @@
                   <a
                     href="#"
                     onclick="logout()"
-                    style="display: flex; align-items: center"
-                  >
-                    ← Sair
+                  
+                    ><img
+                  src="/IMG/exit (1).png"
+                  class="icon"
+                  style="width: 30px;"
+                />
+                Logout
                   </a>
-                </li>
+                </li> 
               </ul>
             </div>
           </div>
@@ -138,6 +142,11 @@
         </div>
 
         <div class="dashboard">
+          <div class="aviso-dashboard">
+            <p>⚠️ Atenção: Verifique todos os dados antes de enviar o cadastro do animal.</p>
+          </div>
+
+
           <div class="dashboard-children">
             <div class="tituloCadastroGeral">
               <img
