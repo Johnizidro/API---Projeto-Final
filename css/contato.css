@@ -496,7 +496,7 @@ a {
 }
 
 
-#inputContatoNome  {
+#inputContato  {
   width: 90%;
   font-size: medium;
   padding: 18px;
@@ -509,58 +509,7 @@ a {
   border-bottom: 1px solid #465640;
 }
  
-#inputContatoCargo {
-  width: 90%;
-  font-size: medium;
-  padding: 18px;
-  margin: 5%;
-  background-color: transparent;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  outline: none;
-  border-bottom: 1px solid #465640;
-}
-#inputContatoTelefone {
-  width: 90%;
-  font-size: medium;
-  padding: 18px;
-  margin: 5%;
-  background-color: transparent;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  outline: none;
-  border-bottom: 1px solid #465640;
-}
- 
-#inputContatoEmail{
-  width: 90%;
-  font-size: medium;
-  padding: 18px;
-  margin: 5%;
-  background-color: transparent;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  outline: none;
-  border-bottom: 1px solid #465640;
-}
 
-
-#inputContatoEstado 
-{
-  width: 90%;
-  font-size: medium;
-  padding: 18px;
-  margin: 5%;
-  background-color: transparent;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  outline: none;
-  border-bottom: 1px solid #465640;
-}
 #inputContato:hover {
   font-size: larger;
   padding: 16px;
